@@ -1,9 +1,9 @@
 <?php
 /**
- * Anzu functions and definitions
- *
- * @package Anzu
- */
+* Anzu functions and definitions
+*
+* @package Anzu
+*/
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
@@ -20,6 +20,12 @@ if ( is_admin() ) {
 	// Recommend plugins.
 	require_once ANZU_INC_DIR . 'plugins/class-tgm-plugin-activation.php';
 	require_once ANZU_INC_DIR . 'plugins/plugin-activation.php';
+} 
+
+if ( is_customize_preview() || ! is_admin() ) {
+	// Customizer.
+	require_once ANZU_INC_DIR . 'customizer/kirki.php';
+	require_once ANZU_INC_DIR . 'customizer/config.php';
 }
 
 // Array of files to include.
@@ -31,11 +37,11 @@ $anzu_includes = array(
 	'/inc/template-tags.php',                   // Custom template tags for this theme.
 	'/inc/pagination.php',                      // Custom pagination for this theme.
 	'/inc/extras.php',                          // Custom functions that act independently of the theme templates.
-	'/inc/customizer.php',                      // Customizer additions.
 	'/inc/custom-comments.php',                 // Custom Comments file.
 	'/inc/class-wp-bootstrap-navwalker.php',    // Load custom WordPress nav walker.
 	'/inc/editor.php',                          // Load Editor functions.
 	'/inc/deprecated.php',                      // Load deprecated functions.
+	'/inc/metaboxes/hero-metabox.php',                      // Load deprecated functions.
 );
 
 // Load WooCommerce functions if WooCommerce is activated.

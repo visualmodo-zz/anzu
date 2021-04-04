@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-$container = get_theme_mod( 'anzu_container_type' );
+$container = get_theme_mod( 'anzu_layout_type' );
 ?>
 
 <div class="wrapper" id="author-wrapper">

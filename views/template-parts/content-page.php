@@ -7,17 +7,24 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
+
+$hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) : '1';
+
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header">
+	<?php if ( $hero == '1'|| is_home() ) { ?>
 
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<header class="entry-header">
 
-	</header><!-- .entry-header -->
+			<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
 
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+		</header><!-- .entry-header -->
+
+		<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+
+	<?php } ?>
 
 	<div class="entry-content">
 

@@ -8,18 +8,42 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-if ( is_active_sidebar( 'hero' ) || is_active_sidebar( 'statichero' ) || is_active_sidebar( 'herocanvas' ) ) :
-	?>
+$hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) : '1';
 
-	<div class="wrapper" id="wrapper-hero">
+$hero_content_position =  ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-content-position', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-content-position', true ) : 'anzu-hero--center-center';
 
-		<?php
-		get_template_part( 'views/sidebar-templates/sidebar', 'hero' );
-		get_template_part( 'views/sidebar-templates/sidebar', 'herocanvas' );
-		get_template_part( 'views/sidebar-templates/sidebar', 'statichero' );
-		?>
+$hero_background_color = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-background-color', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-background-color', true ) : 'anzu-no-background-color';
 
-	</div>
+$hero_color_opacity = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-color-opacity', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-color-opacity', true ) : 'anzu-no-opacity';
 
-	<?php
-endif;
+$subtitle = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_subtitle', true ) ) ? '<span class="anzu-hero__subtitle">'.get_post_meta( get_the_ID(), 'anzu_hero_subtitle', true ).'</span>' : '';
+
+if ($hero == '2') { 
+    ?>
+
+    <div class="anzu-hero anzu-hero--featured-stretched wrapper <?php echo $hero_content_position; ?>" id="wrapper-hero" style="background-size: cover; background-repeat: no-repeat; background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
+        <div class="hero__background-image" style="height: 50vh;">
+            <div class="anzu-hero__content container">
+                <h1 class="anzu-hero__title"><?php echo get_the_title(); ?></h1>
+                <?php echo $subtitle; ?>
+            </div>
+            <div class="anzu-hero__background-color <?php echo $hero_background_color.' '.$hero_color_opacity; ?>"></div>
+        </div>
+    </div>
+
+    <?php
+} else if ($hero == '3') { 
+    ?>
+
+    <div class="anzu-hero anzu-hero--featured-stretched wrapper container <?php echo $hero_content_position; ?>" id="wrapper-hero" style="background-size: cover; background-repeat: no-repeat; background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
+        <div class="hero__background-image" style="height: 50vh;">
+            <div class="anzu-hero__content container">
+                <h1 class="anzu-hero__title"><?php echo get_the_title(); ?></h1>
+                <?php echo $subtitle; ?>
+            </div>
+            <div class="anzu-hero__background-color <?php echo $hero_background_color.' '.$hero_color_opacity; ?>"></div>
+        </div>
+    </div>
+
+    <?php
+}

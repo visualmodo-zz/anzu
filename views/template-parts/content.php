@@ -7,30 +7,37 @@
 
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
+
+$hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) : '1';
+
 ?>
 
 <article <?php post_class(); ?> id="post-<?php the_ID(); ?>">
 
-	<header class="entry-header">
+	<?php if ( $hero == '1'|| is_home() ) { ?>
 
-		<?php
-		the_title(
-			sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-			'</a></h2>'
-		);
-		?>
+		<header class="entry-header">
 
-		<?php if ( 'post' === get_post_type() ) : ?>
+			<?php
+			the_title(
+				sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
+				'</a></h2>'
+			);
+			?>
 
-			<div class="entry-meta">
-				<?php anzu_posted_on(); ?>
-			</div><!-- .entry-meta -->
+			<?php if ( 'post' === get_post_type() ) : ?>
 
-		<?php endif; ?>
+				<div class="entry-meta">
+					<?php anzu_posted_on(); ?>
+				</div><!-- .entry-meta -->
 
-	</header><!-- .entry-header -->
+			<?php endif; ?>
 
-	<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+		</header><!-- .entry-header -->
+
+		<?php echo get_the_post_thumbnail( $post->ID, 'large' ); ?>
+
+	<?php } ?>
 
 	<div class="entry-content">
 

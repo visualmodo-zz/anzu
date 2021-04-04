@@ -9,8 +9,11 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-$container = get_theme_mod( 'anzu_container_type' );
+$container = get_theme_mod( 'anzu_layout_type' );
+$hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) : '1';
 ?>
+
+<?php if ($hero != '1') { echo get_template_part( 'views/global-templates/hero' ); } ?>
 
 <div class="wrapper" id="single-wrapper">
 

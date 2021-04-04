@@ -40,7 +40,7 @@ if ( ! function_exists( 'anzu_woocommerce_wrapper_start' ) ) {
 	 * Display the theme specific start of the page wrapper.
 	 */
 	function anzu_woocommerce_wrapper_start() {
-		$container = get_theme_mod( 'anzu_container_type' );
+		$container = get_theme_mod( 'anzu_layout_type' );
 		echo '<div class="wrapper" id="woocommerce-wrapper">';
 		echo '<div class="' . esc_attr( $container ) . '" id="content" tabindex="-1">';
 		echo '<div class="row">';
