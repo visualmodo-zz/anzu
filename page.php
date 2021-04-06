@@ -15,7 +15,7 @@ defined( 'ABSPATH' ) || exit;
 
 $hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) : '1';
 
-$container = get_theme_mod( 'anzu_layout_type' );
+$container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
 
 get_header();
 

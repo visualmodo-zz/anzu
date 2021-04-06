@@ -10,7 +10,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$container = get_theme_mod( 'anzu_layout_type' );
+$container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
 ?>
 
 <?php get_template_part( 'views/sidebar-templates/sidebar', 'footerfull' ); ?>
