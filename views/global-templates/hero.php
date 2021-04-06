@@ -22,7 +22,7 @@ if ($hero == '2') {
     ?>
 
     <div class="anzu-hero anzu-hero--featured-stretched wrapper <?php echo $hero_content_position; ?>" id="wrapper-hero" style="background-size: cover; background-repeat: no-repeat; background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
-        <div class="hero__background-image" style="height: 50vh;">
+        <div class="anzu-hero__background-image" style="height: 50vh;">
             <div class="anzu-hero__content container">
                 <h1 class="anzu-hero__title"><?php echo get_the_title(); ?></h1>
                 <?php echo $subtitle; ?>
@@ -36,7 +36,7 @@ if ($hero == '2') {
     ?>
 
     <div class="anzu-hero anzu-hero--featured-stretched wrapper container <?php echo $hero_content_position; ?>" id="wrapper-hero" style="background-size: cover; background-repeat: no-repeat; background-image: url(<?php echo get_the_post_thumbnail_url(); ?>);">
-        <div class="hero__background-image" style="height: 50vh;">
+        <div class="anzu-hero__background-image" style="height: 50vh;">
             <div class="anzu-hero__content container">
                 <h1 class="anzu-hero__title"><?php echo get_the_title(); ?></h1>
                 <?php echo $subtitle; ?>

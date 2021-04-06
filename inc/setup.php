@@ -135,7 +135,7 @@ if ( ! function_exists( 'anzu_all_excerpts_get_more_link' ) ) {
 	 */
 	function anzu_all_excerpts_get_more_link( $post_excerpt ) {
 		if ( ! is_admin() ) {
-			$post_excerpt = $post_excerpt . '...<p><a class="btn btn-dark anzu-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
+			$post_excerpt = $post_excerpt . '...<p><a class="btn btn-outline-secondary btn-sm anzu-read-more-link" href="' . esc_url( get_permalink( get_the_ID() ) ) . '">' . __(
 				'Continue Reading',
 				'anzu'
 			) . '</a></p>';

@@ -15,7 +15,7 @@ if ( ! function_exists( 'anzu_wpdocs_theme_add_editor_styles' ) ) {
 	 * Registers an editor stylesheet for the theme.
 	 */
 	function anzu_wpdocs_theme_add_editor_styles() {
-		add_editor_style( 'assets/css/custom-editor-style.css' );
+		add_editor_style( 'assets/css/custom-editor-style.min.css' );
 	}
 }
 

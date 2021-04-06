@@ -102,7 +102,7 @@ new \Kirki\Field\Color(
 		],
 		'output' => array(
 			array(
-				'element'  => '.anzu-primary-color--color',
+				'element'  => '.anzu-primary-color--color, #main-menu .nav-item.active .nav-link, #main-menu .nav-item:not(.active):hover > .nav-link, #main-menu .dropdown .dropdown-item:hover, article.post .entry-title a:hover',
 				'property' => 'color',
 			),
 			array(

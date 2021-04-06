@@ -54,10 +54,4 @@ $hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', 
 
 	</div><!-- .entry-content -->
 
-	<footer class="entry-footer">
-
-		<?php anzu_entry_footer(); ?>
-
-	</footer><!-- .entry-footer -->
-
 </article><!-- #post-## -->

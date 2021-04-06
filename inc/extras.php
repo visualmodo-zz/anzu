@@ -76,15 +76,15 @@ if ( ! function_exists( 'anzu_post_nav' ) ) {
 			return;
 		}
 		?>
-		<nav class="container navigation post-navigation">
-			<h2 class="sr-only"><?php esc_html_e( 'Post navigation', 'anzu' ); ?></h2>
-			<div class="row nav-links justify-content-between">
+		<nav class="navigation post-navigation">
+			<h2 class="visually-hidden-focusable"><?php esc_html_e( 'Post navigation', 'anzu' ); ?></h2>
+			<div class="nav-links justify-content-between">
 				<?php
 				if ( get_previous_post_link() ) {
-					previous_post_link( '<span class="nav-previous">%link</span>', _x( '<i class="bi bi-chevron-left"></i>&nbsp;%title', 'Previous post link', 'anzu' ) );
+					previous_post_link( '<div class="nav-previous">%link</div>', _x( '<i class="bi bi-arrow-left"></i>&nbsp;%title', 'Previous post link', 'anzu' ) );
 				}
 				if ( get_next_post_link() ) {
-					next_post_link( '<span class="nav-next">%link</span>', _x( '%title&nbsp;<i class="bi bi-chevron-right"></i>', 'Next post link', 'anzu' ) );
+					next_post_link( '<div class="nav-next">%link</div>', _x( '%title&nbsp;<i class="bi bi-arrow-right"></i>', 'Next post link', 'anzu' ) );
 				}
 				?>
 			</div><!-- .nav-links -->

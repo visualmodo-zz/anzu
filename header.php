@@ -30,9 +30,9 @@ $container = get_theme_mod( 'anzu_layout_type' );
 
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'anzu' ); ?></a>
 
-		<nav id="main-nav" class="navbar navbar-expand-md navbar-light shadow-sm bg-light" aria-labelledby="main-nav-label">
+		<nav id="main-nav" class="navbar navbar-expand-md navbar-light bg-white" aria-labelledby="main-nav-label">
 
-			<h2 id="main-nav-label" class="sr-only">
+			<h2 id="main-nav-label" class="visually-hidden-focusable">
 				<?php esc_html_e( 'Main Navigation', 'anzu' ); ?>
 			</h2>
 
@@ -45,11 +45,11 @@ $container = get_theme_mod( 'anzu_layout_type' );
 
 						<?php if ( is_front_page() && is_home() ) : ?>
 
-							<h1 class="navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
+							<h1 class="anzu-brand navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
 
 						<?php else : ?>
 
-							<a class="navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
+							<a class="anzu-brand navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
 
 						<?php endif; ?>
 
@@ -59,8 +59,8 @@ $container = get_theme_mod( 'anzu_layout_type' );
 					}
 					?>
 					<!-- end custom logo -->
-
-				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'anzu' ); ?>">
+					
+				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="<?php esc_attr_e( 'Toggle navigation', 'anzu' ); ?>">
 					<span class="navbar-toggler-icon"></span>
 				</button>
 
@@ -69,7 +69,7 @@ $container = get_theme_mod( 'anzu_layout_type' );
 				wp_nav_menu(
 					array(
 						'theme_location'  => 'primary',
-						'container_class' => 'collapse navbar-collapse',
+						'container_class' => 'collapse navbar-collapse justify-content-end',
 						'container_id'    => 'navbarNavDropdown',
 						'menu_class'      => 'navbar-nav ml-auto',
 						'fallback_cb'     => '',
