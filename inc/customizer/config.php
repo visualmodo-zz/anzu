@@ -12,44 +12,108 @@ if ( ! class_exists( 'Kirki' ) ) {
 	return;
 }
 
-/**
- * Add a panel.
- *
- * @link https://kirki.org/docs/getting-started/panels.html
- */
-new \Kirki\Panel(
-	'anzu',
-	[
-		'priority'    => 10,
-		'title'       => esc_html__( 'Anzu Settings', 'anzu' ),
-		'description' => esc_html__( 'Contains sections for all Anzu controls.', 'anzu' ),
-	]
-);
+Kirki :: add_config ('anzu', array ( 
+    'capacity' => 'edit_theme_options', 
+    'option_type' => 'option', 
+    'option_name' => 'anzu', 
+));
 
 /**
- * Add Sections.
+ * Panels.
  *
- * We'll be doing things a bit differently here, just to demonstrate an example.
- * We're going to define 1 section per control-type just to keep things clean and separate.
- *
- * @link https://kirki.org/docs/getting-started/sections.html
  */
-$sections = [
-	'layout'           => [ esc_html__( 'Layout', 'anzu' ), '' ],
-	'light-colors'    => [ esc_html__( 'Colors', 'anzu' ), '' ],
-	'typography'      => [ esc_html__( 'Typography', 'anzu' ), '' ],
-];
-foreach ( $sections as $section_id => $section ) {
-	$section_args = [
-		'title'       => $section[0],
-		'description' => $section[1],
-		'panel'       => 'anzu',
-	];
-	if ( isset( $section[2] ) ) {
-		$section_args['type'] = $section[2];
-	}
-	new \Kirki\Section( str_replace( '-', '_', $section_id ) . '_section', $section_args );
-}
+
+Kirki::add_panel( 'light-colors', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'Colors', 'anzu' ),
+    'description' => esc_html__( 'Contains sections for all Anzu controls.', 'anzu' ),
+) );
+
+Kirki::add_panel( 'typography', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'Typography', 'anzu' ),
+    'description' => esc_html__( 'Contains sections for all Anzu controls.', 'anzu' ),
+) );
+
+/**
+ * Sections.
+ *
+ */
+
+Kirki::add_section( 'layout_section', array(
+    'title'          => esc_html__( 'Layout', 'anzu' ),
+    'description'    => esc_html__( 'My section description.', 'anzu' ),
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'light_colors_section', array(
+    'title'          => esc_html__( 'Light Colors', 'anzu' ),
+    'description'    => esc_html__( 'My section description.', 'anzu' ),
+    'panel'          => 'light-colors',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_body', array(
+    'title'          => esc_html__( 'Body', 'anzu' ),
+    'description'    => esc_html__( 'These settings control the typography for all body text.', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_h1', array(
+    'title'          => esc_html__( 'Heading 1 - H1', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_h2', array(
+    'title'          => esc_html__( 'Heading 2 - H2', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_h3', array(
+    'title'          => esc_html__( 'Heading 3 - H3', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_h4', array(
+    'title'          => esc_html__( 'Heading 4 - H4', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_h5', array(
+    'title'          => esc_html__( 'Heading 5 - H5', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_h6', array(
+    'title'          => esc_html__( 'Heading 6 - H6', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_page_title_section', array(
+    'title'          => esc_html__( 'Page Title', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'typography_page_title_subheading_section', array(
+    'title'          => esc_html__( 'Page Title Subheading', 'anzu' ),
+    'panel'          => 'typography',
+    'priority'       => 160,
+) );
+
+
+/**
+ * Options.
+ *
+ */
+
 
 /**
  * Layout Control.
@@ -173,25 +237,6 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Color(
 	[
-		'settings'    => 'anzu_light_colors_background_body',
-		'label'       => __( 'Background Body', 'anzu' ),
-		'description' => esc_html__( 'Pick a background light color for the theme.', 'anzu' ),
-		'section'     => 'light_colors_section',
-		'default'     => '#FFFFFF',
-		'choices'     => [
-			'alpha' => true,
-		],
-		'output' => array(
-			array(
-				'element'  => 'body',
-				'property' => 'background-color',
-			),
-		),
-	]
-);
-
-new \Kirki\Field\Color(
-	[
 		'settings'    => 'anzu_light_colors_text_color',
 		'label'       => __( 'Text', 'anzu' ),
 		'description' => esc_html__( 'It will apply to all the texts.', 'anzu' ),
@@ -202,7 +247,26 @@ new \Kirki\Field\Color(
 		],
 		'output' => array(
 			array(
-				'element'  => 'h1, h2, h3, h4, h5, h6, p, span',
+				'element'  => 'p, span',
+				'property' => 'color',
+			),
+		),
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'anzu_light_colors_heading_color',
+		'label'       => __( 'Heading (H1 - H6)', 'anzu' ),
+		'description' => esc_html__( 'It will apply to all the headings.', 'anzu' ),
+		'section'     => 'light_colors_section',
+		'default'     => '#000000',
+		'choices'     => [
+			'alpha' => true,
+		],
+		'output' => array(
+			array(
+				'element'  => 'h1, h2, h3, h4, h5, h6',
 				'property' => 'color',
 			),
 		),
@@ -266,6 +330,25 @@ new \Kirki\Field\Color(
 	]
 );
 
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'anzu_light_colors_background_body',
+		'label'       => __( 'Background Body', 'anzu' ),
+		'description' => esc_html__( 'Pick a background light color for the theme.', 'anzu' ),
+		'section'     => 'light_colors_section',
+		'default'     => '#FFFFFF',
+		'choices'     => [
+			'alpha' => true,
+		],
+		'output' => array(
+			array(
+				'element'  => 'body',
+				'property' => 'background-color',
+			),
+		),
+	]
+);
+
 
 /**
  * Typography Control.
@@ -275,25 +358,24 @@ new \Kirki\Field\Typography(
 		'settings'    => 'anzu_typography_body',
 		'label'       => esc_html__( 'Body', 'anzu' ),
 		'description' => esc_html__( 'These settings control the typography for all body text.', 'anzu' ),
-		'section'     => 'typography_section',
+		'section'     => 'typography_body',
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family'     => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
-			'variant'         => 'regular',
-			'font-size'       => '16px',
-			'font-style'      => 'normal',
-			'line-height'     => '1.5',
-			'letter-spacing'  => '0',
-			'text-transform'  => 'none',
-			'text-decoration' => 'none',
-			'text-align'      => 'left',
-			'margin-top'      => '0',
-			'margin-bottom'   => '0',
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
 		],
 		'output'      => [
 			[
-				'element' => 'body, p',
+				'element' => 'body, p, span',
 			],
 		],
 	]
@@ -301,18 +383,223 @@ new \Kirki\Field\Typography(
 
 new \Kirki\Field\Typography(
 	[
-		'settings'    => 'anzu_typography_headers',
-		'label'       => esc_html__( 'Headers', 'anzu' ),
-		'description' => esc_html__( 'These settings control the typography for all headers.', 'anzu' ),
-		'section'     => 'typography_section',
+		'settings'    => 'anzu_typography_heading_1',
+		'label'       => esc_html__( 'Heading 1', 'anzu' ),
+		'description' => esc_html__( 'These settings control the typography for all H1 headers.', 'anzu' ),
+		'section'     => 'typography_h1',
 		'priority'    => 10,
 		'transport'   => 'auto',
 		'default'     => [
-			'font-family' => '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif',
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
 		],
 		'output'      => [
 			[
-				'element' => [ 'h1', 'h2', 'h3', 'h4', 'h5', 'h6' ],
+				'element' => [ 'h1' ],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'anzu_typography_heading_2',
+		'label'       => esc_html__( 'Heading 2', 'anzu' ),
+		'description' => esc_html__( 'These settings control the typography for all H2 headers.', 'anzu' ),
+		'section'     => 'typography_h2',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
+		],
+		'output'      => [
+			[
+				'element' => [ 'h2' ],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'anzu_typography_heading_3',
+		'label'       => esc_html__( 'Heading 3', 'anzu' ),
+		'description' => esc_html__( 'These settings control the typography for all H3 headers.', 'anzu' ),
+		'section'     => 'typography_h3',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
+		],
+		'output'      => [
+			[
+				'element' => [ 'h3' ],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'anzu_typography_heading_4',
+		'label'       => esc_html__( 'Heading 4', 'anzu' ),
+		'description' => esc_html__( 'These settings control the typography for all H4 headers.', 'anzu' ),
+		'section'     => 'typography_h4',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
+		],
+		'output'      => [
+			[
+				'element' => [ 'h4' ],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'anzu_typography_heading_5',
+		'label'       => esc_html__( 'Heading 5', 'anzu' ),
+		'description' => esc_html__( 'These settings control the typography for all H5 headers.', 'anzu' ),
+		'section'     => 'typography_h5',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
+		],
+		'output'      => [
+			[
+				'element' => [ 'h5' ],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'anzu_typography_heading_6',
+		'label'       => esc_html__( 'Heading 6', 'anzu' ),
+		'description' => esc_html__( 'These settings control the typography for all H6 headers.', 'anzu' ),
+		'section'     => 'typography_h6',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
+		],
+		'output'      => [
+			[
+				'element' => [ 'h6' ],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'anzu_typography_page_title',
+		'label'       => esc_html__( 'Page Title', 'anzu' ),
+		'description' => esc_html__( 'These settings control the typography of all page titles.', 'anzu' ),
+		'section'     => 'typography_page_title_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
+		],
+		'output'      => [
+			[
+				'element' => [ '#page .anzu-hero__title' ],
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Typography(
+	[
+		'settings'    => 'anzu_typography_page_title_subheading',
+		'label'       => esc_html__( 'Page Title Subheading', 'anzu' ),
+		'description' => esc_html__( 'These settings control the typography of all page title subheadings.', 'anzu' ),
+		'section'     => 'typography_page_title_subheading_section',
+		'priority'    => 10,
+		'transport'   => 'auto',
+		'default'     => [
+			'font-family'     => '',
+			'variant'         => '',
+			'font-size'       => '',
+			'font-style'      => '',
+			'line-height'     => '',
+			'letter-spacing'  => '',
+			'text-transform'  => '',
+			'text-decoration' => '',
+			'margin-top'      => '',
+			'margin-bottom'   => '',
+		],
+		'output'      => [
+			[
+				'element' => [ '#page .anzu-hero__subheading' ],
 			],
 		],
 	]

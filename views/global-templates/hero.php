@@ -16,7 +16,7 @@ $hero_background_color = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-
 
 $hero_color_opacity = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-color-opacity', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-color-opacity', true ) : 'anzu-no-opacity';
 
-$subtitle = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_subtitle', true ) ) ? '<span class="anzu-hero__subtitle">'.get_post_meta( get_the_ID(), 'anzu_hero_subtitle', true ).'</span>' : '';
+$subheading = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_subheading', true ) ) ? '<span class="anzu-hero__subheading">'.get_post_meta( get_the_ID(), 'anzu_hero_subheading', true ).'</span>' : '';
 
 if ($hero == '2') { 
     ?>
@@ -25,7 +25,7 @@ if ($hero == '2') {
         <div class="anzu-hero__background-image" style="height: 50vh;">
             <div class="anzu-hero__content container">
                 <h1 class="anzu-hero__title"><?php echo get_the_title(); ?></h1>
-                <?php echo $subtitle; ?>
+                <?php echo $subheading; ?>
             </div>
             <div class="anzu-hero__background-color <?php echo $hero_background_color.' '.$hero_color_opacity; ?>"></div>
         </div>
@@ -39,7 +39,7 @@ if ($hero == '2') {
         <div class="anzu-hero__background-image" style="height: 50vh;">
             <div class="anzu-hero__content container">
                 <h1 class="anzu-hero__title"><?php echo get_the_title(); ?></h1>
-                <?php echo $subtitle; ?>
+                <?php echo $subheading; ?>
             </div>
             <div class="anzu-hero__background-color <?php echo $hero_background_color.' '.$hero_color_opacity; ?>"></div>
         </div>
