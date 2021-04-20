@@ -11,11 +11,12 @@ defined( 'ABSPATH' ) || exit;
 get_header();
 $container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
 $hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) : '1';
+$anzu_content_dark_mode = ! empty ( get_theme_mod( 'anzu_content_dark_mode' ) ) ? 'anzu-dark-mode' : 'anzu-light-mode' ;
 ?>
 
 <?php if ($hero != '1') { echo get_template_part( 'views/global-templates/hero' ); } ?>
 
-<div class="wrapper" id="single-wrapper">
+<div class="anzu-content wrapper <?php echo esc_attr( $anzu_content_dark_mode ); ?>" id="single-wrapper">
 
 	<div class="<?php echo esc_attr( $container ); ?>" id="content" tabindex="-1">
 

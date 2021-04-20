@@ -11,6 +11,8 @@
 defined( 'ABSPATH' ) || exit;
 
 $container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
+$anzu_header_dark_mode = ! empty ( get_theme_mod( 'anzu_header_dark_mode' ) ) ? 'anzu-dark-mode' : 'anzu-light-mode' ;
+$navbar_theme_mode = $anzu_header_dark_mode == 'anzu-light-mode' ? 'navbar-light' : 'navbar-dark';
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -26,11 +28,11 @@ $container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'a
 <div class="site" id="page">
 
 	<!-- ******************* The Navbar Area ******************* -->
-	<div id="wrapper-navbar">
+	<div id="wrapper-navbar" class="anzu-header <?php echo esc_attr( $anzu_header_dark_mode ); ?>">
 
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'anzu' ); ?></a>
 
-		<nav id="main-nav" class="navbar navbar-expand-md navbar-light bg-white" aria-labelledby="main-nav-label">
+		<nav id="main-nav" class="navbar navbar-expand-md <?php echo esc_attr( $navbar_theme_mode ); ?>" aria-labelledby="main-nav-label">
 
 			<h2 id="main-nav-label" class="visually-hidden-focusable">
 				<?php esc_html_e( 'Main Navigation', 'anzu' ); ?>
@@ -45,11 +47,11 @@ $container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'a
 
 						<?php if ( is_front_page() && is_home() ) : ?>
 
-							<h1 class="anzu-brand navbar-brand mb-0"><a rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
+							<h1 class="anzu-brand__title navbar-brand mb-0"><a class="anzu-brand__url" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a></h1>
 
 						<?php else : ?>
 
-							<a class="anzu-brand navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
+							<a class="anzu-brand__url navbar-brand" rel="home" href="<?php echo esc_url( home_url( '/' ) ); ?>" itemprop="url"><?php bloginfo( 'name' ); ?></a>
 
 						<?php endif; ?>
 

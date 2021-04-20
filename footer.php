@@ -11,11 +11,12 @@
 defined( 'ABSPATH' ) || exit;
 
 $container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
+$anzu_footer_dark_mode = ! empty ( get_theme_mod( 'anzu_footer_dark_mode' ) ) ? 'anzu-dark-mode' : 'anzu-light-mode' ;
 ?>
 
 <?php get_template_part( 'views/sidebar-templates/sidebar', 'footerfull' ); ?>
 
-<div class="wrapper" id="wrapper-footer">
+<div class="anzu-footer wrapper <?php echo esc_attr( $anzu_footer_dark_mode ); ?>" id="wrapper-footer">
 
 	<div class="<?php echo esc_attr( $container ); ?>">
 
