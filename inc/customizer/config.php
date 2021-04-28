@@ -137,8 +137,26 @@ Kirki::add_panel( 'footer', array(
     'description' => esc_html__( 'Contains sections for all Anzu controls.', 'anzu' ),
 ) );
 
-Kirki::add_section( 'footer_widgets_section', array(
-    'title'          => esc_html__( 'Footer Widgets', 'anzu' ),
+Kirki::add_section( 'above_footer_widgets_section', array(
+    'title'          => esc_html__( 'Above Widgets', 'anzu' ),
+    'panel'          => 'footer',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'main_footer_widgets_section', array(
+    'title'          => esc_html__( 'Main Widgets', 'anzu' ),
+    'panel'          => 'footer',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'below_footer_widgets_section', array(
+    'title'          => esc_html__( 'Below Widgets', 'anzu' ),
+    'panel'          => 'footer',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'footer_bottom_section', array(
+    'title'          => esc_html__( 'Footer Bottom', 'anzu' ),
     'panel'          => 'footer',
     'priority'       => 160,
 ) );
@@ -218,7 +236,7 @@ new \Kirki\Field\Checkbox_Switch(
 		'settings'    => 'anzu_footer_dark_mode',
 		'label'       => esc_html__( 'Footer Dark Mode', 'anzu' ),
 		'section'     => 'theme_colors_section',
-		'default'     => false,
+		'default'     => true,
 	]
 );
 
@@ -325,7 +343,7 @@ new \Kirki\Field\Color(
 		],
 		'output' => array(
 			array(
-				'element'  => '.anzu-light-mode p, .anzu-light-mode span',
+				'element'  => 'body .anzu-light-mode, .anzu-light-mode p, .anzu-light-mode span',
 				'property' => 'color',
 			),
 		),
@@ -574,7 +592,7 @@ new \Kirki\Field\Color(
 		],
 		'output' => array(
 			array(
-				'element'  => '.anzu-dark-mode p, .anzu-dark-mode span',
+				'element'  => 'body .anzu-dark-mode, .anzu-dark-mode p, .anzu-dark-mode span',
 				'property' => 'color',
 			),
 		),
@@ -980,28 +998,632 @@ new \Kirki\Field\Typography(
 /**
  * Footer Control.
  */
-new \Kirki\Field\Radio_Image(
+
+// Above Footer
+new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'footer_widgets',
-		'label'       => esc_html__( 'Footer Widgets', 'anzu' ),
-		'description' => esc_html__( 'The description here.', 'anzu' ),
-		'section'     => 'footer_widgets_section',
+		'settings'    => 'above_footer_widgets_switch',
+		'label'       => esc_html__( 'Enable Above Footer', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => false,
+	]
+);
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'above_footer_widgets_column',
+		'label'       => esc_html__( 'Select Control', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
 		'default'     => '3',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
 		'choices'     => [
-			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/12.png',
-			'2'    => ANZU_THEME_URI . '/inc/customizer./assets/img/6-6.png', 
-			'3'    => ANZU_THEME_URI . '/inc/customizer./assets/img/4-4-4.png', 
-			'4'    => ANZU_THEME_URI . '/inc/customizer./assets/img/3-3-3-3.png', 
-			'5'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2.4-2.4-2.4-2.4-2.4.png', 
-			'6'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2-2-2-2-2-2.png', 
-			'7'    => ANZU_THEME_URI . '/inc/customizer./assets/img/8-4.png', 
-			'8'    => ANZU_THEME_URI . '/inc/customizer./assets/img/4-8.png', 
-			'9'    => ANZU_THEME_URI . '/inc/customizer./assets/img/9-3.png', 
-			'10'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-9.png', 
-			'11'   => ANZU_THEME_URI . '/inc/customizer./assets/img/6-3-3.png', 
-			'12'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-3-6.png', 
-			'13'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-6-3.png', 
-			'14'   => ANZU_THEME_URI . '/inc/customizer./assets/img/2-8-2.png',  
+			'1' => esc_html__( '1 Column', 'anzu' ),
+			'2' => esc_html__( '2 Columns', 'anzu' ),
+			'3' => esc_html__( '3 Columns', 'anzu' ),
+			'4' => esc_html__( '4 Columns', 'anzu' ),
+			'5' => esc_html__( '5 Columns', 'anzu' ),
+			'6' => esc_html__( '6 Columns', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
 		],
 	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'above_footer_widgets_layout_1',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/12.png', 
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '1',
+			],
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'above_footer_widgets_layout_2',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/6-6.png', 
+			'2'    => ANZU_THEME_URI . '/inc/customizer./assets/img/8-4.png', 
+			'3'    => ANZU_THEME_URI . '/inc/customizer./assets/img/4-8.png', 
+			'4'    => ANZU_THEME_URI . '/inc/customizer./assets/img/9-3.png', 
+			'5'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-9.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '2',
+			],
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'above_footer_widgets_layout_3',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/4-4-4.png',
+			'2'   => ANZU_THEME_URI . '/inc/customizer./assets/img/6-3-3.png', 
+			'3'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-3-6.png', 
+			'4'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-6-3.png', 
+			'5'   => ANZU_THEME_URI . '/inc/customizer./assets/img/2-8-2.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '3',
+			],
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'above_footer_widgets_layout_4',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/3-3-3-3.png', 
+			'2'    => ANZU_THEME_URI . '/inc/customizer./assets/img/6-2-2-2.png', 
+			'3'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2-2-2-6.png',   
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '4',
+			],
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'above_footer_widgets_layout_5',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2.4-2.4-2.4-2.4-2.4.png', 
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '5',
+			],
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'above_footer_widgets_layout_6',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [ 
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2-2-2-2-2-2.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '6',
+			],
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+
+// Main Footer
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'main_footer_widgets_switch',
+		'label'       => esc_html__( 'Enable Main Footer', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => false,
+	]
+);
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'main_footer_widgets_column',
+		'label'       => esc_html__( 'Select Control', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => '3',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'1' => esc_html__( '1 Column', 'anzu' ),
+			'2' => esc_html__( '2 Columns', 'anzu' ),
+			'3' => esc_html__( '3 Columns', 'anzu' ),
+			'4' => esc_html__( '4 Columns', 'anzu' ),
+			'5' => esc_html__( '5 Columns', 'anzu' ),
+			'6' => esc_html__( '6 Columns', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'main_footer_widgets_layout_1',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/12.png', 
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '1',
+			],
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'main_footer_widgets_layout_2',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/6-6.png', 
+			'2'    => ANZU_THEME_URI . '/inc/customizer./assets/img/8-4.png', 
+			'3'    => ANZU_THEME_URI . '/inc/customizer./assets/img/4-8.png', 
+			'4'    => ANZU_THEME_URI . '/inc/customizer./assets/img/9-3.png', 
+			'5'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-9.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '2',
+			],
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'main_footer_widgets_layout_3',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/4-4-4.png',
+			'2'   => ANZU_THEME_URI . '/inc/customizer./assets/img/6-3-3.png', 
+			'3'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-3-6.png', 
+			'4'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-6-3.png', 
+			'5'   => ANZU_THEME_URI . '/inc/customizer./assets/img/2-8-2.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '3',
+			],
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'main_footer_widgets_layout_4',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/3-3-3-3.png', 
+			'2'    => ANZU_THEME_URI . '/inc/customizer./assets/img/6-2-2-2.png', 
+			'3'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2-2-2-6.png',   
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '4',
+			],
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'main_footer_widgets_layout_5',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2.4-2.4-2.4-2.4-2.4.png', 
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '5',
+			],
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'main_footer_widgets_layout_6',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [ 
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2-2-2-2-2-2.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '6',
+			],
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+
+// Below Footer
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'below_footer_widgets_switch',
+		'label'       => esc_html__( 'Enable Below Footer', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => false,
+	]
+);
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'below_footer_widgets_column',
+		'label'       => esc_html__( 'Select Control', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => '3',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'1' => esc_html__( '1 Column', 'anzu' ),
+			'2' => esc_html__( '2 Columns', 'anzu' ),
+			'3' => esc_html__( '3 Columns', 'anzu' ),
+			'4' => esc_html__( '4 Columns', 'anzu' ),
+			'5' => esc_html__( '5 Columns', 'anzu' ),
+			'6' => esc_html__( '6 Columns', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'below_footer_widgets_layout_1',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/12.png', 
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '1',
+			],
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'below_footer_widgets_layout_2',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/6-6.png', 
+			'2'    => ANZU_THEME_URI . '/inc/customizer./assets/img/8-4.png', 
+			'3'    => ANZU_THEME_URI . '/inc/customizer./assets/img/4-8.png', 
+			'4'    => ANZU_THEME_URI . '/inc/customizer./assets/img/9-3.png', 
+			'5'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-9.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '2',
+			],
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'below_footer_widgets_layout_3',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/4-4-4.png',
+			'2'   => ANZU_THEME_URI . '/inc/customizer./assets/img/6-3-3.png', 
+			'3'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-3-6.png', 
+			'4'   => ANZU_THEME_URI . '/inc/customizer./assets/img/3-6-3.png', 
+			'5'   => ANZU_THEME_URI . '/inc/customizer./assets/img/2-8-2.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '3',
+			],
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'below_footer_widgets_layout_4',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/3-3-3-3.png', 
+			'2'    => ANZU_THEME_URI . '/inc/customizer./assets/img/6-2-2-2.png', 
+			'3'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2-2-2-6.png',   
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '4',
+			],
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'below_footer_widgets_layout_5',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2.4-2.4-2.4-2.4-2.4.png', 
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '5',
+			],
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'below_footer_widgets_layout_6',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => '1',
+		'choices'     => [ 
+			'1'    => ANZU_THEME_URI . '/inc/customizer./assets/img/2-2-2-2-2-2.png',  
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_column',
+				'operator' => '==',
+				'value'    => '6',
+			],
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+
+// Copyright Footer
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_copyright_switch',
+		'label'       => esc_html__( 'Enable Copyright', 'anzu' ),
+		'section'     => 'footer_bottom_section',
+		'default'     => true,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_title_switch',
+		'label'       => esc_html__( 'Enable Site Title', 'anzu' ),
+		'section'     => 'footer_bottom_section',
+		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'anzu_copyright',
+		'label'       => esc_html__( 'Copyright', 'anzu' ),
+		'section'     => 'footer_bottom_section',
+		'default'     => 'Copyright [anzu_copyright] [anzu_current_year] [anzu_site_title] | Powered by [anzu_theme_author]',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_copyright_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	],
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_copyright_height',
+		'label'       => esc_html__( 'Height', 'anzu' ),
+		'section'     => 'footer_bottom_section',
+		'default'     => [
+			'min-height' => '80px',
+		],
+		'output'      => [
+			[
+				'element' => '.anzu-footer .site-info',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_copyright_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+	
 );

@@ -41,7 +41,7 @@ $anzu_includes = array(
 	'/inc/class-wp-bootstrap-navwalker.php',    // Load custom WordPress nav walker.
 	'/inc/editor.php',                          // Load Editor functions.
 	'/inc/deprecated.php',                      // Load deprecated functions.
-	'/inc/metaboxes/hero-metabox.php',                      // Load deprecated functions.
+	'/inc/metaboxes/hero-metabox.php',          // Load hero metabox.
 );
 
 // Load WooCommerce functions if WooCommerce is activated.

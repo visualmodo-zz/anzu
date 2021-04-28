@@ -10,6 +10,28 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
+if ( ! function_exists( 'anzu_get_theme_author_details' ) ) {
+	/**
+	 * Get the theme author details
+	 *
+	 * @return array
+	 */	
+
+	function anzu_get_theme_author_details() {
+
+		$theme_author = apply_filters(
+			'anzu_theme_author',
+			array(
+				'anzu_theme_name'       => __( 'Anzu WordPress Theme', 'anzu' ),
+				'anzu_theme_author_url' => 'https://wordpress.org/themes/anzu/',
+			)
+		);
+
+		return $theme_author;
+	}
+
+}
+
 add_filter( 'body_class', 'anzu_body_classes' );
 
 if ( ! function_exists( 'anzu_body_classes' ) ) {

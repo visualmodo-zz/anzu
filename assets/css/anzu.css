@@ -12305,7 +12305,6 @@ ul {
 .wrapper#wrapper-sticky {
   border-bottom: 1px solid #dee2e6; }
 
-#wrapper-footer-full,
 #wrapper-static-hero {
   background-color: #e9ecef; }
 
@@ -12572,8 +12571,13 @@ a.skip-link {
 /*-----------------------------------------------------------------------------------*/
 /*  *.  Footer
 /*-----------------------------------------------------------------------------------*/
-#wrapper-footer {
+.anzu-footer {
   text-align: center; }
+  .anzu-footer .site-info {
+    display: flex;
+    align-items: center; }
+    .anzu-footer .site-info .anzu-footer__site-name {
+      font-size: 1.5rem; }
 
 /*-----------------------------------------------------------------------------------*/
 /*  *.  Brand

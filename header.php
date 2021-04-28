@@ -10,8 +10,8 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
-$anzu_header_dark_mode = ! empty ( get_theme_mod( 'anzu_header_dark_mode' ) ) ? 'anzu-dark-mode' : 'anzu-light-mode' ;
+$container = get_theme_mod( 'anzu_layout_type', 'container' );
+$anzu_header_dark_mode = get_theme_mod( 'anzu_header_dark_mode', '' ) ? 'anzu-dark-mode' : 'anzu-light-mode';
 $navbar_theme_mode = $anzu_header_dark_mode == 'anzu-light-mode' ? 'navbar-light' : 'navbar-dark';
 ?>
 <!DOCTYPE html>

@@ -9,9 +9,9 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-$container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
+$container = get_theme_mod( 'anzu_layout_type', 'container' );
+$anzu_content_dark_mode = get_theme_mod( 'anzu_content_dark_mode', '' ) ? 'anzu-dark-mode' : 'anzu-light-mode';
 $hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) : '1';
-$anzu_content_dark_mode = ! empty ( get_theme_mod( 'anzu_content_dark_mode' ) ) ? 'anzu-dark-mode' : 'anzu-light-mode' ;
 ?>
 
 <?php if ($hero != '1') { echo get_template_part( 'views/global-templates/hero' ); } ?>

@@ -11,7 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 get_header();
-$container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
+$container = get_theme_mod( 'anzu_layout_type', 'container' );
 
 if ( is_front_page() ) {
 	get_template_part( 'views/global-templates/hero' );

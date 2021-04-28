@@ -10,7 +10,7 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
+$container = get_theme_mod( 'anzu_layout_type', 'container' );
 
 ?>
 

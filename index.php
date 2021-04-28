@@ -16,8 +16,8 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$container = ! empty ( get_theme_mod( 'anzu_layout_type' ) ) ? get_theme_mod( 'anzu_layout_type' ) : 'container' ;
-$anzu_content_dark_mode = ! empty ( get_theme_mod( 'anzu_content_dark_mode' ) ) ? 'anzu-dark-mode' : 'anzu-light-mode' ;
+$container = get_theme_mod( 'anzu_layout_type', 'container' );
+$anzu_content_dark_mode = get_theme_mod( 'anzu_content_dark_mode', '' ) ? 'anzu-dark-mode' : 'anzu-light-mode';
 ?>
 
 <div class="anzu-content wrapper <?php echo esc_attr( $anzu_content_dark_mode ); ?>" id="index-wrapper">

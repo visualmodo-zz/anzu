@@ -6,7 +6,7 @@ Tags: blog, e-commerce, portfolio, grid-layout, one-column, two-columns, three-c
 Requires at least: 5.3
 Tested up to: 5.7
 Requires PHP: 5.6
-Stable tag: 0.1.1
+Stable tag: 0.1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,14 @@ Anzu. It has a wide range of incredible features and amazing tools for every web
 Anzu includes support for Elementor, WooCommerce and WPbakery.
 
 == Changelog ==
+
+= 0.1.2 - Apr 28 2021 =
+* New - Shortcode [anzu_copyright]
+* New - Shortcode [anzu_current_year]
+* New - Shortcode [anzu_site_title]
+* New - Shortcode [anzu_theme_author]
+* New - Footer Copyright editor
+* New - Footer Widgets
 
 = 0.1.1 - Apr 20 2021 =
 * New - Light and Dark Theme
