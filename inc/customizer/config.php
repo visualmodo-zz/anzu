@@ -482,7 +482,7 @@ new \Kirki\Field\Color(
 		],
 		'output' => array(
 			array(
-				'element'  => '.anzu-footer.anzu-light-mode',
+				'element'  => '#anzu-footer.anzu-light-mode',
 				'property' => 'background-color',
 			),
 		),
@@ -731,7 +731,7 @@ new \Kirki\Field\Color(
 		],
 		'output' => array(
 			array(
-				'element'  => '.anzu-footer.anzu-dark-mode',
+				'element'  => '#anzu-footer.anzu-dark-mode',
 				'property' => 'background-color',
 			),
 		),
@@ -1188,6 +1188,126 @@ new \Kirki\Field\Radio_Image(
 	]
 );
 
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_above_footer_vertical_alignment',
+		'label'       => esc_html__( 'Vertical Alignment', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => 'align-items-center',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'align-items-start' => esc_html__( 'Top', 'anzu' ),
+			'align-items-center' => esc_html__( 'Middle', 'anzu' ),
+			'align-items-end' => esc_html__( 'Bottom', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_above_footer_layout_type',
+		'label'       => esc_html__( 'Layout Style', 'anzu' ),
+		'description' => esc_html__( 'Choose the format that works best for you.', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => 'container',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'container' => esc_html__( 'Boxed', 'anzu' ),
+			'container-fluid p-0' => esc_html__( 'Stretched', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_above_footer_height',
+		'label'       => esc_html__( 'Height', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => [
+			'min-height' => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-above-footer .row',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+	
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_above_footer_padding',
+		'label'       => esc_html__( 'Padding', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => [
+			'padding-top'    => '',
+			'padding-bottom' => '',
+			'padding-left'   => '',
+			'padding-right'  => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-above-footer',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_above_footer_margin',
+		'label'       => esc_html__( 'Margin', 'anzu' ),
+		'section'     => 'above_footer_widgets_section',
+		'default'     => [
+			'margin-top'    => '',
+			'margin-bottom' => '',
+			'margin-left'   => '',
+			'margin-right'  => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-above-footer',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'above_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
 
 // Main Footer
 new \Kirki\Field\Checkbox_Switch(
@@ -1369,6 +1489,126 @@ new \Kirki\Field\Radio_Image(
 				'operator' => '==',
 				'value'    => '6',
 			],
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_main_footer_vertical_alignment',
+		'label'       => esc_html__( 'Vertical Alignment', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => 'align-items-center',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'align-items-start' => esc_html__( 'Top', 'anzu' ),
+			'align-items-center' => esc_html__( 'Middle', 'anzu' ),
+			'align-items-end' => esc_html__( 'Bottom', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_main_footer_layout_type',
+		'label'       => esc_html__( 'Layout Style', 'anzu' ),
+		'description' => esc_html__( 'Choose the format that works best for you.', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => 'container',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'container' => esc_html__( 'Boxed', 'anzu' ),
+			'container-fluid p-0' => esc_html__( 'Stretched', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_main_footer_height',
+		'label'       => esc_html__( 'Height', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => [
+			'min-height' => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-main-footer .row',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+	
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_main_footer_padding',
+		'label'       => esc_html__( 'Padding', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => [
+			'padding-top'    => '',
+			'padding-bottom' => '',
+			'padding-left'   => '',
+			'padding-right'  => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-main-footer',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'main_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_main_footer_margin',
+		'label'       => esc_html__( 'Margin', 'anzu' ),
+		'section'     => 'main_footer_widgets_section',
+		'default'     => [
+			'margin-top'    => '',
+			'margin-bottom' => '',
+			'margin-left'   => '',
+			'margin-right'  => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-main-footer',
+			],
+		],
+		'active_callback' => [
 			[
 				'setting'  => 'main_footer_widgets_switch',
 				'operator' => '==',
@@ -1568,6 +1808,126 @@ new \Kirki\Field\Radio_Image(
 	]
 );
 
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_below_footer_vertical_alignment',
+		'label'       => esc_html__( 'Vertical Alignment', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => 'align-items-center',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'align-items-start' => esc_html__( 'Top', 'anzu' ),
+			'align-items-center' => esc_html__( 'Middle', 'anzu' ),
+			'align-items-end' => esc_html__( 'Bottom', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_below_footer_layout_type',
+		'label'       => esc_html__( 'Layout Style', 'anzu' ),
+		'description' => esc_html__( 'Choose the format that works best for you.', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => 'container',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'container' => esc_html__( 'Boxed', 'anzu' ),
+			'container-fluid p-0' => esc_html__( 'Stretched', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_below_footer_height',
+		'label'       => esc_html__( 'Height', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => [
+			'min-height' => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-below-footer .row',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+	
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_below_footer_padding',
+		'label'       => esc_html__( 'Padding', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => [
+			'padding-top'    => '',
+			'padding-bottom' => '',
+			'padding-left'   => '',
+			'padding-right'  => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-below-footer',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_below_footer_margin',
+		'label'       => esc_html__( 'Margin', 'anzu' ),
+		'section'     => 'below_footer_widgets_section',
+		'default'     => [
+			'margin-top'    => '',
+			'margin-bottom' => '',
+			'margin-left'   => '',
+			'margin-right'  => '',
+		],
+		'output'      => [
+			[
+				'element' => '#anzu-below-footer',
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'below_footer_widgets_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
 
 // Copyright Footer
 new \Kirki\Field\Checkbox_Switch(
@@ -1614,7 +1974,7 @@ new \Kirki\Field\Dimensions(
 		],
 		'output'      => [
 			[
-				'element' => '.anzu-footer .site-info',
+				'element' => '#anzu-footer #site-info',
 			],
 		],
 		'active_callback' => [

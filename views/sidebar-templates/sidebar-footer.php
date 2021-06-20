@@ -17,7 +17,7 @@ $below_footer_widgets_switch = get_theme_mod( 'below_footer_widgets_switch', '' 
 
 <?php if ( $above_footer_widgets_switch == '1' || $main_footer_widgets_switch == '1' || $below_footer_widgets_switch == '1' ) { ?>
 
-	<div class="wrapper" id="wrapper-sidebar-footer">
+	<div id="anzu-footer__widgets" class="wrapper">
 
 		<div class="<?php echo esc_attr( $container ); ?>" id="sidebar-footer" tabindex="-1">
 
@@ -27,6 +27,8 @@ $below_footer_widgets_switch = get_theme_mod( 'below_footer_widgets_switch', '' 
 
 					${$footer_area.'_footer_widgets_column'} = get_theme_mod( $footer_area.'_footer_widgets_column', '3' ); 
 					${$footer_area.'_footer_widgets_layout'} = get_theme_mod( $footer_area.'_footer_widgets_layout_'.${$footer_area.'_footer_widgets_column'}, '1' );
+					${$footer_area.'_footer_vertical_alignment'} = get_theme_mod( 'anzu_'.$footer_area.'_footer_vertical_alignment', 'align-items-center' );
+					${$footer_area.'_footer_layout_type'} = get_theme_mod( 'anzu_'.$footer_area.'_footer_layout_type', 'container' );
 
 					${'first_'.$footer_area.'_footer'} = ${'second_'.$footer_area.'_footer'} = ${'third_'.$footer_area.'_footer'} = ${'fourth_'.$footer_area.'_footer'} = ${'fifth_'.$footer_area.'_footer'} = ${'sixth_'.$footer_area.'_footer'} = '';
 
@@ -99,17 +101,21 @@ $below_footer_widgets_switch = get_theme_mod( 'below_footer_widgets_switch', '' 
 					}
 					?>
 
-					<div class="anzu-<?php echo $footer_area; ?>-footer row">
+					<div id="anzu-<?php echo $footer_area; ?>-footer" class="<?php echo ${$footer_area.'_footer_layout_type'} ?>">
 
-						<?php foreach( $sidebars as $sidebar ) { ?>
-							
-							<div class="<?php echo $sidebar.'-'.$footer_area;?>-footer col-md<?php echo ${$sidebar.'_'.$footer_area.'_footer'}; ?>">
-								<?php if ( is_active_sidebar( $sidebar.'-'.$footer_area.'-footer' ) ) { ?>
-								<?php dynamic_sidebar( $sidebar.'-'.$footer_area.'-footer' ); ?>
-								<?php } ?>
-							</div>
+						<div class="row <?php echo ${$footer_area.'_footer_vertical_alignment'} ?>">
 
-						<?php } ?>
+							<?php foreach( $sidebars as $sidebar ) { ?>
+								
+								<div id="<?php echo $sidebar.'-'.$footer_area.'-footer'; ?>" class="col-md<?php echo ${$sidebar.'_'.$footer_area.'_footer'}; ?>">
+									<?php if ( is_active_sidebar( $sidebar.'-'.$footer_area.'-footer' ) ) { ?>
+									<?php dynamic_sidebar( $sidebar.'-'.$footer_area.'-footer' ); ?>
+									<?php } ?>
+								</div>
+
+							<?php } ?>
+
+						</div>
 
 					</div>
 

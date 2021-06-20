@@ -12571,12 +12571,12 @@ a.skip-link {
 /*-----------------------------------------------------------------------------------*/
 /*  *.  Footer
 /*-----------------------------------------------------------------------------------*/
-.anzu-footer {
+#anzu-footer {
   text-align: center; }
-  .anzu-footer .site-info {
+  #anzu-footer #site-info {
     display: flex;
     align-items: center; }
-    .anzu-footer .site-info .anzu-footer__site-name {
+    #anzu-footer #site-info #site-info__site-name {
       font-size: 1.5rem; }
 
 /*-----------------------------------------------------------------------------------*/
