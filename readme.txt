@@ -29,6 +29,10 @@ Anzu includes support for Elementor, WooCommerce and WPbakery.
 
 == Changelog ==
 
+= 0.1.4 - Jun 20 2021 =
+* Updated - Bootstrap Front-end Framework - v5.0.1
+* Updated - Bootstrap Icons - v1.5.0
+
 = 0.1.3 - Jun 20 2021 =
 * New - Options in Footer 
 
