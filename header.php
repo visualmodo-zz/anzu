@@ -13,6 +13,7 @@ defined( 'ABSPATH' ) || exit;
 $container = get_theme_mod( 'anzu_layout_type', 'container' );
 $anzu_header_dark_mode = get_theme_mod( 'anzu_header_dark_mode', '' ) ? 'anzu-dark-mode' : 'anzu-light-mode';
 $navbar_theme_mode = $anzu_header_dark_mode == 'anzu-light-mode' ? 'navbar-light' : 'navbar-dark';
+$anzu_scroll_to_top_switch = get_theme_mod( 'anzu_scroll_to_top_switch', '1' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -24,6 +25,14 @@ $navbar_theme_mode = $anzu_header_dark_mode == 'anzu-light-mode' ? 'navbar-light
 </head>
 
 <body <?php body_class(); ?> <?php anzu_body_attributes(); ?>>
+
+<?php
+// Scroll To Top.
+if ( $anzu_scroll_to_top_switch ) {
+	get_template_part( 'views/global-templates/scroll-to-top' );
+}
+?>
+
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
 

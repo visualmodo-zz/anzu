@@ -6749,4 +6749,24 @@
     }, false);
   }
 })();
-// Add your JS customizations here
+jQuery(function ($) {
+  'use strict';
+  /* ==================================================
+  Scroll To Top
+  ================================================== */
+
+  var scroll_to_top = $('#scroll-to-top');
+  $(window).scroll(function () {
+    if ($(window).scrollTop() > 300) {
+      scroll_to_top.addClass('show');
+    } else {
+      scroll_to_top.removeClass('show');
+    }
+  });
+  scroll_to_top.on('click', function (e) {
+    e.preventDefault();
+    $('html, body').animate({
+      scrollTop: 0
+    }, '600');
+  });
+});
