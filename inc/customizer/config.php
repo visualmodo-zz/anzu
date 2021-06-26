@@ -181,27 +181,6 @@ new \Kirki\Field\Checkbox_Switch(
 	]
 );
 
-new \Kirki\Field\Dashicons(
-	[
-		'settings'    => 'anzu_scroll_to_top_icon',
-		'label'       => esc_html__( 'Icon', 'anzu' ),
-		'section'     => 'scroll_to_top_section',
-		'default'     => 'arrow-up-alt2',
-		'choices'     => [
-			'arrow-up' => 'arrow-up',
-			'arrow-up-alt' => 'arrow-up-alt',
-			'arrow-up-alt2' => 'arrow-up-alt2',
-		],
-		'active_callback' => [
-			[
-				'setting'  => 'anzu_scroll_to_top_switch',
-				'operator' => '==',
-				'value'    => true,
-			]
-		],
-	]
-);
-
 new \Kirki\Field\Select(
 	[
 		'settings'    => 'anzu_scroll_to_top_position',

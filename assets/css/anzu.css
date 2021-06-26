@@ -12908,6 +12908,7 @@ article.post .entry-footer {
 /*  *.  Scroll To Top
 /*-----------------------------------------------------------------------------------*/
 #scroll-to-top {
+  font-family: bootstrap-icons;
   text-align: center;
   position: fixed;
   transition: background-color .3s, opacity .5s, visibility .5s;
