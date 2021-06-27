@@ -18,6 +18,127 @@ Kirki :: add_config ('anzu', array (
     'option_name' => 'anzu', 
 ));
 
+
+/*-----------------------------------------------------------------------------------*/
+/*  *.  General
+/*-----------------------------------------------------------------------------------*/
+
+Kirki::add_panel( 'general', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'General Options', 'anzu' ),
+    'description' => esc_html__( 'Contains sections for all Anzu controls.', 'anzu' ),
+) );
+
+Kirki::add_section( 'general_buttons', array(
+    'title'          => esc_html__( 'Buttons', 'anzu' ),
+    'panel'          => 'general',
+    'priority'       => 160,
+) );
+
+Kirki::add_section( 'general_forms', array(
+    'title'          => esc_html__( 'Forms - Input and Textarea', 'anzu' ),
+    'panel'          => 'general',
+    'priority'       => 160,
+) );
+/*
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_general_buttons_style',
+		'label'       => esc_html__( 'Style', 'anzu' ),
+		'section'     => 'general_buttons',
+		'default'     => 'contained',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'contained' => esc_html__( 'Contained', 'anzu' ),
+			'outlined' => esc_html__( 'Outlined', 'anzu' ),
+		],
+	]
+);
+*/
+new \Kirki\Field\Slider(
+	[
+		'settings'    => 'anzu_general_buttons_border_radius',
+		'label'       => esc_html__( 'Border Radius', 'anzu' ),
+		'section'     => 'general_buttons',
+		'default'     => '3',
+		'choices'     => [
+			'min'    => 0,
+			'max'    => 100,
+			'step'   => 1,
+			'suffix' => 'px',
+		],
+		'output' => array(
+			array(
+				'element'  => '.btn',
+				'property' => 'border-radius',
+				'units'    => 'px',
+			),
+		),
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_general_buttons_padding',
+		'label'       => esc_html__( 'Padding', 'anzu' ),
+		'section'     => 'general_buttons',
+		'default'     => [
+			'padding-top'    => '6px',
+			'padding-bottom' => '6px',
+			'padding-left'   => '12px',
+			'padding-right'  => '12px',
+		],
+		'output'      => [
+			[
+				'element' => '
+				.btn:not(.anzu-read-more-link)',
+			],
+		],
+	]
+);
+
+new \Kirki\Field\Slider(
+	[
+		'settings'    => 'anzu_general_forms_border_radius',
+		'label'       => esc_html__( 'Border Radius', 'anzu' ),
+		'section'     => 'general_forms',
+		'default'     => '3',
+		'choices'     => [
+			'min'    => 0,
+			'max'    => 100,
+			'step'   => 1,
+			'suffix' => 'px',
+		],
+		'output' => array(
+			array(
+				'element'  => '.form-control',
+				'property' => 'border-radius',
+				'units'    => 'px',
+			),
+		),
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_general_forms_padding',
+		'label'       => esc_html__( 'Padding', 'anzu' ),
+		'section'     => 'general_forms',
+		'default'     => [
+			'padding-top'    => '6px',
+			'padding-bottom' => '6px',
+			'padding-left'   => '12px',
+			'padding-right'  => '12px',
+		],
+		'output'      => [
+			[
+				'element' => '.form-control',
+			],
+		],
+	]
+);
+
+
 /*-----------------------------------------------------------------------------------*/
 /*  *.  Colors
 /*-----------------------------------------------------------------------------------*/
