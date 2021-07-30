@@ -101,6 +101,9 @@ if ( ! function_exists( 'anzu_setup' ) ) {
 		// Check and setup theme default settings.
 		anzu_setup_theme_default_settings();
 
+		// Add Template Editor
+		add_theme_support( 'block-templates' );
+
 	}
 }
 
