@@ -14,6 +14,7 @@ $container = get_theme_mod( 'anzu_layout_type', 'container' );
 $anzu_header_dark_mode = get_theme_mod( 'anzu_header_dark_mode', '' ) ? 'anzu-dark-mode' : 'anzu-light-mode';
 $navbar_theme_mode = $anzu_header_dark_mode == 'anzu-light-mode' ? 'navbar-light' : 'navbar-dark';
 $anzu_scroll_to_top_switch = get_theme_mod( 'anzu_scroll_to_top_switch', '1' );
+$anzu_header_general_search = get_theme_mod( 'anzu_header_general_search', '1' );
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -91,6 +92,23 @@ if ( $anzu_scroll_to_top_switch ) {
 				);
 				?>
 			<?php if ( 'container' === $container ) : ?>
+
+				<?php if ( $anzu_header_general_search ) { ?>
+					<div class="anzu-header--search btn-group">
+						<div class="dropdown-toggle" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+							<i class="bi bi-search"></i>
+						</div>
+						<ul style="width:260px;" class="dropdown-menu dropdown-menu-start dropdown-menu-lg-end">
+							<form method="get" class="py-2 px-3" id="searchform" action="<?php echo esc_url( home_url( '/' ) ); ?>" role="search">
+								<label class="visually-hidden-focusable" for="s"><?php esc_html_e( 'Search', 'anzu' ); ?></label>
+								<div class="input-group">
+									<input class="field form-control" id="s" name="s" type="text" placeholder="<?php esc_attr_e( 'Search &hellip;', 'anzu' ); ?>" value="<?php the_search_query(); ?>">
+								</div>
+							</form>
+						</ul>
+					</div>
+				<?php } ?>
+
 			</div><!-- .container -->
 			<?php endif; ?>
 

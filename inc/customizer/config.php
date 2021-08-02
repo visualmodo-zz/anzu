@@ -140,6 +140,86 @@ new \Kirki\Field\Dimensions(
 
 
 /*-----------------------------------------------------------------------------------*/
+/*  *.  Header
+/*-----------------------------------------------------------------------------------*/
+
+Kirki::add_panel( 'header', array(
+    'priority'    => 10,
+    'title'       => esc_html__( 'Header', 'anzu' ),
+) );
+
+Kirki::add_section( 'header_general_section', array(
+    'title'          => esc_html__( 'General', 'anzu' ),
+    'panel'          => 'header',
+    'priority'       => 160,
+) );
+/*
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_header_general_cart',
+		'label'       => esc_html__( 'Cart', 'anzu' ),
+		'section'     => 'header_general_section',
+		'default'     => true,
+	]
+);
+*/
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_header_general_search',
+		'label'       => esc_html__( 'Search', 'anzu' ),
+		'section'     => 'header_general_section',
+		'default'     => true,
+	]
+);
+/*
+Kirki::add_section( 'header_branding_section', array(
+    'title'          => esc_html__( 'Branding', 'anzu' ),
+    'panel'          => 'header',
+    'priority'       => 160,
+) );
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_default_light_logo',
+		'label'       => esc_html__( 'Default Logo', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_branding_section',
+		'default'     => '',
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_transparent_light_logo',
+		'label'       => esc_html__( 'Transparent Logo', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_branding_section',
+		'default'     => '',
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_sticky_light_logo',
+		'label'       => esc_html__( 'Sticky Header Logo', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_branding_section',
+		'default'     => '',
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_mobile_light_logo',
+		'label'       => esc_html__( 'Mobile Logo', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_branding_section',
+		'default'     => '',
+	]
+);
+*/
+
+/*-----------------------------------------------------------------------------------*/
 /*  *.  Colors
 /*-----------------------------------------------------------------------------------*/
 
