@@ -24,6 +24,19 @@ if ( ! function_exists( 'anzu_woocommerce_support' ) ) {
 		// Add Bootstrap classes to form fields.
 		add_filter( 'woocommerce_form_field_args', 'anzu_wc_form_field_args', 10, 3 );
 		add_filter( 'woocommerce_quantity_input_classes', 'anzu_quantity_input_classes' );
+
+		add_filter('wp_head', 'hide_empty_cart_contents_count');
+		function hide_empty_cart_contents_count() {
+			global $woocommerce;
+			$items = $woocommerce->cart->get_cart();
+			if( count($items) == 0 || empty($items) ) {
+				?>
+				<style>
+					.cart-content-count { display: none !important; }
+				</style>
+				<?php
+			}
+		}
 	}
 }
 

@@ -153,7 +153,7 @@ Kirki::add_section( 'header_general_section', array(
     'panel'          => 'header',
     'priority'       => 160,
 ) );
-/*
+
 new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'anzu_header_general_cart',
@@ -162,7 +162,7 @@ new \Kirki\Field\Checkbox_Switch(
 		'default'     => true,
 	]
 );
-*/
+
 new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'anzu_header_general_search',
