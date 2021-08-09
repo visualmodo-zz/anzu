@@ -48,31 +48,31 @@ class Dimensions extends Field {
 		$config_id        = isset( $args['kirki_config'] ) ? $args['kirki_config'] : 'global';
 
 		$labels = [
-			'left-top'       => esc_html__( 'Left Top', 'anzu' ),
-			'left-center'    => esc_html__( 'Left Center', 'anzu' ),
-			'left-bottom'    => esc_html__( 'Left Bottom', 'anzu' ),
-			'right-top'      => esc_html__( 'Right Top', 'anzu' ),
-			'right-center'   => esc_html__( 'Right Center', 'anzu' ),
-			'right-bottom'   => esc_html__( 'Right Bottom', 'anzu' ),
-			'center-top'     => esc_html__( 'Center Top', 'anzu' ),
-			'center-center'  => esc_html__( 'Center Center', 'anzu' ),
-			'center-bottom'  => esc_html__( 'Center Bottom', 'anzu' ),
-			'font-size'      => esc_html__( 'Font Size', 'anzu' ),
-			'font-weight'    => esc_html__( 'Font Weight', 'anzu' ),
-			'line-height'    => esc_html__( 'Line Height', 'anzu' ),
-			'font-style'     => esc_html__( 'Font Style', 'anzu' ),
-			'letter-spacing' => esc_html__( 'Letter Spacing', 'anzu' ),
-			'word-spacing'   => esc_html__( 'Word Spacing', 'anzu' ),
-			'top'            => esc_html__( 'Top', 'anzu' ),
-			'bottom'         => esc_html__( 'Bottom', 'anzu' ),
-			'left'           => esc_html__( 'Left', 'anzu' ),
-			'right'          => esc_html__( 'Right', 'anzu' ),
-			'center'         => esc_html__( 'Center', 'anzu' ),
-			'size'           => esc_html__( 'Size', 'anzu' ),
-			'spacing'        => esc_html__( 'Spacing', 'anzu' ),
-			'width'          => esc_html__( 'Width', 'anzu' ),
-			'height'         => esc_html__( 'Height', 'anzu' ),
-			'invalid-value'  => esc_html__( 'Invalid Value', 'anzu' ),
+			'left-top'       => esc_html__( 'Left Top', 'kirki' ),
+			'left-center'    => esc_html__( 'Left Center', 'kirki' ),
+			'left-bottom'    => esc_html__( 'Left Bottom', 'kirki' ),
+			'right-top'      => esc_html__( 'Right Top', 'kirki' ),
+			'right-center'   => esc_html__( 'Right Center', 'kirki' ),
+			'right-bottom'   => esc_html__( 'Right Bottom', 'kirki' ),
+			'center-top'     => esc_html__( 'Center Top', 'kirki' ),
+			'center-center'  => esc_html__( 'Center Center', 'kirki' ),
+			'center-bottom'  => esc_html__( 'Center Bottom', 'kirki' ),
+			'font-size'      => esc_html__( 'Font Size', 'kirki' ),
+			'font-weight'    => esc_html__( 'Font Weight', 'kirki' ),
+			'line-height'    => esc_html__( 'Line Height', 'kirki' ),
+			'font-style'     => esc_html__( 'Font Style', 'kirki' ),
+			'letter-spacing' => esc_html__( 'Letter Spacing', 'kirki' ),
+			'word-spacing'   => esc_html__( 'Word Spacing', 'kirki' ),
+			'top'            => esc_html__( 'Top', 'kirki' ),
+			'bottom'         => esc_html__( 'Bottom', 'kirki' ),
+			'left'           => esc_html__( 'Left', 'kirki' ),
+			'right'          => esc_html__( 'Right', 'kirki' ),
+			'center'         => esc_html__( 'Center', 'kirki' ),
+			'size'           => esc_html__( 'Size', 'kirki' ),
+			'spacing'        => esc_html__( 'Spacing', 'kirki' ),
+			'width'          => esc_html__( 'Width', 'kirki' ),
+			'height'         => esc_html__( 'Height', 'kirki' ),
+			'invalid-value'  => esc_html__( 'Invalid Value', 'kirki' ),
 		];
 
 		/**
@@ -172,7 +172,7 @@ class Dimensions extends Field {
 	 * @return void
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'kirki-field-dimensions', URL::get_from_path( __DIR__ . '/customizer.css' ), [], '1.0' );
+		wp_enqueue_style( 'kirki-field-dimensions', URL::get_from_path( __DIR__ . '/style.css' ), [], '1.0' );
 	}
 
 	/**

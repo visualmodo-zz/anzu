@@ -46,7 +46,7 @@ final class GoogleFonts {
 	 * @return void
 	 */
 	public function print_googlefonts_json( $die = true ) {
-		require_once ANZU_INC_DIR . 'customizer/packages/kirki-framework/googlefonts/src/webfonts.json'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
+		include 'webfonts.json'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 		if ( function_exists( 'wp_die' ) && $die ) {
 			wp_die();
 		}
@@ -60,7 +60,7 @@ final class GoogleFonts {
 	 */
 	public function get_array() {
 		ob_start();
-		require_once ANZU_INC_DIR . 'customizer/packages/kirki-framework/googlefonts/src/webfonts.json'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
+		include 'webfonts.json'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 		return json_decode( ob_get_clean(), true );
 	}
 

@@ -6,7 +6,7 @@ Tags: blog, e-commerce, portfolio, grid-layout, one-column, two-columns, three-c
 Requires at least: 5.6
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 0.2.1
+Stable tag: 0.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,10 @@ Anzu. It has a wide range of incredible features and amazing tools for every web
 Anzu includes support for Elementor, WooCommerce and WPbakery.
 
 == Changelog ==
+
+= 0.2.2 - Ago 09 2021 =
+* New - Header Branding
+* Updated - Kirki Framework - v3.1.9
 
 = 0.2.1 - Ago 02 2021 =
 * New - Header Cart

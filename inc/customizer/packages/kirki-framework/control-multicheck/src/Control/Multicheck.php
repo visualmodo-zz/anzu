@@ -61,7 +61,7 @@ class MultiCheck extends Base {
 		wp_enqueue_script( 'kirki-control-multicheck', URL::get_from_path( dirname( __DIR__ ) . '/assets/scripts/control.js' ), [ 'jquery', 'customize-base', 'kirki-dynamic-control' ], self::$control_ver, false );
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-multicheck-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/customizer.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-multicheck-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/style.css' ), [], self::$control_ver );
 	}
 
 	/**

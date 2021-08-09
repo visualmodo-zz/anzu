@@ -59,7 +59,7 @@ class Checkbox_Switch extends Base {
 		wp_enqueue_script( 'kirki-control-checkbox', URL::get_from_path( dirname( __DIR__ ) . '/assets/scripts/control.js' ), [ 'jquery', 'customize-base', 'kirki-dynamic-control' ], self::$control_ver, false );
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-checkbox-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/customizer.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-checkbox-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/style.css' ), [], self::$control_ver );
 	}
 
 	/**
@@ -87,11 +87,11 @@ class Checkbox_Switch extends Base {
 			<input class="screen-reader-text kirki-switch-input" {{{ data.inputAttrs }}} name="switch_{{ data.id }}" id="switch_{{ data.id }}" type="checkbox" value="{{ data.value }}" {{{ data.link }}}<# if ( '1' == data.value ) { #> checked<# } #> />
 			<label class="switch-label" for="switch_{{ data.id }}">
 				<span class="toggle-on">
-					<# data.choices.on = data.choices.on || '<?php esc_html_e( 'On', 'anzu' ); ?>' #>
+					<# data.choices.on = data.choices.on || '<?php esc_html_e( 'On', 'kirki' ); ?>' #>
 					{{ data.choices.on }}
 				</span>
 				<span class="toggle-off">
-					<# data.choices.off = data.choices.off || '<?php esc_html_e( 'Off', 'anzu' ); ?>' #>
+					<# data.choices.off = data.choices.off || '<?php esc_html_e( 'Off', 'kirki' ); ?>' #>
 					{{ data.choices.off }}
 				</span>
 			</label>

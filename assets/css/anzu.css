@@ -12891,7 +12891,28 @@ a.skip-link {
 /*  *.  Brand
 /*-----------------------------------------------------------------------------------*/
 .anzu-brand__url {
-  text-decoration: none; }
+  display: flex;
+  align-items: center; }
+
+.anzu-brand__title {
+  font-size: 1.5rem; }
+
+.anzu-brand--logo-title-tagline-right .anzu-brand__img {
+  margin-right: 1rem; }
+
+.anzu-brand--logo-title-tagline-left .anzu-brand__img {
+  margin-left: 1rem; }
+
+.anzu-brand--logo-title-tagline-left .anzu-brand__url {
+  flex-direction: row-reverse; }
+
+.anzu-brand--logo-title-tagline-down .anzu-brand__url {
+  flex-direction: column; }
+
+.anzu-brand--logo-title-tagline-down .anzu-brand__title-tagline {
+  display: flex;
+  flex-direction: column;
+  align-items: center; }
 
 /*-----------------------------------------------------------------------------------*/
 /*  *.  Main Nav - Header Style
@@ -13053,6 +13074,25 @@ body:not(.woocommerce-page) .widget_shopping_cart_content {
   cursor: pointer;
   padding: 0 .5rem; }
   .anzu-header--search .dropdown-toggle:after {
+    display: none; }
+  .anzu-header--search .input-group input.form-control, .anzu-header--search .input-group .wpcf7 input[type=text], .wpcf7 .anzu-header--search .input-group input[type=text],
+  .anzu-header--search .input-group .wpcf7 input[type=search], .wpcf7 .anzu-header--search .input-group input[type=search],
+  .anzu-header--search .input-group .wpcf7 input[type=url], .wpcf7 .anzu-header--search .input-group input[type=url],
+  .anzu-header--search .input-group .wpcf7 input[type=tel], .wpcf7 .anzu-header--search .input-group input[type=tel],
+  .anzu-header--search .input-group .wpcf7 input[type=number], .wpcf7 .anzu-header--search .input-group input[type=number],
+  .anzu-header--search .input-group .wpcf7 input[type=range], .wpcf7 .anzu-header--search .input-group input[type=range],
+  .anzu-header--search .input-group .wpcf7 input[type=date], .wpcf7 .anzu-header--search .input-group input[type=date],
+  .anzu-header--search .input-group .wpcf7 input[type=month], .wpcf7 .anzu-header--search .input-group input[type=month],
+  .anzu-header--search .input-group .wpcf7 input[type=week], .wpcf7 .anzu-header--search .input-group input[type=week],
+  .anzu-header--search .input-group .wpcf7 input[type=time], .wpcf7 .anzu-header--search .input-group input[type=time],
+  .anzu-header--search .input-group .wpcf7 input[type=datetime], .wpcf7 .anzu-header--search .input-group input[type=datetime],
+  .anzu-header--search .input-group .wpcf7 input[type=datetime-local], .wpcf7 .anzu-header--search .input-group input[type=datetime-local],
+  .anzu-header--search .input-group .wpcf7 input[type=color], .wpcf7 .anzu-header--search .input-group input[type=color],
+  .anzu-header--search .input-group .wpcf7 input[type=email], .wpcf7 .anzu-header--search .input-group input[type=email],
+  .anzu-header--search .input-group .wpcf7 input[type=file], .wpcf7 .anzu-header--search .input-group input[type=file],
+  .anzu-header--search .input-group .wpcf7 input[type=submit], .wpcf7 .anzu-header--search .input-group input[type=submit], .anzu-header--search .input-group .wpcf7 input.wpcf7-validation-errors, .wpcf7 .anzu-header--search .input-group input.wpcf7-validation-errors {
+    border-radius: 3px; }
+  .anzu-header--search .input-group input.submit {
     display: none; }
 
 /*-----------------------------------------------------------------------------------*/

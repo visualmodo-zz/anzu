@@ -171,29 +171,105 @@ new \Kirki\Field\Checkbox_Switch(
 		'default'     => true,
 	]
 );
-/*
+
 Kirki::add_section( 'header_branding_section', array(
     'title'          => esc_html__( 'Branding', 'anzu' ),
     'panel'          => 'header',
     'priority'       => 160,
 ) );
 
+new \Kirki\Field\Radio_Image(
+	[
+		'settings'    => 'anzu_brand_display',
+		'label'       => esc_html__( 'Display', 'anzu' ),
+		'section'     => 'header_branding_section',
+		'default'     => 'anzu-brand--logo-title-tagline-right',
+		'choices'     => [
+			'anzu-brand--just-logo'                => ANZU_THEME_URI . '/inc/customizer./assets/img/just-logo.png',
+			'anzu-brand--logo-title-tagline-right' => ANZU_THEME_URI . '/inc/customizer./assets/img/logo-title-tagline-right.png',
+			'anzu-brand--logo-title-tagline-left'  => ANZU_THEME_URI . '/inc/customizer./assets/img/logo-title-tagline-left.png',
+			'anzu-brand--logo-title-tagline-down'  => ANZU_THEME_URI . '/inc/customizer./assets/img/logo-title-tagline-down.png',
+		],
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_logo_switch',
+		'label'       => esc_html__( 'Logo', 'anzu' ),
+		'section'     => 'header_branding_section',
+		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_site_title_switch',
+		'label'       => esc_html__( 'Site Title', 'anzu' ),
+		'section'     => 'header_branding_section',
+		'default'     => true,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_tagline_switch',
+		'label'       => esc_html__( 'Tagline', 'anzu' ),
+		'section'     => 'header_branding_section',
+		'default'     => false,
+	]
+);
+
+Kirki::add_section( 'header_light_logo_section', array(
+    'title'          => esc_html__( 'Light Logo', 'anzu' ),
+	'panel'          => 'header',
+    'priority'       => 160,
+) );
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_retina_light_logo_switch',
+		'label'       => esc_html__( 'Retina Logo', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => false,
+	]
+);
+
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'anzu_default_light_logo',
-		'label'       => esc_html__( 'Default Logo', 'anzu' ),
+		'settings'    => 'anzu_light_logo',
+		'label'       => esc_html__( 'Logo', 'anzu' ),
 		'description' => esc_html__( 'Select logo.', 'anzu' ),
-		'section'     => 'header_branding_section',
+		'section'     => 'header_light_logo_section',
 		'default'     => '',
 	]
 );
 
 new \Kirki\Field\Image(
 	[
+		'settings'    => 'anzu_retina_light_logo',
+		'label'       => esc_html__( 'Retina Logo', 'anzu' ),
+		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_retina_light_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+/*
+
+new \Kirki\Field\Image(
+	[
 		'settings'    => 'anzu_transparent_light_logo',
 		'label'       => esc_html__( 'Transparent Logo', 'anzu' ),
 		'description' => esc_html__( 'Select logo.', 'anzu' ),
-		'section'     => 'header_branding_section',
+		'section'     => 'header_light_logo_section',
 		'default'     => '',
 	]
 );
@@ -203,21 +279,138 @@ new \Kirki\Field\Image(
 		'settings'    => 'anzu_sticky_light_logo',
 		'label'       => esc_html__( 'Sticky Header Logo', 'anzu' ),
 		'description' => esc_html__( 'Select logo.', 'anzu' ),
-		'section'     => 'header_branding_section',
+		'section'     => 'header_light_logo_section',
 		'default'     => '',
 	]
 );
+
+*/
 
 new \Kirki\Field\Image(
 	[
 		'settings'    => 'anzu_mobile_light_logo',
 		'label'       => esc_html__( 'Mobile Logo', 'anzu' ),
 		'description' => esc_html__( 'Select logo.', 'anzu' ),
-		'section'     => 'header_branding_section',
+		'section'     => 'header_light_logo_section',
 		'default'     => '',
 	]
 );
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_retina_mobile_light_logo',
+		'label'       => esc_html__( 'Retina Mobile Logo', 'anzu' ),
+		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_retina_light_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+
+
+
+
+
+Kirki::add_section( 'header_dark_logo_section', array(
+    'title'          => esc_html__( 'Dark Logo', 'anzu' ),
+	'panel'          => 'header',
+    'priority'       => 160,
+) );
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_retina_dark_logo_switch',
+		'label'       => esc_html__( 'Retina Logo', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_dark_logo',
+		'label'       => esc_html__( 'Logo', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => '',
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_retina_dark_logo',
+		'label'       => esc_html__( 'Retina Logo', 'anzu' ),
+		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_retina_dark_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+/*
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_transparent_dark_logo',
+		'label'       => esc_html__( 'Transparent Logo', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => '',
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_sticky_dark_logo',
+		'label'       => esc_html__( 'Sticky Header Logo', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => '',
+	]
+);
+
 */
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_mobile_dark_logo',
+		'label'       => esc_html__( 'Mobile Logo', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => '',
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_retina_mobile_dark_logo',
+		'label'       => esc_html__( 'Retina Mobile Logo', 'anzu' ),
+		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_retina_dark_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
 
 /*-----------------------------------------------------------------------------------*/
 /*  *.  Colors
@@ -629,7 +822,7 @@ new \Kirki\Field\Color(
 			array(
 				'element'  => '
 				.anzu-primary-color--color, 
-				.anzu-light-mode a.anzu-brand__url,
+				.anzu-light-mode a.anzu-brand__title,
 				.anzu-light-mode #main-menu .nav-item.active .nav-link, 
 				.anzu-light-mode #main-menu .nav-item:not(.active):hover > .nav-link, 
 				.anzu-light-mode #main-menu .dropdown .dropdown-item:hover, 
@@ -738,6 +931,8 @@ new \Kirki\Field\Color(
 		'output' => array(
 			array(
 				'element'  => '
+				.anzu-light-mode .anzu-brand__title,
+				.anzu-light-mode .anzu-brand__tagline,
 				.anzu-light-mode h1, 
 				.anzu-light-mode h2, 
 				.anzu-light-mode h3, 
@@ -987,6 +1182,8 @@ new \Kirki\Field\Color(
 		'output' => array(
 			array(
 				'element'  => '
+				.anzu-dark-mode .anzu-brand__title,
+				.anzu-dark-mode .anzu-brand__tagline,
 				.anzu-dark-mode h1, 
 				.anzu-dark-mode h2, 
 				.anzu-dark-mode h3, 
@@ -2316,7 +2513,7 @@ new \Kirki\Field\Checkbox_Switch(
 
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'anzu_title_switch',
+		'settings'    => 'anzu_footer_site_title_switch',
 		'label'       => esc_html__( 'Enable Site Title', 'anzu' ),
 		'section'     => 'footer_bottom_section',
 		'default'     => false,

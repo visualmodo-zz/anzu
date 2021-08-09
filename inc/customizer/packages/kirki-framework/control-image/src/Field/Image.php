@@ -108,13 +108,13 @@ class Image extends Field {
 			$args['button_labels'] = wp_parse_args(
 				$args['button_labels'],
 				[
-					'select'       => esc_html__( 'Select image', 'anzu' ),
-					'change'       => esc_html__( 'Change image', 'anzu' ),
-					'default'      => esc_html__( 'Default', 'anzu' ),
-					'remove'       => esc_html__( 'Remove', 'anzu' ),
-					'placeholder'  => esc_html__( 'No image selected', 'anzu' ),
-					'frame_title'  => esc_html__( 'Select image', 'anzu' ),
-					'frame_button' => esc_html__( 'Choose image', 'anzu' ),
+					'select'       => esc_html__( 'Select image', 'kirki' ),
+					'change'       => esc_html__( 'Change image', 'kirki' ),
+					'default'      => esc_html__( 'Default', 'kirki' ),
+					'remove'       => esc_html__( 'Remove', 'kirki' ),
+					'placeholder'  => esc_html__( 'No image selected', 'kirki' ),
+					'frame_title'  => esc_html__( 'Select image', 'kirki' ),
+					'frame_button' => esc_html__( 'Choose image', 'kirki' ),
 				]
 			);
 

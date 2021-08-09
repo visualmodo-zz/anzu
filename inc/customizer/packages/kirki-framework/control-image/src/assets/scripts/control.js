@@ -95,7 +95,7 @@ wp.customize.controlConstructor['kirki-image'] = wp.customize.kirkiDynamicContro
 			defaultButton = control.container.find( '.image-default-button' );
 
 			if ( preview.length ) {
-				preview.removeClass().addClass( 'placeholder' ).html( wp.i18n.__( 'No image selected', 'anzu' ) );
+				preview.removeClass().addClass( 'placeholder' ).html( wp.i18n.__( 'No image selected', 'kirki' ) );
 			}
 			if ( removeButton.length ) {
 				removeButton.hide();

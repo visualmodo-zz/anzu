@@ -42,5 +42,3 @@
   display: inline-block; }
 .customize-control-kirki-switch .kirki-switch-input:checked + .switch-label .toggle-off {
   display: none; }
-
-

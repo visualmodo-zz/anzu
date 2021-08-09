@@ -93,7 +93,7 @@ class Repeater extends Base {
 		// Set up defaults for row labels.
 		$this->row_label = [
 			'type'  => 'text',
-			'value' => esc_attr__( 'row', 'anzu' ),
+			'value' => esc_attr__( 'row', 'kirki' ),
 			'field' => false,
 		];
 
@@ -102,7 +102,7 @@ class Repeater extends Base {
 
 		if ( empty( $this->button_label ) ) {
 			/* translators: %s represents the label of the row. */
-			$this->button_label = sprintf( esc_html__( 'Add new %s', 'anzu' ), $this->row_label['value'] );
+			$this->button_label = sprintf( esc_html__( 'Add new %s', 'kirki' ), $this->row_label['value'] );
 		}
 
 		if ( empty( $args['fields'] ) || ! is_array( $args['fields'] ) ) {
@@ -137,7 +137,7 @@ class Repeater extends Base {
 							[
 								'name'              => '',
 								'echo'              => 0,
-								'show_option_none'  => esc_html__( 'Select a Page', 'anzu' ),
+								'show_option_none'  => esc_html__( 'Select a Page', 'kirki' ),
 								'option_none_value' => '0',
 								'selected'          => '',
 							]
@@ -215,7 +215,7 @@ class Repeater extends Base {
 		wp_enqueue_script( 'kirki-control-repeater', URL::get_from_path( dirname( __DIR__ ) . '/assets/scripts/control.js' ), [ 'jquery', 'customize-base' ], self::$control_ver, false );
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-repeater-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/customizer.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-repeater-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/style.css' ), [], self::$control_ver );
 	}
 
 	/**
@@ -264,7 +264,7 @@ class Repeater extends Base {
 
 		<?php if ( isset( $this->choices['limit'] ) ) : ?>
 			<?php /* translators: %s represents the number of rows we're limiting the repeater to allow. */ ?>
-			<p class="limit"><?php printf( esc_html__( 'Limit: %s rows', 'anzu' ), esc_html( $this->choices['limit'] ) ); ?></p>
+			<p class="limit"><?php printf( esc_html__( 'Limit: %s rows', 'kirki' ), esc_html( $this->choices['limit'] ) ); ?></p>
 		<?php endif; ?>
 		<button class="button-secondary repeater-add"><?php echo esc_html( $this->button_label ); ?></button>
 
@@ -413,22 +413,22 @@ class Repeater extends Base {
 									<# if ( field.description ) { #><span class="description customize-control-description">{{{ field.description }}}</span><# } #>
 								</label>
 
-								<figure class="kirki-image-attachment" data-placeholder="<?php esc_attr_e( 'No Image Selected', 'anzu' ); ?>" >
+								<figure class="kirki-image-attachment" data-placeholder="<?php esc_attr_e( 'No Image Selected', 'kirki' ); ?>" >
 									<# if ( field.default ) { #>
 										<# var defaultImageURL = ( field.default.url ) ? field.default.url : field.default; #>
 										<img src="{{{ defaultImageURL }}}">
 									<# } else { #>
-										<?php esc_html_e( 'No Image Selected', 'anzu' ); ?>
+										<?php esc_html_e( 'No Image Selected', 'kirki' ); ?>
 									<# } #>
 								</figure>
 
 								<div class="actions">
-									<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'anzu' ); ?></button>
-									<button type="button" class="button upload-button" data-label=" <?php esc_attr_e( 'Add Image', 'anzu' ); ?>" data-alt-label="<?php echo esc_attr_e( 'Change Image', 'anzu' ); ?>" >
+									<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'kirki' ); ?></button>
+									<button type="button" class="button upload-button" data-label=" <?php esc_attr_e( 'Add Image', 'kirki' ); ?>" data-alt-label="<?php echo esc_attr_e( 'Change Image', 'kirki' ); ?>" >
 										<# if ( field.default ) { #>
-											<?php esc_html_e( 'Change Image', 'anzu' ); ?>
+											<?php esc_html_e( 'Change Image', 'kirki' ); ?>
 										<# } else { #>
-											<?php esc_html_e( 'Add Image', 'anzu' ); ?>
+											<?php esc_html_e( 'Add Image', 'kirki' ); ?>
 										<# } #>
 									</button>
 									<# if ( field.default.id ) { #>
@@ -445,22 +445,22 @@ class Repeater extends Base {
 									<# if ( field.description ) { #><span class="description customize-control-description">{{{ field.description }}}</span><# } #>
 								</label>
 
-								<figure class="kirki-file-attachment" data-placeholder="<?php esc_attr_e( 'No File Selected', 'anzu' ); ?>" >
+								<figure class="kirki-file-attachment" data-placeholder="<?php esc_attr_e( 'No File Selected', 'kirki' ); ?>" >
 									<# if ( field.default ) { #>
 										<# var defaultFilename = ( field.default.filename ) ? field.default.filename : field.default; #>
 										<span class="file"><span class="dashicons dashicons-media-default"></span> {{ defaultFilename }}</span>
 									<# } else { #>
-										<?php esc_html_e( 'No File Selected', 'anzu' ); ?>
+										<?php esc_html_e( 'No File Selected', 'kirki' ); ?>
 									<# } #>
 								</figure>
 
 								<div class="actions">
-									<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'anzu' ); ?></button>
-									<button type="button" class="button upload-button" data-label="<?php esc_attr_e( 'Add File', 'anzu' ); ?>" data-alt-label="<?php esc_attr_e( 'Change File', 'anzu' ); ?>">
+									<button type="button" class="button remove-button<# if ( ! field.default ) { #> hidden<# } #>"><?php esc_html_e( 'Remove', 'kirki' ); ?></button>
+									<button type="button" class="button upload-button" data-label="<?php esc_attr_e( 'Add File', 'kirki' ); ?>" data-alt-label="<?php esc_attr_e( 'Change File', 'kirki' ); ?>">
 										<# if ( field.default ) { #>
-											<?php esc_html_e( 'Change File', 'anzu' ); ?>
+											<?php esc_html_e( 'Change File', 'kirki' ); ?>
 										<# } else { #>
-											<?php esc_html_e( 'Add File', 'anzu' ); ?>
+											<?php esc_html_e( 'Add File', 'kirki' ); ?>
 										<# } #>
 									</button>
 									<# if ( field.default.id ) { #>
@@ -480,7 +480,7 @@ class Repeater extends Base {
 
 						</div>
 					<# }); #>
-					<button type="button" class="button-link repeater-row-remove"><?php esc_html_e( 'Remove', 'anzu' ); ?></button>
+					<button type="button" class="button-link repeater-row-remove"><?php esc_html_e( 'Remove', 'kirki' ); ?></button>
 				</div>
 			</li>
 		</script>

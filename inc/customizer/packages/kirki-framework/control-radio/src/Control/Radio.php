@@ -53,7 +53,7 @@ class Radio extends Base {
 		wp_enqueue_script( 'kirki-control-radio', URL::get_from_path( dirname( __DIR__ ) . '/assets/scripts/control.js' ), [ 'jquery', 'customize-base', 'kirki-dynamic-control' ], self::$control_ver, false );
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-radio-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/customizer.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-radio-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/style.css' ), [], self::$control_ver );
 	}
 
 	/**

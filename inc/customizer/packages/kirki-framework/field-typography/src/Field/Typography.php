@@ -154,11 +154,11 @@ class Typography extends Field {
 
 			$choices     = [
 				'standard' => [
-					esc_html__( 'Standard Fonts', 'anzu' ),
+					esc_html__( 'Standard Fonts', 'kirki' ),
 					$std_fonts,
 				],
 				'google'   => [
-					esc_html__( 'Google Fonts', 'anzu' ),
+					esc_html__( 'Google Fonts', 'kirki' ),
 					array_combine( array_values( $g_fonts ), array_values( $g_fonts ) ),
 				],
 			];
@@ -177,7 +177,7 @@ class Typography extends Field {
 			new \Kirki\Field\ReactSelect(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Font Family', 'anzu' ),
+						'label'       => esc_html__( 'Font Family', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[font-family]',
 						'default'     => isset( $args['default']['font-family'] ) ? $args['default']['font-family'] : '',
@@ -202,21 +202,21 @@ class Typography extends Field {
 			new \Kirki\Field\ReactSelect(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Font Weight', 'anzu' ),
+						'label'       => esc_html__( 'Font Weight', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[font-weight]',
 						'default'     => $font_weight,
 						'input_attrs' => $this->filter_preferred_choice_setting( 'input_attrs', 'font-weight', $args ),
 						'choices'     => [
-							'100' => esc_html__( '100 - Thin', 'anzu' ),
-							'200' => esc_html__( '200 - Extra Light, Ultra Light', 'anzu' ),
-							'300' => esc_html__( '300 - Light', 'anzu' ),
-							'400' => esc_html__( '400 - Normal, Book, Regular', 'anzu' ),
-							'500' => esc_html__( '500 - Medium', 'anzu' ),
-							'600' => esc_html__( '600 - Semi Bold, Demi Bold', 'anzu' ),
-							'700' => esc_html__( '700 - Bold', 'anzu' ),
-							'800' => esc_html__( '800 - Extra Bold, Ultra Bold', 'anzu' ),
-							'900' => esc_html__( '900 - Black, Heavy', 'anzu' ),
+							'100' => esc_html__( '100 - Thin', 'kirki' ),
+							'200' => esc_html__( '200 - Extra Light, Ultra Light', 'kirki' ),
+							'300' => esc_html__( '300 - Light', 'kirki' ),
+							'400' => esc_html__( '400 - Normal, Book, Regular', 'kirki' ),
+							'500' => esc_html__( '500 - Medium', 'kirki' ),
+							'600' => esc_html__( '600 - Semi Bold, Demi Bold', 'kirki' ),
+							'700' => esc_html__( '700 - Bold', 'kirki' ),
+							'800' => esc_html__( '800 - Extra Bold, Ultra Bold', 'kirki' ),
+							'900' => esc_html__( '900 - Black, Heavy', 'kirki' ),
 						],
 						'css_vars'    => [],
 						'output'      => [],
@@ -236,14 +236,14 @@ class Typography extends Field {
 				new \Kirki\Field\Radio_Buttonset(
 					wp_parse_args(
 						[
-							'label'       => esc_html__( 'Italics', 'anzu' ),
+							'label'       => esc_html__( 'Italics', 'kirki' ),
 							'description' => '',
 							'settings'    => $args['settings'] . '[font-style]',
 							'default'     => $is_italic ? 'italic' : 'normal',
 							'input_attrs' => $this->filter_preferred_choice_setting( 'input_attrs', 'font-style', $args ),
 							'choices'     => [
-								'normal' => esc_html__( 'No', 'anzu' ),
-								'italic' => esc_html__( 'Yes', 'anzu' ),
+								'normal' => esc_html__( 'No', 'kirki' ),
+								'italic' => esc_html__( 'Yes', 'kirki' ),
 							],
 							'css_vars'    => [],
 							'output'      => [],
@@ -260,14 +260,14 @@ class Typography extends Field {
 			new \Kirki\Field\Radio_Buttonset(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Underline', 'anzu' ),
+						'label'       => esc_html__( 'Underline', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[text-decoration]',
 						'default'     => $args['default']['text-decoration'],
 						'input_attrs' => $this->filter_preferred_choice_setting( 'input_attrs', 'text-decoration', $args ),
 						'choices'     => [
-							'none'      => esc_html__( 'No', 'anzu' ),
-							'underline' => esc_html__( 'Yes', 'anzu' ),
+							'none'      => esc_html__( 'No', 'kirki' ),
+							'underline' => esc_html__( 'Yes', 'kirki' ),
 						],
 						'css_vars'    => [],
 						'output'      => [],
@@ -286,7 +286,7 @@ class Typography extends Field {
 			new \Kirki\Field\Dimension(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Font Size', 'anzu' ),
+						'label'       => esc_html__( 'Font Size', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[font-size]',
 						'default'     => $args['default']['font-size'],
@@ -308,7 +308,7 @@ class Typography extends Field {
 			new \Kirki\Field\Dimension(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Line Height', 'anzu' ),
+						'label'       => esc_html__( 'Line Height', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[line-height]',
 						'default'     => $args['default']['line-height'],
@@ -327,7 +327,7 @@ class Typography extends Field {
 			new \Kirki\Field\Dimension(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Letter Spacing', 'anzu' ),
+						'label'       => esc_html__( 'Letter Spacing', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[letter-spacing]',
 						'default'     => $args['default']['letter-spacing'],
@@ -346,7 +346,7 @@ class Typography extends Field {
 			new \Kirki\Field\Dimension(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Word Spacing', 'anzu' ),
+						'label'       => esc_html__( 'Word Spacing', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[word-spacing]',
 						'default'     => $args['default']['word-spacing'],
@@ -365,16 +365,16 @@ class Typography extends Field {
 			new \Kirki\Field\ReactSelect(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Text Transform', 'anzu' ),
+						'label'       => esc_html__( 'Text Transform', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[text-transform]',
 						'default'     => $args['default']['text-transform'],
 						'input_attrs' => $this->filter_preferred_choice_setting( 'input_attrs', 'text-transform', $args ),
 						'choices'     => [
-							'none'       => esc_html__( 'None', 'anzu' ),
-							'capitalize' => esc_html__( 'Capitalize', 'anzu' ),
-							'uppercase'  => esc_html__( 'Uppercase', 'anzu' ),
-							'lowercase'  => esc_html__( 'Lowercase', 'anzu' ),
+							'none'       => esc_html__( 'None', 'kirki' ),
+							'capitalize' => esc_html__( 'Capitalize', 'kirki' ),
+							'uppercase'  => esc_html__( 'Uppercase', 'kirki' ),
+							'lowercase'  => esc_html__( 'Lowercase', 'kirki' ),
 						],
 						'css_vars'    => [],
 						'output'      => [],
@@ -390,17 +390,17 @@ class Typography extends Field {
 			new \Kirki\Field\ReactSelect(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Text Align', 'anzu' ),
+						'label'       => esc_html__( 'Text Align', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[text-align]',
 						'default'     => $args['default']['text-align'],
 						'input_attrs' => $this->filter_preferred_choice_setting( 'input_attrs', 'text-align', $args ),
 						'choices'     => [
-							'initial' => esc_html__( 'Initial', 'anzu' ),
-							'left'    => esc_html__( 'Left', 'anzu' ),
-							'center'  => esc_html__( 'Center', 'anzu' ),
-							'right'   => esc_html__( 'Right', 'anzu' ),
-							'justify' => esc_html__( 'Justify', 'anzu' ),
+							'initial' => esc_html__( 'Initial', 'kirki' ),
+							'left'    => esc_html__( 'Left', 'kirki' ),
+							'center'  => esc_html__( 'Center', 'kirki' ),
+							'right'   => esc_html__( 'Right', 'kirki' ),
+							'justify' => esc_html__( 'Justify', 'kirki' ),
 						],
 						'css_vars'    => [],
 						'output'      => [],
@@ -416,7 +416,7 @@ class Typography extends Field {
 			new \Kirki\Field\Dimension(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Top Margin', 'anzu' ),
+						'label'       => esc_html__( 'Top Margin', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[margin-top]',
 						'default'     => $args['default']['margin-top'],
@@ -435,7 +435,7 @@ class Typography extends Field {
 			new \Kirki\Field\Dimension(
 				wp_parse_args(
 					[
-						'label'       => esc_html__( 'Bottom Margin', 'anzu' ),
+						'label'       => esc_html__( 'Bottom Margin', 'kirki' ),
 						'description' => '',
 						'settings'    => $args['settings'] . '[margin-bottom]',
 						'default'     => $args['default']['margin-bottom'],
@@ -564,7 +564,7 @@ class Typography extends Field {
 	 * @return void
 	 */
 	public function enqueue_scripts() {
-		wp_enqueue_style( 'kirki-control-typography-style', \Kirki\URL::get_from_path( dirname( __DIR__ ) . '/customizer.css' ), [], '1.0' );
+		wp_enqueue_style( 'kirki-control-typography-style', \Kirki\URL::get_from_path( dirname( __DIR__ ) . '/style.css' ), [], '1.0' );
 
 		wp_enqueue_script( 'kirki-typography', \Kirki\URL::get_from_path( dirname( __DIR__ ) . '/script.js' ), [], '1.0', true );
 		wp_localize_script( 'kirki-typography', 'kirkiTypographyControls', self::$typography_controls );
@@ -572,15 +572,15 @@ class Typography extends Field {
 			'kirki-typography',
 			'kirkiFontWeights',
 			[
-				'100' => esc_html__( '100 - Thin', 'anzu' ),
-				'200' => esc_html__( '200 - Extra Light, Ultra Light', 'anzu' ),
-				'300' => esc_html__( '300 - Light', 'anzu' ),
-				'400' => esc_html__( '400 - Normal, Book, Regular', 'anzu' ),
-				'500' => esc_html__( '500 - Medium', 'anzu' ),
-				'600' => esc_html__( '600 - Semi Bold, Demi Bold', 'anzu' ),
-				'700' => esc_html__( '700 - Bold', 'anzu' ),
-				'800' => esc_html__( '800 - Extra Bold, Ultra Bold', 'anzu' ),
-				'900' => esc_html__( '900 - Black, Heavy', 'anzu' ),
+				'100' => esc_html__( '100 - Thin', 'kirki' ),
+				'200' => esc_html__( '200 - Extra Light, Ultra Light', 'kirki' ),
+				'300' => esc_html__( '300 - Light', 'kirki' ),
+				'400' => esc_html__( '400 - Normal, Book, Regular', 'kirki' ),
+				'500' => esc_html__( '500 - Medium', 'kirki' ),
+				'600' => esc_html__( '600 - Semi Bold, Demi Bold', 'kirki' ),
+				'700' => esc_html__( '700 - Bold', 'kirki' ),
+				'800' => esc_html__( '800 - Extra Bold, Ultra Bold', 'kirki' ),
+				'900' => esc_html__( '900 - Black, Heavy', 'kirki' ),
 			]
 		);
 

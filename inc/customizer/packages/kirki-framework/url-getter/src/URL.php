@@ -122,10 +122,10 @@ class URL {
 	public function get_url() {
 
 		/**
-		 * Start by replacing ABSPATH with home_url.
+		 * Start by replacing ABSPATH with site_url.
 		 * This is not accurate at all and only serves as a fallback in case everything else fails.
 		 */
-		$this->url = \str_replace( ABSPATH, \trailingslashit( \home_url() ), $this->path );
+		$this->url = \str_replace( ABSPATH, \trailingslashit( \site_url() ), $this->path );
 
 		/**
 		 * If the file-path is inside wp-content replace the content-path with the content-url.

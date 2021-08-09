@@ -58,7 +58,7 @@ class Dashicons extends Base {
 		wp_enqueue_script( 'kirki-control-dashicons', URL::get_from_path( dirname( __DIR__ ) . '/assets/scripts/control.js' ), [ 'jquery', 'customize-base', 'kirki-dynamic-control' ], self::$control_ver, false );
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-dashicons-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/customizer.css' ), [ 'dashicons' ], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-dashicons-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/style.css' ), [ 'dashicons' ], self::$control_ver );
 	}
 
 	/**
@@ -99,21 +99,21 @@ class Dashicons extends Base {
 			<# } else { #>
 				<#
 				var dashiconSections = {
-					'admin-menu': '<?php esc_html_e( 'Admin Menu', 'anzu' ); ?>',
-					'welcome-screen': '<?php esc_html_e( 'Welcome Screen', 'anzu' ); ?>',
-					'post-formats': '<?php esc_html_e( 'Post Formats', 'anzu' ); ?>',
-					'media': '<?php esc_html_e( 'Media', 'anzu' ); ?>',
-					'image-editing': '<?php esc_html_e( 'Image Editing', 'anzu' ); ?>',
+					'admin-menu': '<?php esc_html_e( 'Admin Menu', 'kirki' ); ?>',
+					'welcome-screen': '<?php esc_html_e( 'Welcome Screen', 'kirki' ); ?>',
+					'post-formats': '<?php esc_html_e( 'Post Formats', 'kirki' ); ?>',
+					'media': '<?php esc_html_e( 'Media', 'kirki' ); ?>',
+					'image-editing': '<?php esc_html_e( 'Image Editing', 'kirki' ); ?>',
 					'tinymce': 'TinyMCE',
-					'posts': '<?php esc_html_e( 'Posts', 'anzu' ); ?>',
-					'sorting': '<?php esc_html_e( 'Sorting', 'anzu' ); ?>',
-					'social': '<?php esc_html_e( 'Social', 'anzu' ); ?>',
+					'posts': '<?php esc_html_e( 'Posts', 'kirki' ); ?>',
+					'sorting': '<?php esc_html_e( 'Sorting', 'kirki' ); ?>',
+					'social': '<?php esc_html_e( 'Social', 'kirki' ); ?>',
 					'wordpress_org': 'WordPress',
-					'products': '<?php esc_html_e( 'Products', 'anzu' ); ?>',
-					'taxonomies': '<?php esc_html_e( 'Taxonomies', 'anzu' ); ?>',
-					'widgets': '<?php esc_html_e( 'Widgets', 'anzu' ); ?>',
-					'notifications': '<?php esc_html_e( 'Notifications', 'anzu' ); ?>',
-					'misc': '<?php esc_html_e( 'Miscelaneous', 'anzu' ); ?>'
+					'products': '<?php esc_html_e( 'Products', 'kirki' ); ?>',
+					'taxonomies': '<?php esc_html_e( 'Taxonomies', 'kirki' ); ?>',
+					'widgets': '<?php esc_html_e( 'Widgets', 'kirki' ); ?>',
+					'notifications': '<?php esc_html_e( 'Notifications', 'kirki' ); ?>',
+					'misc': '<?php esc_html_e( 'Miscelaneous', 'kirki' ); ?>'
 				};
 				#>
 				<# _.each( dashiconSections, function( sectionLabel, sectionKey ) { #>

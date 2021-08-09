@@ -58,13 +58,13 @@ class Dimension extends Base {
 		wp_enqueue_script( 'kirki-control-dimension', URL::get_from_path( dirname( __DIR__ ) . '/assets/scripts/control.js' ), [ 'jquery', 'customize-base', 'kirki-dynamic-control' ], self::$control_ver, false );
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-dimension-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/customizer.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-dimension-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/style.css' ), [], self::$control_ver );
 
 		wp_localize_script(
 			'kirki-control-dimension',
 			'dimensionkirkiL10n',
 			[
-				'invalid-value' => esc_html__( 'Invalid Value', 'anzu' ),
+				'invalid-value' => esc_html__( 'Invalid Value', 'kirki' ),
 			]
 		);
 	}

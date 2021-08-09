@@ -58,7 +58,7 @@ class ReactColor extends Base {
 		wp_enqueue_script( 'kirki-control-react-color', URL::get_from_path( dirname( dirname( __DIR__ ) ) . '/dist/main.js' ), [ 'customize-controls', 'wp-element', 'jquery', 'customize-base', 'kirki-dynamic-control' ], self::$control_ver, false );
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-react-color-style', URL::get_from_path( dirname( __DIR__ ) . '/customizer.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-react-color-style', URL::get_from_path( dirname( __DIR__ ) . '/style.css' ), [], self::$control_ver );
 	}
 
 	/**

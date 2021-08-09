@@ -69,7 +69,7 @@ class Slider extends Base {
 		);
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-react-range-style', URL::get_from_path( dirname( __DIR__ ) . '/customizer.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-react-range-style', URL::get_from_path( dirname( __DIR__ ) . '/style.css' ), [], self::$control_ver );
 	}
 
 	/**

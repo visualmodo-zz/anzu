@@ -54,7 +54,7 @@ class L10n {
 	 * @param string $textdomain     The textdomain we want to use. Defaults to "kirki".
 	 * @param string $languages_path The path to languages files.
 	 */
-	public function __construct( $textdomain = 'anzu', $languages_path = '' ) {
+	public function __construct( $textdomain = 'kirki', $languages_path = '' ) {
 
 		$this->textdomain     = $textdomain;
 		$this->languages_path = $languages_path;

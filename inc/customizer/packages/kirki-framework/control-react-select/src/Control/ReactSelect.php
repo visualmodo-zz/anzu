@@ -106,7 +106,7 @@ class ReactSelect extends Base {
 		);
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-select-style', URL::get_from_path( dirname( __DIR__ ) . '/customizer.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-select-style', URL::get_from_path( dirname( __DIR__ ) . '/style.css' ), [], self::$control_ver );
 	}
 
 	/**
@@ -159,7 +159,7 @@ class ReactSelect extends Base {
 				$this->multiple = false;
 		}
 
-		$this->json['placeholder'] = ( $this->placeholder ) ? $this->placeholder : esc_html__( 'Select...', 'anzu' );
+		$this->json['placeholder'] = ( $this->placeholder ) ? $this->placeholder : esc_html__( 'Select...', 'kirki' );
 		$this->json['select_args'] = $this->select_args;
 	}
 
