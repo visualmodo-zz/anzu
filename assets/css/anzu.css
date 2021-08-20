@@ -1513,7 +1513,7 @@ progress {
   color: #6c757d; }
 
 .form-control, .widget_categories select,
-.widget_archive select, .wpcf7 input[type=text],
+.widget_archive select, .wp-block-search__input, .wpcf7 input[type=text],
 .wpcf7 input[type=search],
 .wpcf7 input[type=url],
 .wpcf7 input[type=tel],
@@ -1548,7 +1548,7 @@ progress {
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
     .form-control, .widget_categories select,
-    .widget_archive select, .wpcf7 input[type=text],
+    .widget_archive select, .wp-block-search__input, .wpcf7 input[type=text],
     .wpcf7 input[type=search],
     .wpcf7 input[type=url],
     .wpcf7 input[type=tel],
@@ -1568,7 +1568,7 @@ progress {
     .wpcf7 textarea, .wpcf7 .wpcf7-validation-errors {
       transition: none; } }
   .form-control[type="file"], .widget_categories select[type="file"],
-  .widget_archive select[type="file"], .wpcf7 input[type="file"][type=text],
+  .widget_archive select[type="file"], .wp-block-search__input[type="file"], .wpcf7 input[type="file"][type=text],
   .wpcf7 input[type="file"][type=search],
   .wpcf7 input[type="file"][type=url],
   .wpcf7 input[type="file"][type=tel],
@@ -1588,7 +1588,7 @@ progress {
   .wpcf7 textarea[type="file"], .wpcf7 .wpcf7-validation-errors[type="file"] {
     overflow: hidden; }
     .form-control[type="file"]:not(:disabled):not([readonly]), .widget_categories select[type="file"]:not(:disabled):not([readonly]),
-    .widget_archive select[type="file"]:not(:disabled):not([readonly]), .wpcf7 input[type="file"]:not(:disabled):not([readonly])[type=text],
+    .widget_archive select[type="file"]:not(:disabled):not([readonly]), .wp-block-search__input[type="file"]:not(:disabled):not([readonly]), .wpcf7 input[type="file"]:not(:disabled):not([readonly])[type=text],
     .wpcf7 input[type="file"]:not(:disabled):not([readonly])[type=search],
     .wpcf7 input[type="file"]:not(:disabled):not([readonly])[type=url],
     .wpcf7 input[type="file"]:not(:disabled):not([readonly])[type=tel],
@@ -1608,7 +1608,7 @@ progress {
     .wpcf7 textarea[type="file"]:not(:disabled):not([readonly]), .wpcf7 .wpcf7-validation-errors[type="file"]:not(:disabled):not([readonly]) {
       cursor: pointer; }
   .form-control:focus, .widget_categories select:focus,
-  .widget_archive select:focus, .wpcf7 input:focus[type=text],
+  .widget_archive select:focus, .wp-block-search__input:focus, .wpcf7 input:focus[type=text],
   .wpcf7 input:focus[type=search],
   .wpcf7 input:focus[type=url],
   .wpcf7 input:focus[type=tel],
@@ -1632,7 +1632,7 @@ progress {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(0, 0, 255, 0.25); }
   .form-control::-webkit-date-and-time-value, .widget_categories select::-webkit-date-and-time-value,
-  .widget_archive select::-webkit-date-and-time-value, .wpcf7 input[type=text]::-webkit-date-and-time-value,
+  .widget_archive select::-webkit-date-and-time-value, .wp-block-search__input::-webkit-date-and-time-value, .wpcf7 input[type=text]::-webkit-date-and-time-value,
   .wpcf7 input[type=search]::-webkit-date-and-time-value,
   .wpcf7 input[type=url]::-webkit-date-and-time-value,
   .wpcf7 input[type=tel]::-webkit-date-and-time-value,
@@ -1651,14 +1651,14 @@ progress {
   .wpcf7 select::-webkit-date-and-time-value,
   .wpcf7 textarea::-webkit-date-and-time-value, .wpcf7 .wpcf7-validation-errors::-webkit-date-and-time-value {
     height: 1.5em; }
-  .form-control::-moz-placeholder, .widget_categories select::-moz-placeholder, .widget_archive select::-moz-placeholder, .wpcf7 input[type=text]::-moz-placeholder, .wpcf7 input[type=search]::-moz-placeholder, .wpcf7 input[type=url]::-moz-placeholder, .wpcf7 input[type=tel]::-moz-placeholder, .wpcf7 input[type=number]::-moz-placeholder, .wpcf7 input[type=range]::-moz-placeholder, .wpcf7 input[type=date]::-moz-placeholder, .wpcf7 input[type=month]::-moz-placeholder, .wpcf7 input[type=week]::-moz-placeholder, .wpcf7 input[type=time]::-moz-placeholder, .wpcf7 input[type=datetime]::-moz-placeholder, .wpcf7 input[type=datetime-local]::-moz-placeholder, .wpcf7 input[type=color]::-moz-placeholder, .wpcf7 input[type=email]::-moz-placeholder, .wpcf7 input[type=file]::-moz-placeholder, .wpcf7 input[type=submit]::-moz-placeholder, .wpcf7 select::-moz-placeholder, .wpcf7 textarea::-moz-placeholder, .wpcf7 .wpcf7-validation-errors::-moz-placeholder {
+  .form-control::-moz-placeholder, .widget_categories select::-moz-placeholder, .widget_archive select::-moz-placeholder, .wp-block-search__input::-moz-placeholder, .wpcf7 input[type=text]::-moz-placeholder, .wpcf7 input[type=search]::-moz-placeholder, .wpcf7 input[type=url]::-moz-placeholder, .wpcf7 input[type=tel]::-moz-placeholder, .wpcf7 input[type=number]::-moz-placeholder, .wpcf7 input[type=range]::-moz-placeholder, .wpcf7 input[type=date]::-moz-placeholder, .wpcf7 input[type=month]::-moz-placeholder, .wpcf7 input[type=week]::-moz-placeholder, .wpcf7 input[type=time]::-moz-placeholder, .wpcf7 input[type=datetime]::-moz-placeholder, .wpcf7 input[type=datetime-local]::-moz-placeholder, .wpcf7 input[type=color]::-moz-placeholder, .wpcf7 input[type=email]::-moz-placeholder, .wpcf7 input[type=file]::-moz-placeholder, .wpcf7 input[type=submit]::-moz-placeholder, .wpcf7 select::-moz-placeholder, .wpcf7 textarea::-moz-placeholder, .wpcf7 .wpcf7-validation-errors::-moz-placeholder {
     color: #6c757d;
     opacity: 1; }
-  .form-control:-ms-input-placeholder, .widget_categories select:-ms-input-placeholder, .widget_archive select:-ms-input-placeholder, .wpcf7 input[type=text]:-ms-input-placeholder, .wpcf7 input[type=search]:-ms-input-placeholder, .wpcf7 input[type=url]:-ms-input-placeholder, .wpcf7 input[type=tel]:-ms-input-placeholder, .wpcf7 input[type=number]:-ms-input-placeholder, .wpcf7 input[type=range]:-ms-input-placeholder, .wpcf7 input[type=date]:-ms-input-placeholder, .wpcf7 input[type=month]:-ms-input-placeholder, .wpcf7 input[type=week]:-ms-input-placeholder, .wpcf7 input[type=time]:-ms-input-placeholder, .wpcf7 input[type=datetime]:-ms-input-placeholder, .wpcf7 input[type=datetime-local]:-ms-input-placeholder, .wpcf7 input[type=color]:-ms-input-placeholder, .wpcf7 input[type=email]:-ms-input-placeholder, .wpcf7 input[type=file]:-ms-input-placeholder, .wpcf7 input[type=submit]:-ms-input-placeholder, .wpcf7 select:-ms-input-placeholder, .wpcf7 textarea:-ms-input-placeholder, .wpcf7 .wpcf7-validation-errors:-ms-input-placeholder {
+  .form-control:-ms-input-placeholder, .widget_categories select:-ms-input-placeholder, .widget_archive select:-ms-input-placeholder, .wp-block-search__input:-ms-input-placeholder, .wpcf7 input[type=text]:-ms-input-placeholder, .wpcf7 input[type=search]:-ms-input-placeholder, .wpcf7 input[type=url]:-ms-input-placeholder, .wpcf7 input[type=tel]:-ms-input-placeholder, .wpcf7 input[type=number]:-ms-input-placeholder, .wpcf7 input[type=range]:-ms-input-placeholder, .wpcf7 input[type=date]:-ms-input-placeholder, .wpcf7 input[type=month]:-ms-input-placeholder, .wpcf7 input[type=week]:-ms-input-placeholder, .wpcf7 input[type=time]:-ms-input-placeholder, .wpcf7 input[type=datetime]:-ms-input-placeholder, .wpcf7 input[type=datetime-local]:-ms-input-placeholder, .wpcf7 input[type=color]:-ms-input-placeholder, .wpcf7 input[type=email]:-ms-input-placeholder, .wpcf7 input[type=file]:-ms-input-placeholder, .wpcf7 input[type=submit]:-ms-input-placeholder, .wpcf7 select:-ms-input-placeholder, .wpcf7 textarea:-ms-input-placeholder, .wpcf7 .wpcf7-validation-errors:-ms-input-placeholder {
     color: #6c757d;
     opacity: 1; }
   .form-control::placeholder, .widget_categories select::placeholder,
-  .widget_archive select::placeholder, .wpcf7 input[type=text]::placeholder,
+  .widget_archive select::placeholder, .wp-block-search__input::placeholder, .wpcf7 input[type=text]::placeholder,
   .wpcf7 input[type=search]::placeholder,
   .wpcf7 input[type=url]::placeholder,
   .wpcf7 input[type=tel]::placeholder,
@@ -1679,7 +1679,7 @@ progress {
     color: #6c757d;
     opacity: 1; }
   .form-control:disabled, .widget_categories select:disabled,
-  .widget_archive select:disabled, .wpcf7 input:disabled[type=text],
+  .widget_archive select:disabled, .wp-block-search__input:disabled, .wpcf7 input:disabled[type=text],
   .wpcf7 input:disabled[type=search],
   .wpcf7 input:disabled[type=url],
   .wpcf7 input:disabled[type=tel],
@@ -1697,7 +1697,7 @@ progress {
   .wpcf7 input:disabled[type=submit],
   .wpcf7 select:disabled,
   .wpcf7 textarea:disabled, .wpcf7 .wpcf7-validation-errors:disabled, .form-control[readonly], .widget_categories select[readonly],
-  .widget_archive select[readonly], .wpcf7 input[readonly][type=text],
+  .widget_archive select[readonly], .wp-block-search__input[readonly], .wpcf7 input[readonly][type=text],
   .wpcf7 input[readonly][type=search],
   .wpcf7 input[readonly][type=url],
   .wpcf7 input[readonly][type=tel],
@@ -1717,7 +1717,7 @@ progress {
   .wpcf7 textarea[readonly], .wpcf7 .wpcf7-validation-errors[readonly] {
     background-color: #e9ecef;
     opacity: 1; }
-  .form-control::-webkit-file-upload-button, .widget_categories select::-webkit-file-upload-button, .widget_archive select::-webkit-file-upload-button, .wpcf7 input[type=text]::-webkit-file-upload-button, .wpcf7 input[type=search]::-webkit-file-upload-button, .wpcf7 input[type=url]::-webkit-file-upload-button, .wpcf7 input[type=tel]::-webkit-file-upload-button, .wpcf7 input[type=number]::-webkit-file-upload-button, .wpcf7 input[type=range]::-webkit-file-upload-button, .wpcf7 input[type=date]::-webkit-file-upload-button, .wpcf7 input[type=month]::-webkit-file-upload-button, .wpcf7 input[type=week]::-webkit-file-upload-button, .wpcf7 input[type=time]::-webkit-file-upload-button, .wpcf7 input[type=datetime]::-webkit-file-upload-button, .wpcf7 input[type=datetime-local]::-webkit-file-upload-button, .wpcf7 input[type=color]::-webkit-file-upload-button, .wpcf7 input[type=email]::-webkit-file-upload-button, .wpcf7 input[type=file]::-webkit-file-upload-button, .wpcf7 input[type=submit]::-webkit-file-upload-button, .wpcf7 select::-webkit-file-upload-button, .wpcf7 textarea::-webkit-file-upload-button, .wpcf7 .wpcf7-validation-errors::-webkit-file-upload-button {
+  .form-control::-webkit-file-upload-button, .widget_categories select::-webkit-file-upload-button, .widget_archive select::-webkit-file-upload-button, .wp-block-search__input::-webkit-file-upload-button, .wpcf7 input[type=text]::-webkit-file-upload-button, .wpcf7 input[type=search]::-webkit-file-upload-button, .wpcf7 input[type=url]::-webkit-file-upload-button, .wpcf7 input[type=tel]::-webkit-file-upload-button, .wpcf7 input[type=number]::-webkit-file-upload-button, .wpcf7 input[type=range]::-webkit-file-upload-button, .wpcf7 input[type=date]::-webkit-file-upload-button, .wpcf7 input[type=month]::-webkit-file-upload-button, .wpcf7 input[type=week]::-webkit-file-upload-button, .wpcf7 input[type=time]::-webkit-file-upload-button, .wpcf7 input[type=datetime]::-webkit-file-upload-button, .wpcf7 input[type=datetime-local]::-webkit-file-upload-button, .wpcf7 input[type=color]::-webkit-file-upload-button, .wpcf7 input[type=email]::-webkit-file-upload-button, .wpcf7 input[type=file]::-webkit-file-upload-button, .wpcf7 input[type=submit]::-webkit-file-upload-button, .wpcf7 select::-webkit-file-upload-button, .wpcf7 textarea::-webkit-file-upload-button, .wpcf7 .wpcf7-validation-errors::-webkit-file-upload-button {
     padding: 0.375rem 0.75rem;
     margin: -0.375rem -0.75rem;
     -webkit-margin-end: 0.75rem;
@@ -1733,7 +1733,7 @@ progress {
     -webkit-transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   .form-control::file-selector-button, .widget_categories select::file-selector-button,
-  .widget_archive select::file-selector-button, .wpcf7 input[type=text]::file-selector-button,
+  .widget_archive select::file-selector-button, .wp-block-search__input::file-selector-button, .wpcf7 input[type=text]::file-selector-button,
   .wpcf7 input[type=search]::file-selector-button,
   .wpcf7 input[type=url]::file-selector-button,
   .wpcf7 input[type=tel]::file-selector-button,
@@ -1765,11 +1765,11 @@ progress {
     border-radius: 0;
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
     @media (prefers-reduced-motion: reduce) {
-      .form-control::-webkit-file-upload-button, .widget_categories select::-webkit-file-upload-button, .widget_archive select::-webkit-file-upload-button, .wpcf7 input[type=text]::-webkit-file-upload-button, .wpcf7 input[type=search]::-webkit-file-upload-button, .wpcf7 input[type=url]::-webkit-file-upload-button, .wpcf7 input[type=tel]::-webkit-file-upload-button, .wpcf7 input[type=number]::-webkit-file-upload-button, .wpcf7 input[type=range]::-webkit-file-upload-button, .wpcf7 input[type=date]::-webkit-file-upload-button, .wpcf7 input[type=month]::-webkit-file-upload-button, .wpcf7 input[type=week]::-webkit-file-upload-button, .wpcf7 input[type=time]::-webkit-file-upload-button, .wpcf7 input[type=datetime]::-webkit-file-upload-button, .wpcf7 input[type=datetime-local]::-webkit-file-upload-button, .wpcf7 input[type=color]::-webkit-file-upload-button, .wpcf7 input[type=email]::-webkit-file-upload-button, .wpcf7 input[type=file]::-webkit-file-upload-button, .wpcf7 input[type=submit]::-webkit-file-upload-button, .wpcf7 select::-webkit-file-upload-button, .wpcf7 textarea::-webkit-file-upload-button, .wpcf7 .wpcf7-validation-errors::-webkit-file-upload-button {
+      .form-control::-webkit-file-upload-button, .widget_categories select::-webkit-file-upload-button, .widget_archive select::-webkit-file-upload-button, .wp-block-search__input::-webkit-file-upload-button, .wpcf7 input[type=text]::-webkit-file-upload-button, .wpcf7 input[type=search]::-webkit-file-upload-button, .wpcf7 input[type=url]::-webkit-file-upload-button, .wpcf7 input[type=tel]::-webkit-file-upload-button, .wpcf7 input[type=number]::-webkit-file-upload-button, .wpcf7 input[type=range]::-webkit-file-upload-button, .wpcf7 input[type=date]::-webkit-file-upload-button, .wpcf7 input[type=month]::-webkit-file-upload-button, .wpcf7 input[type=week]::-webkit-file-upload-button, .wpcf7 input[type=time]::-webkit-file-upload-button, .wpcf7 input[type=datetime]::-webkit-file-upload-button, .wpcf7 input[type=datetime-local]::-webkit-file-upload-button, .wpcf7 input[type=color]::-webkit-file-upload-button, .wpcf7 input[type=email]::-webkit-file-upload-button, .wpcf7 input[type=file]::-webkit-file-upload-button, .wpcf7 input[type=submit]::-webkit-file-upload-button, .wpcf7 select::-webkit-file-upload-button, .wpcf7 textarea::-webkit-file-upload-button, .wpcf7 .wpcf7-validation-errors::-webkit-file-upload-button {
         -webkit-transition: none;
         transition: none; }
       .form-control::file-selector-button, .widget_categories select::file-selector-button,
-      .widget_archive select::file-selector-button, .wpcf7 input[type=text]::file-selector-button,
+      .widget_archive select::file-selector-button, .wp-block-search__input::file-selector-button, .wpcf7 input[type=text]::file-selector-button,
       .wpcf7 input[type=search]::file-selector-button,
       .wpcf7 input[type=url]::file-selector-button,
       .wpcf7 input[type=tel]::file-selector-button,
@@ -1788,10 +1788,10 @@ progress {
       .wpcf7 select::file-selector-button,
       .wpcf7 textarea::file-selector-button, .wpcf7 .wpcf7-validation-errors::file-selector-button {
         transition: none; } }
-  .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .widget_categories select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .widget_archive select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=text]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=search]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=url]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=tel]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=number]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=range]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=date]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=month]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=week]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=time]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=datetime]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=datetime-local]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=color]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=email]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=file]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=submit]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 textarea:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 .wpcf7-validation-errors:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
+  .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .widget_categories select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .widget_archive select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wp-block-search__input:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=text]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=search]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=url]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=tel]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=number]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=range]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=date]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=month]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=week]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=time]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=datetime]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=datetime-local]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=color]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=email]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=file]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=submit]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 textarea:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 .wpcf7-validation-errors:hover:not(:disabled):not([readonly])::-webkit-file-upload-button {
     background-color: #dde0e3; }
   .form-control:hover:not(:disabled):not([readonly])::file-selector-button, .widget_categories select:hover:not(:disabled):not([readonly])::file-selector-button,
-  .widget_archive select:hover:not(:disabled):not([readonly])::file-selector-button, .wpcf7 input[type=text]:hover:not(:disabled):not([readonly])::file-selector-button,
+  .widget_archive select:hover:not(:disabled):not([readonly])::file-selector-button, .wp-block-search__input:hover:not(:disabled):not([readonly])::file-selector-button, .wpcf7 input[type=text]:hover:not(:disabled):not([readonly])::file-selector-button,
   .wpcf7 input[type=search]:hover:not(:disabled):not([readonly])::file-selector-button,
   .wpcf7 input[type=url]:hover:not(:disabled):not([readonly])::file-selector-button,
   .wpcf7 input[type=tel]:hover:not(:disabled):not([readonly])::file-selector-button,
@@ -1811,7 +1811,7 @@ progress {
   .wpcf7 textarea:hover:not(:disabled):not([readonly])::file-selector-button, .wpcf7 .wpcf7-validation-errors:hover:not(:disabled):not([readonly])::file-selector-button {
     background-color: #dde0e3; }
   .form-control::-webkit-file-upload-button, .widget_categories select::-webkit-file-upload-button,
-  .widget_archive select::-webkit-file-upload-button, .wpcf7 input[type=text]::-webkit-file-upload-button,
+  .widget_archive select::-webkit-file-upload-button, .wp-block-search__input::-webkit-file-upload-button, .wpcf7 input[type=text]::-webkit-file-upload-button,
   .wpcf7 input[type=search]::-webkit-file-upload-button,
   .wpcf7 input[type=url]::-webkit-file-upload-button,
   .wpcf7 input[type=tel]::-webkit-file-upload-button,
@@ -1845,7 +1845,7 @@ progress {
     transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
     @media (prefers-reduced-motion: reduce) {
       .form-control::-webkit-file-upload-button, .widget_categories select::-webkit-file-upload-button,
-      .widget_archive select::-webkit-file-upload-button, .wpcf7 input[type=text]::-webkit-file-upload-button,
+      .widget_archive select::-webkit-file-upload-button, .wp-block-search__input::-webkit-file-upload-button, .wpcf7 input[type=text]::-webkit-file-upload-button,
       .wpcf7 input[type=search]::-webkit-file-upload-button,
       .wpcf7 input[type=url]::-webkit-file-upload-button,
       .wpcf7 input[type=tel]::-webkit-file-upload-button,
@@ -1866,7 +1866,7 @@ progress {
         -webkit-transition: none;
         transition: none; } }
   .form-control:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .widget_categories select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button,
-  .widget_archive select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=text]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button,
+  .widget_archive select:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wp-block-search__input:hover:not(:disabled):not([readonly])::-webkit-file-upload-button, .wpcf7 input[type=text]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button,
   .wpcf7 input[type=search]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button,
   .wpcf7 input[type=url]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button,
   .wpcf7 input[type=tel]:hover:not(:disabled):not([readonly])::-webkit-file-upload-button,
@@ -1942,7 +1942,7 @@ progress {
     -webkit-margin-end: 1rem;
             margin-inline-end: 1rem; }
 
-textarea.form-control,
+textarea.form-control, textarea.wp-block-search__input,
 .wpcf7 textarea, .wpcf7 textarea.wpcf7-validation-errors {
   min-height: calc(1.5em + (0.75rem + 2px)); }
 
@@ -2091,8 +2091,8 @@ textarea.form-control-lg {
   position: absolute;
   clip: rect(0, 0, 0, 0);
   pointer-events: none; }
-  .btn-check[disabled] + .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check[disabled] + .button.wc-forward,
-  .wpcf7 .btn-check[disabled] + input[type=submit], .btn-check:disabled + .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:disabled + .button.wc-forward,
+  .btn-check[disabled] + .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check[disabled] + .button.wc-forward, .wp-block-search .btn-check[disabled] + .wp-block-search__button,
+  .wpcf7 .btn-check[disabled] + input[type=submit], .btn-check:disabled + .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:disabled + .button.wc-forward, .wp-block-search .btn-check:disabled + .wp-block-search__button,
   .wpcf7 .btn-check:disabled + input[type=submit] {
     pointer-events: none;
     filter: none;
@@ -2173,7 +2173,7 @@ textarea.form-control-lg {
 .form-floating {
   position: relative; }
   .form-floating > .form-control, .widget_categories .form-floating > select,
-  .widget_archive .form-floating > select, .wpcf7 .form-floating > input[type=text],
+  .widget_archive .form-floating > select, .form-floating > .wp-block-search__input, .wpcf7 .form-floating > input[type=text],
   .wpcf7 .form-floating > input[type=search],
   .wpcf7 .form-floating > input[type=url],
   .wpcf7 .form-floating > input[type=tel],
@@ -2208,7 +2208,7 @@ textarea.form-control-lg {
       .form-floating > label {
         transition: none; } }
   .form-floating > .form-control, .widget_categories .form-floating > select,
-  .widget_archive .form-floating > select, .wpcf7 .form-floating > input[type=text],
+  .widget_archive .form-floating > select, .form-floating > .wp-block-search__input, .wpcf7 .form-floating > input[type=text],
   .wpcf7 .form-floating > input[type=search],
   .wpcf7 .form-floating > input[type=url],
   .wpcf7 .form-floating > input[type=tel],
@@ -2227,12 +2227,12 @@ textarea.form-control-lg {
   .wpcf7 .form-floating > select,
   .wpcf7 .form-floating > textarea, .wpcf7 .form-floating > .wpcf7-validation-errors {
     padding: 1rem 0.75rem; }
-    .form-floating > .form-control::-moz-placeholder, .widget_categories .form-floating > select::-moz-placeholder, .widget_archive .form-floating > select::-moz-placeholder, .wpcf7 .form-floating > input[type=text]::-moz-placeholder, .wpcf7 .form-floating > input[type=search]::-moz-placeholder, .wpcf7 .form-floating > input[type=url]::-moz-placeholder, .wpcf7 .form-floating > input[type=tel]::-moz-placeholder, .wpcf7 .form-floating > input[type=number]::-moz-placeholder, .wpcf7 .form-floating > input[type=range]::-moz-placeholder, .wpcf7 .form-floating > input[type=date]::-moz-placeholder, .wpcf7 .form-floating > input[type=month]::-moz-placeholder, .wpcf7 .form-floating > input[type=week]::-moz-placeholder, .wpcf7 .form-floating > input[type=time]::-moz-placeholder, .wpcf7 .form-floating > input[type=datetime]::-moz-placeholder, .wpcf7 .form-floating > input[type=datetime-local]::-moz-placeholder, .wpcf7 .form-floating > input[type=color]::-moz-placeholder, .wpcf7 .form-floating > input[type=email]::-moz-placeholder, .wpcf7 .form-floating > input[type=file]::-moz-placeholder, .wpcf7 .form-floating > input[type=submit]::-moz-placeholder, .wpcf7 .form-floating > select::-moz-placeholder, .wpcf7 .form-floating > textarea::-moz-placeholder, .wpcf7 .form-floating > .wpcf7-validation-errors::-moz-placeholder {
+    .form-floating > .form-control::-moz-placeholder, .widget_categories .form-floating > select::-moz-placeholder, .widget_archive .form-floating > select::-moz-placeholder, .form-floating > .wp-block-search__input::-moz-placeholder, .wpcf7 .form-floating > input[type=text]::-moz-placeholder, .wpcf7 .form-floating > input[type=search]::-moz-placeholder, .wpcf7 .form-floating > input[type=url]::-moz-placeholder, .wpcf7 .form-floating > input[type=tel]::-moz-placeholder, .wpcf7 .form-floating > input[type=number]::-moz-placeholder, .wpcf7 .form-floating > input[type=range]::-moz-placeholder, .wpcf7 .form-floating > input[type=date]::-moz-placeholder, .wpcf7 .form-floating > input[type=month]::-moz-placeholder, .wpcf7 .form-floating > input[type=week]::-moz-placeholder, .wpcf7 .form-floating > input[type=time]::-moz-placeholder, .wpcf7 .form-floating > input[type=datetime]::-moz-placeholder, .wpcf7 .form-floating > input[type=datetime-local]::-moz-placeholder, .wpcf7 .form-floating > input[type=color]::-moz-placeholder, .wpcf7 .form-floating > input[type=email]::-moz-placeholder, .wpcf7 .form-floating > input[type=file]::-moz-placeholder, .wpcf7 .form-floating > input[type=submit]::-moz-placeholder, .wpcf7 .form-floating > select::-moz-placeholder, .wpcf7 .form-floating > textarea::-moz-placeholder, .wpcf7 .form-floating > .wpcf7-validation-errors::-moz-placeholder {
       color: transparent; }
-    .form-floating > .form-control:-ms-input-placeholder, .widget_categories .form-floating > select:-ms-input-placeholder, .widget_archive .form-floating > select:-ms-input-placeholder, .wpcf7 .form-floating > input[type=text]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=search]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=url]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=tel]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=number]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=range]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=date]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=month]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=week]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=time]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=datetime]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=datetime-local]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=color]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=email]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=file]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=submit]:-ms-input-placeholder, .wpcf7 .form-floating > select:-ms-input-placeholder, .wpcf7 .form-floating > textarea:-ms-input-placeholder, .wpcf7 .form-floating > .wpcf7-validation-errors:-ms-input-placeholder {
+    .form-floating > .form-control:-ms-input-placeholder, .widget_categories .form-floating > select:-ms-input-placeholder, .widget_archive .form-floating > select:-ms-input-placeholder, .form-floating > .wp-block-search__input:-ms-input-placeholder, .wpcf7 .form-floating > input[type=text]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=search]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=url]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=tel]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=number]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=range]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=date]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=month]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=week]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=time]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=datetime]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=datetime-local]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=color]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=email]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=file]:-ms-input-placeholder, .wpcf7 .form-floating > input[type=submit]:-ms-input-placeholder, .wpcf7 .form-floating > select:-ms-input-placeholder, .wpcf7 .form-floating > textarea:-ms-input-placeholder, .wpcf7 .form-floating > .wpcf7-validation-errors:-ms-input-placeholder {
       color: transparent; }
     .form-floating > .form-control::placeholder, .widget_categories .form-floating > select::placeholder,
-    .widget_archive .form-floating > select::placeholder, .wpcf7 .form-floating > input[type=text]::placeholder,
+    .widget_archive .form-floating > select::placeholder, .form-floating > .wp-block-search__input::placeholder, .wpcf7 .form-floating > input[type=text]::placeholder,
     .wpcf7 .form-floating > input[type=search]::placeholder,
     .wpcf7 .form-floating > input[type=url]::placeholder,
     .wpcf7 .form-floating > input[type=tel]::placeholder,
@@ -2251,14 +2251,14 @@ textarea.form-control-lg {
     .wpcf7 .form-floating > select::placeholder,
     .wpcf7 .form-floating > textarea::placeholder, .wpcf7 .form-floating > .wpcf7-validation-errors::placeholder {
       color: transparent; }
-    .form-floating > .form-control:not(:-moz-placeholder-shown), .widget_categories .form-floating > select:not(:-moz-placeholder-shown), .widget_archive .form-floating > select:not(:-moz-placeholder-shown), .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=text], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=search], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=url], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=tel], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=number], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=range], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=date], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=month], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=week], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=time], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=datetime], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=datetime-local], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=color], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=email], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=file], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=submit], .wpcf7 .form-floating > select:not(:-moz-placeholder-shown), .wpcf7 .form-floating > textarea:not(:-moz-placeholder-shown), .wpcf7 .form-floating > .wpcf7-validation-errors:not(:-moz-placeholder-shown) {
+    .form-floating > .form-control:not(:-moz-placeholder-shown), .widget_categories .form-floating > select:not(:-moz-placeholder-shown), .widget_archive .form-floating > select:not(:-moz-placeholder-shown), .form-floating > .wp-block-search__input:not(:-moz-placeholder-shown), .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=text], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=search], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=url], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=tel], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=number], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=range], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=date], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=month], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=week], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=time], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=datetime], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=datetime-local], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=color], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=email], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=file], .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=submit], .wpcf7 .form-floating > select:not(:-moz-placeholder-shown), .wpcf7 .form-floating > textarea:not(:-moz-placeholder-shown), .wpcf7 .form-floating > .wpcf7-validation-errors:not(:-moz-placeholder-shown) {
       padding-top: 1.625rem;
       padding-bottom: 0.625rem; }
-    .form-floating > .form-control:not(:-ms-input-placeholder), .widget_categories .form-floating > select:not(:-ms-input-placeholder), .widget_archive .form-floating > select:not(:-ms-input-placeholder), .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=text], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=search], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=url], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=tel], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=number], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=range], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=date], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=month], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=week], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=time], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=datetime], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=datetime-local], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=color], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=email], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=file], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=submit], .wpcf7 .form-floating > select:not(:-ms-input-placeholder), .wpcf7 .form-floating > textarea:not(:-ms-input-placeholder), .wpcf7 .form-floating > .wpcf7-validation-errors:not(:-ms-input-placeholder) {
+    .form-floating > .form-control:not(:-ms-input-placeholder), .widget_categories .form-floating > select:not(:-ms-input-placeholder), .widget_archive .form-floating > select:not(:-ms-input-placeholder), .form-floating > .wp-block-search__input:not(:-ms-input-placeholder), .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=text], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=search], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=url], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=tel], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=number], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=range], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=date], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=month], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=week], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=time], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=datetime], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=datetime-local], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=color], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=email], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=file], .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=submit], .wpcf7 .form-floating > select:not(:-ms-input-placeholder), .wpcf7 .form-floating > textarea:not(:-ms-input-placeholder), .wpcf7 .form-floating > .wpcf7-validation-errors:not(:-ms-input-placeholder) {
       padding-top: 1.625rem;
       padding-bottom: 0.625rem; }
     .form-floating > .form-control:focus, .widget_categories .form-floating > select:focus,
-    .widget_archive .form-floating > select:focus, .wpcf7 .form-floating > input:focus[type=text],
+    .widget_archive .form-floating > select:focus, .form-floating > .wp-block-search__input:focus, .wpcf7 .form-floating > input:focus[type=text],
     .wpcf7 .form-floating > input:focus[type=search],
     .wpcf7 .form-floating > input:focus[type=url],
     .wpcf7 .form-floating > input:focus[type=tel],
@@ -2276,7 +2276,7 @@ textarea.form-control-lg {
     .wpcf7 .form-floating > input:focus[type=submit],
     .wpcf7 .form-floating > select:focus,
     .wpcf7 .form-floating > textarea:focus, .wpcf7 .form-floating > .wpcf7-validation-errors:focus, .form-floating > .form-control:not(:placeholder-shown), .widget_categories .form-floating > select:not(:placeholder-shown),
-    .widget_archive .form-floating > select:not(:placeholder-shown), .wpcf7 .form-floating > input:not(:placeholder-shown)[type=text],
+    .widget_archive .form-floating > select:not(:placeholder-shown), .form-floating > .wp-block-search__input:not(:placeholder-shown), .wpcf7 .form-floating > input:not(:placeholder-shown)[type=text],
     .wpcf7 .form-floating > input:not(:placeholder-shown)[type=search],
     .wpcf7 .form-floating > input:not(:placeholder-shown)[type=url],
     .wpcf7 .form-floating > input:not(:placeholder-shown)[type=tel],
@@ -2297,7 +2297,7 @@ textarea.form-control-lg {
       padding-top: 1.625rem;
       padding-bottom: 0.625rem; }
     .form-floating > .form-control:-webkit-autofill, .widget_categories .form-floating > select:-webkit-autofill,
-    .widget_archive .form-floating > select:-webkit-autofill, .wpcf7 .form-floating > input:-webkit-autofill[type=text],
+    .widget_archive .form-floating > select:-webkit-autofill, .form-floating > .wp-block-search__input:-webkit-autofill, .wpcf7 .form-floating > input:-webkit-autofill[type=text],
     .wpcf7 .form-floating > input:-webkit-autofill[type=search],
     .wpcf7 .form-floating > input:-webkit-autofill[type=url],
     .wpcf7 .form-floating > input:-webkit-autofill[type=tel],
@@ -2320,16 +2320,17 @@ textarea.form-control-lg {
   .form-floating > .form-select {
     padding-top: 1.625rem;
     padding-bottom: 0.625rem; }
-  .form-floating > .form-control:not(:-moz-placeholder-shown) ~ label, .widget_categories .form-floating > select:not(:-moz-placeholder-shown) ~ label, .widget_archive .form-floating > select:not(:-moz-placeholder-shown) ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=text] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=search] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=url] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=tel] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=number] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=range] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=date] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=month] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=week] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=time] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=datetime] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=datetime-local] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=color] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=email] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=file] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=submit] ~ label, .wpcf7 .form-floating > select:not(:-moz-placeholder-shown) ~ label, .wpcf7 .form-floating > textarea:not(:-moz-placeholder-shown) ~ label, .wpcf7 .form-floating > .wpcf7-validation-errors:not(:-moz-placeholder-shown) ~ label {
+  .form-floating > .form-control:not(:-moz-placeholder-shown) ~ label, .widget_categories .form-floating > select:not(:-moz-placeholder-shown) ~ label, .widget_archive .form-floating > select:not(:-moz-placeholder-shown) ~ label, .form-floating > .wp-block-search__input:not(:-moz-placeholder-shown) ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=text] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=search] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=url] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=tel] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=number] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=range] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=date] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=month] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=week] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=time] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=datetime] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=datetime-local] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=color] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=email] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=file] ~ label, .wpcf7 .form-floating > input:not(:-moz-placeholder-shown)[type=submit] ~ label, .wpcf7 .form-floating > select:not(:-moz-placeholder-shown) ~ label, .wpcf7 .form-floating > textarea:not(:-moz-placeholder-shown) ~ label, .wpcf7 .form-floating > .wpcf7-validation-errors:not(:-moz-placeholder-shown) ~ label {
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
-  .form-floating > .form-control:not(:-ms-input-placeholder) ~ label, .widget_categories .form-floating > select:not(:-ms-input-placeholder) ~ label, .widget_archive .form-floating > select:not(:-ms-input-placeholder) ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=text] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=search] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=url] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=tel] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=number] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=range] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=date] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=month] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=week] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=time] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=datetime] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=datetime-local] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=color] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=email] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=file] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=submit] ~ label, .wpcf7 .form-floating > select:not(:-ms-input-placeholder) ~ label, .wpcf7 .form-floating > textarea:not(:-ms-input-placeholder) ~ label, .wpcf7 .form-floating > .wpcf7-validation-errors:not(:-ms-input-placeholder) ~ label {
+  .form-floating > .form-control:not(:-ms-input-placeholder) ~ label, .widget_categories .form-floating > select:not(:-ms-input-placeholder) ~ label, .widget_archive .form-floating > select:not(:-ms-input-placeholder) ~ label, .form-floating > .wp-block-search__input:not(:-ms-input-placeholder) ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=text] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=search] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=url] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=tel] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=number] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=range] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=date] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=month] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=week] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=time] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=datetime] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=datetime-local] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=color] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=email] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=file] ~ label, .wpcf7 .form-floating > input:not(:-ms-input-placeholder)[type=submit] ~ label, .wpcf7 .form-floating > select:not(:-ms-input-placeholder) ~ label, .wpcf7 .form-floating > textarea:not(:-ms-input-placeholder) ~ label, .wpcf7 .form-floating > .wpcf7-validation-errors:not(:-ms-input-placeholder) ~ label {
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
-  .form-floating > .form-control:focus ~ label, .widget_categories .form-floating > select:focus ~ label, .widget_archive .form-floating > select:focus ~ label, .wpcf7 .form-floating > input:focus[type=text] ~ label, .wpcf7 .form-floating > input:focus[type=search] ~ label, .wpcf7 .form-floating > input:focus[type=url] ~ label, .wpcf7 .form-floating > input:focus[type=tel] ~ label, .wpcf7 .form-floating > input:focus[type=number] ~ label, .wpcf7 .form-floating > input:focus[type=range] ~ label, .wpcf7 .form-floating > input:focus[type=date] ~ label, .wpcf7 .form-floating > input:focus[type=month] ~ label, .wpcf7 .form-floating > input:focus[type=week] ~ label, .wpcf7 .form-floating > input:focus[type=time] ~ label, .wpcf7 .form-floating > input:focus[type=datetime] ~ label, .wpcf7 .form-floating > input:focus[type=datetime-local] ~ label, .wpcf7 .form-floating > input:focus[type=color] ~ label, .wpcf7 .form-floating > input:focus[type=email] ~ label, .wpcf7 .form-floating > input:focus[type=file] ~ label, .wpcf7 .form-floating > input:focus[type=submit] ~ label, .wpcf7 .form-floating > select:focus ~ label, .wpcf7 .form-floating > textarea:focus ~ label, .wpcf7 .form-floating > .wpcf7-validation-errors:focus ~ label,
+  .form-floating > .form-control:focus ~ label, .widget_categories .form-floating > select:focus ~ label, .widget_archive .form-floating > select:focus ~ label, .form-floating > .wp-block-search__input:focus ~ label, .wpcf7 .form-floating > input:focus[type=text] ~ label, .wpcf7 .form-floating > input:focus[type=search] ~ label, .wpcf7 .form-floating > input:focus[type=url] ~ label, .wpcf7 .form-floating > input:focus[type=tel] ~ label, .wpcf7 .form-floating > input:focus[type=number] ~ label, .wpcf7 .form-floating > input:focus[type=range] ~ label, .wpcf7 .form-floating > input:focus[type=date] ~ label, .wpcf7 .form-floating > input:focus[type=month] ~ label, .wpcf7 .form-floating > input:focus[type=week] ~ label, .wpcf7 .form-floating > input:focus[type=time] ~ label, .wpcf7 .form-floating > input:focus[type=datetime] ~ label, .wpcf7 .form-floating > input:focus[type=datetime-local] ~ label, .wpcf7 .form-floating > input:focus[type=color] ~ label, .wpcf7 .form-floating > input:focus[type=email] ~ label, .wpcf7 .form-floating > input:focus[type=file] ~ label, .wpcf7 .form-floating > input:focus[type=submit] ~ label, .wpcf7 .form-floating > select:focus ~ label, .wpcf7 .form-floating > textarea:focus ~ label, .wpcf7 .form-floating > .wpcf7-validation-errors:focus ~ label,
   .form-floating > .form-control:not(:placeholder-shown) ~ label,
   .widget_categories .form-floating > select:not(:placeholder-shown) ~ label,
   .widget_archive .form-floating > select:not(:placeholder-shown) ~ label,
+  .form-floating > .wp-block-search__input:not(:placeholder-shown) ~ label,
   .wpcf7 .form-floating > input:not(:placeholder-shown)[type=text] ~ label,
   .wpcf7 .form-floating > input:not(:placeholder-shown)[type=search] ~ label,
   .wpcf7 .form-floating > input:not(:placeholder-shown)[type=url] ~ label,
@@ -2352,7 +2353,7 @@ textarea.form-control-lg {
   .form-floating > .form-select ~ label {
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
-  .form-floating > .form-control:-webkit-autofill ~ label, .widget_categories .form-floating > select:-webkit-autofill ~ label, .widget_archive .form-floating > select:-webkit-autofill ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=text] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=search] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=url] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=tel] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=number] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=range] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=date] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=month] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=week] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=time] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=datetime] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=datetime-local] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=color] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=email] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=file] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=submit] ~ label, .wpcf7 .form-floating > select:-webkit-autofill ~ label, .wpcf7 .form-floating > textarea:-webkit-autofill ~ label, .wpcf7 .form-floating > .wpcf7-validation-errors:-webkit-autofill ~ label {
+  .form-floating > .form-control:-webkit-autofill ~ label, .widget_categories .form-floating > select:-webkit-autofill ~ label, .widget_archive .form-floating > select:-webkit-autofill ~ label, .form-floating > .wp-block-search__input:-webkit-autofill ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=text] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=search] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=url] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=tel] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=number] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=range] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=date] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=month] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=week] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=time] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=datetime] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=datetime-local] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=color] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=email] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=file] ~ label, .wpcf7 .form-floating > input:-webkit-autofill[type=submit] ~ label, .wpcf7 .form-floating > select:-webkit-autofill ~ label, .wpcf7 .form-floating > textarea:-webkit-autofill ~ label, .wpcf7 .form-floating > .wpcf7-validation-errors:-webkit-autofill ~ label {
     opacity: 0.65;
     transform: scale(0.85) translateY(-0.5rem) translateX(0.15rem); }
 
@@ -2363,7 +2364,7 @@ textarea.form-control-lg {
   align-items: stretch;
   width: 100%; }
   .input-group > .form-control, .widget_categories .input-group > select,
-  .widget_archive .input-group > select, .wpcf7 .input-group > input[type=text],
+  .widget_archive .input-group > select, .input-group > .wp-block-search__input, .wpcf7 .input-group > input[type=text],
   .wpcf7 .input-group > input[type=search],
   .wpcf7 .input-group > input[type=url],
   .wpcf7 .input-group > input[type=tel],
@@ -2387,7 +2388,7 @@ textarea.form-control-lg {
     width: 1%;
     min-width: 0; }
   .input-group > .form-control:focus, .widget_categories .input-group > select:focus,
-  .widget_archive .input-group > select:focus, .wpcf7 .input-group > input:focus[type=text],
+  .widget_archive .input-group > select:focus, .input-group > .wp-block-search__input:focus, .wpcf7 .input-group > input:focus[type=text],
   .wpcf7 .input-group > input:focus[type=search],
   .wpcf7 .input-group > input:focus[type=url],
   .wpcf7 .input-group > input:focus[type=tel],
@@ -2407,11 +2408,11 @@ textarea.form-control-lg {
   .wpcf7 .input-group > textarea:focus, .wpcf7 .input-group > .wpcf7-validation-errors:focus,
   .input-group > .form-select:focus {
     z-index: 3; }
-  .input-group .btn, .input-group body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .input-group .button.wc-forward,
+  .input-group .btn, .input-group body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .input-group .button.wc-forward, .input-group .wp-block-search .wp-block-search__button, .wp-block-search .input-group .wp-block-search__button,
   .input-group .wpcf7 input[type=submit], .wpcf7 .input-group input[type=submit] {
     position: relative;
     z-index: 2; }
-    .input-group .btn:focus, .input-group body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .input-group .button.wc-forward:focus,
+    .input-group .btn:focus, .input-group body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .input-group .button.wc-forward:focus, .input-group .wp-block-search .wp-block-search__button:focus, .wp-block-search .input-group .wp-block-search__button:focus,
     .input-group .wpcf7 input:focus[type=submit], .wpcf7 .input-group input:focus[type=submit] {
       z-index: 3; }
 
@@ -2430,7 +2431,7 @@ textarea.form-control-lg {
   border-radius: 0.25rem; }
 
 .input-group-lg > .form-control, .widget_categories .input-group-lg > select,
-.widget_archive .input-group-lg > select, .wpcf7 .input-group-lg > input[type=text],
+.widget_archive .input-group-lg > select, .input-group-lg > .wp-block-search__input, .wpcf7 .input-group-lg > input[type=text],
 .wpcf7 .input-group-lg > input[type=search],
 .wpcf7 .input-group-lg > input[type=url],
 .wpcf7 .input-group-lg > input[type=tel],
@@ -2452,13 +2453,14 @@ textarea.form-control-lg {
 .input-group-lg > .input-group-text,
 .input-group-lg > .btn,
 body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .input-group-lg > .button.wc-forward,
+.wp-block-search .input-group-lg > .wp-block-search__button,
 .wpcf7 .input-group-lg > input[type=submit] {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   border-radius: 0.3rem; }
 
 .input-group-sm > .form-control, .widget_categories .input-group-sm > select,
-.widget_archive .input-group-sm > select, .wpcf7 .input-group-sm > input[type=text],
+.widget_archive .input-group-sm > select, .input-group-sm > .wp-block-search__input, .wpcf7 .input-group-sm > input[type=text],
 .wpcf7 .input-group-sm > input[type=search],
 .wpcf7 .input-group-sm > input[type=url],
 .wpcf7 .input-group-sm > input[type=tel],
@@ -2480,6 +2482,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
 .input-group-sm > .input-group-text,
 .input-group-sm > .btn,
 body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .input-group-sm > .button.wc-forward,
+.wp-block-search .input-group-sm > .wp-block-search__button,
 .wpcf7 .input-group-sm > input[type=submit] {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
@@ -2531,7 +2534,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   display: block; }
 
 .was-validated .form-control:valid, .was-validated .widget_categories select:valid, .widget_categories .was-validated select:valid,
-.was-validated .widget_archive select:valid, .widget_archive .was-validated select:valid, .was-validated .wpcf7 input:valid[type=text], .wpcf7 .was-validated input:valid[type=text],
+.was-validated .widget_archive select:valid, .widget_archive .was-validated select:valid, .was-validated .wp-block-search__input:valid, .was-validated .wpcf7 input:valid[type=text], .wpcf7 .was-validated input:valid[type=text],
 .was-validated .wpcf7 input:valid[type=search], .wpcf7 .was-validated input:valid[type=search],
 .was-validated .wpcf7 input:valid[type=url], .wpcf7 .was-validated input:valid[type=url],
 .was-validated .wpcf7 input:valid[type=tel], .wpcf7 .was-validated input:valid[type=tel],
@@ -2549,7 +2552,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
 .was-validated .wpcf7 input:valid[type=submit], .wpcf7 .was-validated input:valid[type=submit],
 .was-validated .wpcf7 select:valid, .wpcf7 .was-validated select:valid,
 .was-validated .wpcf7 textarea:valid, .wpcf7 .was-validated textarea:valid, .was-validated .wpcf7 .wpcf7-validation-errors:valid, .wpcf7 .was-validated .wpcf7-validation-errors:valid, .form-control.is-valid, .widget_categories select.is-valid,
-.widget_archive select.is-valid, .wpcf7 input.is-valid[type=text],
+.widget_archive select.is-valid, .is-valid.wp-block-search__input, .wpcf7 input.is-valid[type=text],
 .wpcf7 input.is-valid[type=search],
 .wpcf7 input.is-valid[type=url],
 .wpcf7 input.is-valid[type=tel],
@@ -2574,7 +2577,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
   .was-validated .form-control:valid:focus, .was-validated .widget_categories select:valid:focus, .widget_categories .was-validated select:valid:focus,
-  .was-validated .widget_archive select:valid:focus, .widget_archive .was-validated select:valid:focus, .was-validated .wpcf7 input:valid:focus[type=text], .wpcf7 .was-validated input:valid:focus[type=text],
+  .was-validated .widget_archive select:valid:focus, .widget_archive .was-validated select:valid:focus, .was-validated .wp-block-search__input:valid:focus, .was-validated .wpcf7 input:valid:focus[type=text], .wpcf7 .was-validated input:valid:focus[type=text],
   .was-validated .wpcf7 input:valid:focus[type=search], .wpcf7 .was-validated input:valid:focus[type=search],
   .was-validated .wpcf7 input:valid:focus[type=url], .wpcf7 .was-validated input:valid:focus[type=url],
   .was-validated .wpcf7 input:valid:focus[type=tel], .wpcf7 .was-validated input:valid:focus[type=tel],
@@ -2592,7 +2595,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .was-validated .wpcf7 input:valid:focus[type=submit], .wpcf7 .was-validated input:valid:focus[type=submit],
   .was-validated .wpcf7 select:valid:focus, .wpcf7 .was-validated select:valid:focus,
   .was-validated .wpcf7 textarea:valid:focus, .wpcf7 .was-validated textarea:valid:focus, .was-validated .wpcf7 .wpcf7-validation-errors:valid:focus, .wpcf7 .was-validated .wpcf7-validation-errors:valid:focus, .form-control.is-valid:focus, .widget_categories select.is-valid:focus,
-  .widget_archive select.is-valid:focus, .wpcf7 input.is-valid:focus[type=text],
+  .widget_archive select.is-valid:focus, .is-valid.wp-block-search__input:focus, .wpcf7 input.is-valid:focus[type=text],
   .wpcf7 input.is-valid:focus[type=search],
   .wpcf7 input.is-valid:focus[type=url],
   .wpcf7 input.is-valid:focus[type=tel],
@@ -2613,8 +2616,8 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
     border-color: #198754;
     box-shadow: 0 0 0 0.25rem rgba(25, 135, 84, 0.25); }
 
-.was-validated textarea.form-control:valid,
-.was-validated .wpcf7 textarea:valid, .wpcf7 .was-validated textarea:valid, textarea.form-control.is-valid,
+.was-validated textarea.form-control:valid, .was-validated textarea.wp-block-search__input:valid,
+.was-validated .wpcf7 textarea:valid, .wpcf7 .was-validated textarea:valid, textarea.form-control.is-valid, textarea.is-valid.wp-block-search__input,
 .wpcf7 textarea.is-valid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem); }
@@ -2643,7 +2646,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   margin-left: .5em; }
 
 .was-validated .input-group .form-control:valid, .was-validated .input-group .widget_categories select:valid, .widget_categories .was-validated .input-group select:valid,
-.was-validated .input-group .widget_archive select:valid, .widget_archive .was-validated .input-group select:valid, .was-validated .input-group .wpcf7 input:valid[type=text], .wpcf7 .was-validated .input-group input:valid[type=text],
+.was-validated .input-group .widget_archive select:valid, .widget_archive .was-validated .input-group select:valid, .was-validated .input-group .wp-block-search__input:valid, .was-validated .input-group .wpcf7 input:valid[type=text], .wpcf7 .was-validated .input-group input:valid[type=text],
 .was-validated .input-group .wpcf7 input:valid[type=search], .wpcf7 .was-validated .input-group input:valid[type=search],
 .was-validated .input-group .wpcf7 input:valid[type=url], .wpcf7 .was-validated .input-group input:valid[type=url],
 .was-validated .input-group .wpcf7 input:valid[type=tel], .wpcf7 .was-validated .input-group input:valid[type=tel],
@@ -2661,7 +2664,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
 .was-validated .input-group .wpcf7 input:valid[type=submit], .wpcf7 .was-validated .input-group input:valid[type=submit],
 .was-validated .input-group .wpcf7 select:valid, .wpcf7 .was-validated .input-group select:valid,
 .was-validated .input-group .wpcf7 textarea:valid, .wpcf7 .was-validated .input-group textarea:valid, .was-validated .input-group .wpcf7 .wpcf7-validation-errors:valid, .wpcf7 .was-validated .input-group .wpcf7-validation-errors:valid, .input-group .form-control.is-valid, .input-group .widget_categories select.is-valid, .widget_categories .input-group select.is-valid,
-.input-group .widget_archive select.is-valid, .widget_archive .input-group select.is-valid, .input-group .wpcf7 input.is-valid[type=text], .wpcf7 .input-group input.is-valid[type=text],
+.input-group .widget_archive select.is-valid, .widget_archive .input-group select.is-valid, .input-group .is-valid.wp-block-search__input, .input-group .wpcf7 input.is-valid[type=text], .wpcf7 .input-group input.is-valid[type=text],
 .input-group .wpcf7 input.is-valid[type=search], .wpcf7 .input-group input.is-valid[type=search],
 .input-group .wpcf7 input.is-valid[type=url], .wpcf7 .input-group input.is-valid[type=url],
 .input-group .wpcf7 input.is-valid[type=tel], .wpcf7 .input-group input.is-valid[type=tel],
@@ -2683,7 +2686,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
 .input-group .form-select.is-valid {
   z-index: 1; }
   .was-validated .input-group .form-control:valid:focus, .was-validated .input-group .widget_categories select:valid:focus, .widget_categories .was-validated .input-group select:valid:focus,
-  .was-validated .input-group .widget_archive select:valid:focus, .widget_archive .was-validated .input-group select:valid:focus, .was-validated .input-group .wpcf7 input:valid:focus[type=text], .wpcf7 .was-validated .input-group input:valid:focus[type=text],
+  .was-validated .input-group .widget_archive select:valid:focus, .widget_archive .was-validated .input-group select:valid:focus, .was-validated .input-group .wp-block-search__input:valid:focus, .was-validated .input-group .wpcf7 input:valid:focus[type=text], .wpcf7 .was-validated .input-group input:valid:focus[type=text],
   .was-validated .input-group .wpcf7 input:valid:focus[type=search], .wpcf7 .was-validated .input-group input:valid:focus[type=search],
   .was-validated .input-group .wpcf7 input:valid:focus[type=url], .wpcf7 .was-validated .input-group input:valid:focus[type=url],
   .was-validated .input-group .wpcf7 input:valid:focus[type=tel], .wpcf7 .was-validated .input-group input:valid:focus[type=tel],
@@ -2701,7 +2704,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .was-validated .input-group .wpcf7 input:valid:focus[type=submit], .wpcf7 .was-validated .input-group input:valid:focus[type=submit],
   .was-validated .input-group .wpcf7 select:valid:focus, .wpcf7 .was-validated .input-group select:valid:focus,
   .was-validated .input-group .wpcf7 textarea:valid:focus, .wpcf7 .was-validated .input-group textarea:valid:focus, .was-validated .input-group .wpcf7 .wpcf7-validation-errors:valid:focus, .wpcf7 .was-validated .input-group .wpcf7-validation-errors:valid:focus, .input-group .form-control.is-valid:focus, .input-group .widget_categories select.is-valid:focus, .widget_categories .input-group select.is-valid:focus,
-  .input-group .widget_archive select.is-valid:focus, .widget_archive .input-group select.is-valid:focus, .input-group .wpcf7 input.is-valid:focus[type=text], .wpcf7 .input-group input.is-valid:focus[type=text],
+  .input-group .widget_archive select.is-valid:focus, .widget_archive .input-group select.is-valid:focus, .input-group .is-valid.wp-block-search__input:focus, .input-group .wpcf7 input.is-valid:focus[type=text], .wpcf7 .input-group input.is-valid:focus[type=text],
   .input-group .wpcf7 input.is-valid:focus[type=search], .wpcf7 .input-group input.is-valid:focus[type=search],
   .input-group .wpcf7 input.is-valid:focus[type=url], .wpcf7 .input-group input.is-valid:focus[type=url],
   .input-group .wpcf7 input.is-valid:focus[type=tel], .wpcf7 .input-group input.is-valid:focus[type=tel],
@@ -2750,7 +2753,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   display: block; }
 
 .was-validated .form-control:invalid, .was-validated .widget_categories select:invalid, .widget_categories .was-validated select:invalid,
-.was-validated .widget_archive select:invalid, .widget_archive .was-validated select:invalid, .was-validated .wpcf7 input:invalid[type=text], .wpcf7 .was-validated input:invalid[type=text],
+.was-validated .widget_archive select:invalid, .widget_archive .was-validated select:invalid, .was-validated .wp-block-search__input:invalid, .was-validated .wpcf7 input:invalid[type=text], .wpcf7 .was-validated input:invalid[type=text],
 .was-validated .wpcf7 input:invalid[type=search], .wpcf7 .was-validated input:invalid[type=search],
 .was-validated .wpcf7 input:invalid[type=url], .wpcf7 .was-validated input:invalid[type=url],
 .was-validated .wpcf7 input:invalid[type=tel], .wpcf7 .was-validated input:invalid[type=tel],
@@ -2768,7 +2771,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
 .was-validated .wpcf7 input:invalid[type=submit], .wpcf7 .was-validated input:invalid[type=submit],
 .was-validated .wpcf7 select:invalid, .wpcf7 .was-validated select:invalid,
 .was-validated .wpcf7 textarea:invalid, .wpcf7 .was-validated textarea:invalid, .was-validated .wpcf7 .wpcf7-validation-errors:invalid, .wpcf7 .was-validated .wpcf7-validation-errors:invalid, .form-control.is-invalid, .widget_categories select.is-invalid,
-.widget_archive select.is-invalid, .wpcf7 input.is-invalid[type=text],
+.widget_archive select.is-invalid, .is-invalid.wp-block-search__input, .wpcf7 input.is-invalid[type=text],
 .wpcf7 input.is-invalid[type=search],
 .wpcf7 input.is-invalid[type=url],
 .wpcf7 input.is-invalid[type=tel],
@@ -2793,7 +2796,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   background-position: right calc(0.375em + 0.1875rem) center;
   background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem); }
   .was-validated .form-control:invalid:focus, .was-validated .widget_categories select:invalid:focus, .widget_categories .was-validated select:invalid:focus,
-  .was-validated .widget_archive select:invalid:focus, .widget_archive .was-validated select:invalid:focus, .was-validated .wpcf7 input:invalid:focus[type=text], .wpcf7 .was-validated input:invalid:focus[type=text],
+  .was-validated .widget_archive select:invalid:focus, .widget_archive .was-validated select:invalid:focus, .was-validated .wp-block-search__input:invalid:focus, .was-validated .wpcf7 input:invalid:focus[type=text], .wpcf7 .was-validated input:invalid:focus[type=text],
   .was-validated .wpcf7 input:invalid:focus[type=search], .wpcf7 .was-validated input:invalid:focus[type=search],
   .was-validated .wpcf7 input:invalid:focus[type=url], .wpcf7 .was-validated input:invalid:focus[type=url],
   .was-validated .wpcf7 input:invalid:focus[type=tel], .wpcf7 .was-validated input:invalid:focus[type=tel],
@@ -2811,7 +2814,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .was-validated .wpcf7 input:invalid:focus[type=submit], .wpcf7 .was-validated input:invalid:focus[type=submit],
   .was-validated .wpcf7 select:invalid:focus, .wpcf7 .was-validated select:invalid:focus,
   .was-validated .wpcf7 textarea:invalid:focus, .wpcf7 .was-validated textarea:invalid:focus, .was-validated .wpcf7 .wpcf7-validation-errors:invalid:focus, .wpcf7 .was-validated .wpcf7-validation-errors:invalid:focus, .form-control.is-invalid:focus, .widget_categories select.is-invalid:focus,
-  .widget_archive select.is-invalid:focus, .wpcf7 input.is-invalid:focus[type=text],
+  .widget_archive select.is-invalid:focus, .is-invalid.wp-block-search__input:focus, .wpcf7 input.is-invalid:focus[type=text],
   .wpcf7 input.is-invalid:focus[type=search],
   .wpcf7 input.is-invalid:focus[type=url],
   .wpcf7 input.is-invalid:focus[type=tel],
@@ -2832,8 +2835,8 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
     border-color: #dc3545;
     box-shadow: 0 0 0 0.25rem rgba(220, 53, 69, 0.25); }
 
-.was-validated textarea.form-control:invalid,
-.was-validated .wpcf7 textarea:invalid, .wpcf7 .was-validated textarea:invalid, textarea.form-control.is-invalid,
+.was-validated textarea.form-control:invalid, .was-validated textarea.wp-block-search__input:invalid,
+.was-validated .wpcf7 textarea:invalid, .wpcf7 .was-validated textarea:invalid, textarea.form-control.is-invalid, textarea.is-invalid.wp-block-search__input,
 .wpcf7 textarea.is-invalid {
   padding-right: calc(1.5em + 0.75rem);
   background-position: top calc(0.375em + 0.1875rem) right calc(0.375em + 0.1875rem); }
@@ -2862,7 +2865,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   margin-left: .5em; }
 
 .was-validated .input-group .form-control:invalid, .was-validated .input-group .widget_categories select:invalid, .widget_categories .was-validated .input-group select:invalid,
-.was-validated .input-group .widget_archive select:invalid, .widget_archive .was-validated .input-group select:invalid, .was-validated .input-group .wpcf7 input:invalid[type=text], .wpcf7 .was-validated .input-group input:invalid[type=text],
+.was-validated .input-group .widget_archive select:invalid, .widget_archive .was-validated .input-group select:invalid, .was-validated .input-group .wp-block-search__input:invalid, .was-validated .input-group .wpcf7 input:invalid[type=text], .wpcf7 .was-validated .input-group input:invalid[type=text],
 .was-validated .input-group .wpcf7 input:invalid[type=search], .wpcf7 .was-validated .input-group input:invalid[type=search],
 .was-validated .input-group .wpcf7 input:invalid[type=url], .wpcf7 .was-validated .input-group input:invalid[type=url],
 .was-validated .input-group .wpcf7 input:invalid[type=tel], .wpcf7 .was-validated .input-group input:invalid[type=tel],
@@ -2880,7 +2883,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
 .was-validated .input-group .wpcf7 input:invalid[type=submit], .wpcf7 .was-validated .input-group input:invalid[type=submit],
 .was-validated .input-group .wpcf7 select:invalid, .wpcf7 .was-validated .input-group select:invalid,
 .was-validated .input-group .wpcf7 textarea:invalid, .wpcf7 .was-validated .input-group textarea:invalid, .was-validated .input-group .wpcf7 .wpcf7-validation-errors:invalid, .wpcf7 .was-validated .input-group .wpcf7-validation-errors:invalid, .input-group .form-control.is-invalid, .input-group .widget_categories select.is-invalid, .widget_categories .input-group select.is-invalid,
-.input-group .widget_archive select.is-invalid, .widget_archive .input-group select.is-invalid, .input-group .wpcf7 input.is-invalid[type=text], .wpcf7 .input-group input.is-invalid[type=text],
+.input-group .widget_archive select.is-invalid, .widget_archive .input-group select.is-invalid, .input-group .is-invalid.wp-block-search__input, .input-group .wpcf7 input.is-invalid[type=text], .wpcf7 .input-group input.is-invalid[type=text],
 .input-group .wpcf7 input.is-invalid[type=search], .wpcf7 .input-group input.is-invalid[type=search],
 .input-group .wpcf7 input.is-invalid[type=url], .wpcf7 .input-group input.is-invalid[type=url],
 .input-group .wpcf7 input.is-invalid[type=tel], .wpcf7 .input-group input.is-invalid[type=tel],
@@ -2902,7 +2905,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
 .input-group .form-select.is-invalid {
   z-index: 2; }
   .was-validated .input-group .form-control:invalid:focus, .was-validated .input-group .widget_categories select:invalid:focus, .widget_categories .was-validated .input-group select:invalid:focus,
-  .was-validated .input-group .widget_archive select:invalid:focus, .widget_archive .was-validated .input-group select:invalid:focus, .was-validated .input-group .wpcf7 input:invalid:focus[type=text], .wpcf7 .was-validated .input-group input:invalid:focus[type=text],
+  .was-validated .input-group .widget_archive select:invalid:focus, .widget_archive .was-validated .input-group select:invalid:focus, .was-validated .input-group .wp-block-search__input:invalid:focus, .was-validated .input-group .wpcf7 input:invalid:focus[type=text], .wpcf7 .was-validated .input-group input:invalid:focus[type=text],
   .was-validated .input-group .wpcf7 input:invalid:focus[type=search], .wpcf7 .was-validated .input-group input:invalid:focus[type=search],
   .was-validated .input-group .wpcf7 input:invalid:focus[type=url], .wpcf7 .was-validated .input-group input:invalid:focus[type=url],
   .was-validated .input-group .wpcf7 input:invalid:focus[type=tel], .wpcf7 .was-validated .input-group input:invalid:focus[type=tel],
@@ -2920,7 +2923,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .was-validated .input-group .wpcf7 input:invalid:focus[type=submit], .wpcf7 .was-validated .input-group input:invalid:focus[type=submit],
   .was-validated .input-group .wpcf7 select:invalid:focus, .wpcf7 .was-validated .input-group select:invalid:focus,
   .was-validated .input-group .wpcf7 textarea:invalid:focus, .wpcf7 .was-validated .input-group textarea:invalid:focus, .was-validated .input-group .wpcf7 .wpcf7-validation-errors:invalid:focus, .wpcf7 .was-validated .input-group .wpcf7-validation-errors:invalid:focus, .input-group .form-control.is-invalid:focus, .input-group .widget_categories select.is-invalid:focus, .widget_categories .input-group select.is-invalid:focus,
-  .input-group .widget_archive select.is-invalid:focus, .widget_archive .input-group select.is-invalid:focus, .input-group .wpcf7 input.is-invalid:focus[type=text], .wpcf7 .input-group input.is-invalid:focus[type=text],
+  .input-group .widget_archive select.is-invalid:focus, .widget_archive .input-group select.is-invalid:focus, .input-group .is-invalid.wp-block-search__input:focus, .input-group .wpcf7 input.is-invalid:focus[type=text], .wpcf7 .input-group input.is-invalid:focus[type=text],
   .input-group .wpcf7 input.is-invalid:focus[type=search], .wpcf7 .input-group input.is-invalid:focus[type=search],
   .input-group .wpcf7 input.is-invalid:focus[type=url], .wpcf7 .input-group input.is-invalid:focus[type=url],
   .input-group .wpcf7 input.is-invalid:focus[type=tel], .wpcf7 .input-group input.is-invalid:focus[type=tel],
@@ -2942,7 +2945,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .input-group .form-select.is-invalid:focus {
     z-index: 3; }
 
-.btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward,
+.btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward, .wp-block-search .wp-block-search__button,
 .wpcf7 input[type=submit] {
   display: inline-block;
   font-weight: 400;
@@ -2963,21 +2966,23 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   border-radius: 0.25rem;
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out; }
   @media (prefers-reduced-motion: reduce) {
-    .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward,
+    .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward, .wp-block-search .wp-block-search__button,
     .wpcf7 input[type=submit] {
       transition: none; } }
-  .btn:hover, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward:hover, .wpcf7 input:hover[type=submit] {
+  .btn:hover, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward:hover, .wp-block-search .wp-block-search__button:hover, .wpcf7 input:hover[type=submit] {
     color: #212529; }
-  .btn-check:focus + .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:focus + .button.wc-forward,
-  .wpcf7 .btn-check:focus + input[type=submit], .btn:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward:focus,
+  .btn-check:focus + .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:focus + .button.wc-forward, .wp-block-search .btn-check:focus + .wp-block-search__button,
+  .wpcf7 .btn-check:focus + input[type=submit], .btn:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward:focus, .wp-block-search .wp-block-search__button:focus,
   .wpcf7 input:focus[type=submit] {
     outline: 0;
     box-shadow: 0 0 0 0.25rem rgba(0, 0, 255, 0.25); }
-  .btn:disabled, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward:disabled,
-  .wpcf7 input:disabled[type=submit], .btn.disabled, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .disabled.button.wc-forward, .wpcf7 input.disabled[type=submit],
+  .btn:disabled, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward:disabled, .wp-block-search .wp-block-search__button:disabled,
+  .wpcf7 input:disabled[type=submit], .btn.disabled, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .disabled.button.wc-forward, .wp-block-search .disabled.wp-block-search__button, .wpcf7 input.disabled[type=submit],
   fieldset:disabled .btn,
   fieldset:disabled body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons fieldset:disabled .button.wc-forward,
+  fieldset:disabled .wp-block-search .wp-block-search__button,
+  .wp-block-search fieldset:disabled .wp-block-search__button,
   fieldset:disabled .wpcf7 input[type=submit],
   .wpcf7 fieldset:disabled input[type=submit] {
     pointer-events: none;
@@ -3183,34 +3188,38 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
     background-color: #f8f9fa;
     border-color: #f8f9fa; }
 
-.btn-dark, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout {
+.btn-dark, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout, .wp-block-search .wp-block-search__button {
   color: #fff;
   background-color: #212529;
   border-color: #212529; }
-  .btn-dark:hover, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:hover {
+  .btn-dark:hover, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:hover, .wp-block-search .wp-block-search__button:hover {
     color: #fff;
     background-color: #1c1f23;
     border-color: #1a1e21; }
-  .btn-check:focus + .btn-dark, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:focus + .button.wc-forward.checkout, .btn-dark:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:focus {
+  .btn-check:focus + .btn-dark, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:focus + .button.wc-forward.checkout, .wp-block-search .btn-check:focus + .wp-block-search__button, .btn-dark:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:focus, .wp-block-search .wp-block-search__button:focus {
     color: #fff;
     background-color: #1c1f23;
     border-color: #1a1e21;
     box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5); }
-  .btn-check:checked + .btn-dark, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:checked + .button.wc-forward.checkout,
+  .btn-check:checked + .btn-dark, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:checked + .button.wc-forward.checkout, .wp-block-search .btn-check:checked + .wp-block-search__button,
   .btn-check:active + .btn-dark,
-  body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:active + .button.wc-forward.checkout, .btn-dark:active, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:active, .btn-dark.active, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .active.button.wc-forward.checkout,
+  body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:active + .button.wc-forward.checkout,
+  .wp-block-search .btn-check:active + .wp-block-search__button, .btn-dark:active, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:active, .wp-block-search .wp-block-search__button:active, .btn-dark.active, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .active.button.wc-forward.checkout, .wp-block-search .active.wp-block-search__button,
   .show > .btn-dark.dropdown-toggle,
-  body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .show > .dropdown-toggle.button.wc-forward.checkout {
+  body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .show > .dropdown-toggle.button.wc-forward.checkout,
+  .wp-block-search .show > .dropdown-toggle.wp-block-search__button {
     color: #fff;
     background-color: #1a1e21;
     border-color: #191c1f; }
-    .btn-check:checked + .btn-dark:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:checked + .button.wc-forward.checkout:focus,
+    .btn-check:checked + .btn-dark:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:checked + .button.wc-forward.checkout:focus, .wp-block-search .btn-check:checked + .wp-block-search__button:focus,
     .btn-check:active + .btn-dark:focus,
-    body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:active + .button.wc-forward.checkout:focus, .btn-dark:active:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:active:focus, .btn-dark.active:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .active.button.wc-forward.checkout:focus,
+    body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-check:active + .button.wc-forward.checkout:focus,
+    .wp-block-search .btn-check:active + .wp-block-search__button:focus, .btn-dark:active:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:active:focus, .wp-block-search .wp-block-search__button:active:focus, .btn-dark.active:focus, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .active.button.wc-forward.checkout:focus, .wp-block-search .active.wp-block-search__button:focus,
     .show > .btn-dark.dropdown-toggle:focus,
-    body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .show > .dropdown-toggle.button.wc-forward.checkout:focus {
+    body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .show > .dropdown-toggle.button.wc-forward.checkout:focus,
+    .wp-block-search .show > .dropdown-toggle.wp-block-search__button:focus {
       box-shadow: 0 0 0 0.25rem rgba(66, 70, 73, 0.5); }
-  .btn-dark:disabled, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:disabled, .btn-dark.disabled, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .disabled.button.wc-forward.checkout {
+  .btn-dark:disabled, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward.checkout:disabled, .wp-block-search .wp-block-search__button:disabled, .btn-dark.disabled, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .disabled.button.wc-forward.checkout, .wp-block-search .disabled.wp-block-search__button {
     color: #fff;
     background-color: #212529;
     border-color: #212529; }
@@ -3400,13 +3409,13 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .btn-link:disabled, .btn-link.disabled {
     color: #6c757d; }
 
-.btn-lg, .btn-group-lg > .btn,
+.btn-lg, .btn-group-lg > .btn, .wp-block-search .btn-group-lg > .wp-block-search__button,
 .wpcf7 .btn-group-lg > input[type=submit], body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   border-radius: 0.3rem; }
 
-.btn-sm, .btn-group-sm > .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-sm > .button.wc-forward,
+.btn-sm, .btn-group-sm > .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-sm > .button.wc-forward, .wp-block-search .btn-group-sm > .wp-block-search__button,
 .wpcf7 .btn-group-sm > input[type=submit] {
   padding: 0.25rem 0.5rem;
   font-size: 0.875rem;
@@ -3688,47 +3697,59 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   position: relative;
   display: inline-flex;
   vertical-align: middle; }
-  .btn-group > .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward,
+  .btn-group > .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward, .wp-block-search .btn-group > .wp-block-search__button,
   .wpcf7 .btn-group > input[type=submit],
   .btn-group-vertical > .btn,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward,
+  .wp-block-search .btn-group-vertical > .wp-block-search__button,
   .wpcf7 .btn-group-vertical > input[type=submit] {
     position: relative;
     flex: 1 1 auto; }
-  .btn-group > .btn-check:checked + .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .btn-check:checked + .button.wc-forward,
+  .btn-group > .btn-check:checked + .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .btn-check:checked + .button.wc-forward, .wp-block-search .btn-group > .btn-check:checked + .wp-block-search__button,
   .wpcf7 .btn-group > .btn-check:checked + input[type=submit],
   .btn-group > .btn-check:focus + .btn,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .btn-check:focus + .button.wc-forward,
+  .wp-block-search .btn-group > .btn-check:focus + .wp-block-search__button,
   .wpcf7 .btn-group > .btn-check:focus + input[type=submit],
   .btn-group > .btn:hover,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:hover,
+  .wp-block-search .btn-group > .wp-block-search__button:hover,
   .wpcf7 .btn-group > input:hover[type=submit],
   .btn-group > .btn:focus,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:focus,
+  .wp-block-search .btn-group > .wp-block-search__button:focus,
   .wpcf7 .btn-group > input:focus[type=submit],
   .btn-group > .btn:active,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:active,
+  .wp-block-search .btn-group > .wp-block-search__button:active,
   .wpcf7 .btn-group > input:active[type=submit],
   .btn-group > .btn.active,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .active.button.wc-forward,
+  .wp-block-search .btn-group > .active.wp-block-search__button,
   .wpcf7 .btn-group > input.active[type=submit],
   .btn-group-vertical > .btn-check:checked + .btn,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .btn-check:checked + .button.wc-forward,
+  .wp-block-search .btn-group-vertical > .btn-check:checked + .wp-block-search__button,
   .wpcf7 .btn-group-vertical > .btn-check:checked + input[type=submit],
   .btn-group-vertical > .btn-check:focus + .btn,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .btn-check:focus + .button.wc-forward,
+  .wp-block-search .btn-group-vertical > .btn-check:focus + .wp-block-search__button,
   .wpcf7 .btn-group-vertical > .btn-check:focus + input[type=submit],
   .btn-group-vertical > .btn:hover,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward:hover,
+  .wp-block-search .btn-group-vertical > .wp-block-search__button:hover,
   .wpcf7 .btn-group-vertical > input:hover[type=submit],
   .btn-group-vertical > .btn:focus,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward:focus,
+  .wp-block-search .btn-group-vertical > .wp-block-search__button:focus,
   .wpcf7 .btn-group-vertical > input:focus[type=submit],
   .btn-group-vertical > .btn:active,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward:active,
+  .wp-block-search .btn-group-vertical > .wp-block-search__button:active,
   .wpcf7 .btn-group-vertical > input:active[type=submit],
   .btn-group-vertical > .btn.active,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .active.button.wc-forward,
+  .wp-block-search .btn-group-vertical > .active.wp-block-search__button,
   .wpcf7 .btn-group-vertical > input.active[type=submit] {
     z-index: 1; }
 
@@ -3739,23 +3760,26 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .btn-toolbar .input-group {
     width: auto; }
 
-.btn-group > .btn:not(:first-child), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:not(:first-child), .wpcf7 .btn-group > input:not(:first-child)[type=submit],
+.btn-group > .btn:not(:first-child), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:not(:first-child), .wp-block-search .btn-group > .wp-block-search__button:not(:first-child), .wpcf7 .btn-group > input:not(:first-child)[type=submit],
 .btn-group > .btn-group:not(:first-child) {
   margin-left: -1px; }
 
-.btn-group > .btn:not(:last-child):not(.dropdown-toggle), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:not(:last-child):not(.dropdown-toggle), .wpcf7 .btn-group > input:not(:last-child):not(.dropdown-toggle)[type=submit],
+.btn-group > .btn:not(:last-child):not(.dropdown-toggle), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:not(:last-child):not(.dropdown-toggle), .wp-block-search .btn-group > .wp-block-search__button:not(:last-child):not(.dropdown-toggle), .wpcf7 .btn-group > input:not(:last-child):not(.dropdown-toggle)[type=submit],
 .btn-group > .btn-group:not(:last-child) > .btn,
 body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .btn-group:not(:last-child) > .button.wc-forward,
+.wp-block-search .btn-group > .btn-group:not(:last-child) > .wp-block-search__button,
 .wpcf7 .btn-group > .btn-group:not(:last-child) > input[type=submit] {
   border-top-right-radius: 0;
   border-bottom-right-radius: 0; }
 
-.btn-group > .btn:nth-child(n + 3), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:nth-child(n + 3), .wpcf7 .btn-group > input:nth-child(n + 3)[type=submit],
+.btn-group > .btn:nth-child(n + 3), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .button.wc-forward:nth-child(n + 3), .wp-block-search .btn-group > .wp-block-search__button:nth-child(n + 3), .wpcf7 .btn-group > input:nth-child(n + 3)[type=submit],
 .btn-group > :not(.btn-check) + .btn,
 body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > :not(.btn-check) + .button.wc-forward,
+.wp-block-search .btn-group > :not(.btn-check) + .wp-block-search__button,
 .wpcf7 .btn-group > :not(.btn-check) + input[type=submit],
 .btn-group > .btn-group:not(:first-child) > .btn,
 body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group > .btn-group:not(:first-child) > .button.wc-forward,
+.wp-block-search .btn-group > .btn-group:not(:first-child) > .wp-block-search__button,
 .wpcf7 .btn-group > .btn-group:not(:first-child) > input[type=submit] {
   border-top-left-radius: 0;
   border-bottom-left-radius: 0; }
@@ -3770,11 +3794,11 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .dropstart .dropdown-toggle-split::before {
     margin-right: 0; }
 
-.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-sm > .button.wc-forward + .dropdown-toggle-split, .wpcf7 .btn-group-sm > input[type=submit] + .dropdown-toggle-split {
+.btn-sm + .dropdown-toggle-split, .btn-group-sm > .btn + .dropdown-toggle-split, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-sm > .button.wc-forward + .dropdown-toggle-split, .wp-block-search .btn-group-sm > .wp-block-search__button + .dropdown-toggle-split, .wpcf7 .btn-group-sm > input[type=submit] + .dropdown-toggle-split {
   padding-right: 0.375rem;
   padding-left: 0.375rem; }
 
-.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-lg > .button.wc-forward + .dropdown-toggle-split, .wpcf7 .btn-group-lg > input[type=submit] + .dropdown-toggle-split, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward + .dropdown-toggle-split {
+.btn-lg + .dropdown-toggle-split, .btn-group-lg > .btn + .dropdown-toggle-split, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-lg > .button.wc-forward + .dropdown-toggle-split, .wp-block-search .btn-group-lg > .wp-block-search__button + .dropdown-toggle-split, .wpcf7 .btn-group-lg > input[type=submit] + .dropdown-toggle-split, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward + .dropdown-toggle-split {
   padding-right: 0.75rem;
   padding-left: 0.75rem; }
 
@@ -3785,24 +3809,28 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   
   .btn-group-vertical > .btn,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward,
+  .wp-block-search .btn-group-vertical > .wp-block-search__button,
   .wpcf7 .btn-group-vertical > input[type=submit],
   .btn-group-vertical > .btn-group {
     width: 100%; }
-  .btn-group-vertical > .btn:not(:first-child), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward:not(:first-child), .wpcf7 .btn-group-vertical > input:not(:first-child)[type=submit],
+  .btn-group-vertical > .btn:not(:first-child), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward:not(:first-child), .wp-block-search .btn-group-vertical > .wp-block-search__button:not(:first-child), .wpcf7 .btn-group-vertical > input:not(:first-child)[type=submit],
   .btn-group-vertical > .btn-group:not(:first-child) {
     margin-top: -1px; }
-  .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward:not(:last-child):not(.dropdown-toggle), .wpcf7 .btn-group-vertical > input:not(:last-child):not(.dropdown-toggle)[type=submit],
+  .btn-group-vertical > .btn:not(:last-child):not(.dropdown-toggle), body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward:not(:last-child):not(.dropdown-toggle), .wp-block-search .btn-group-vertical > .wp-block-search__button:not(:last-child):not(.dropdown-toggle), .wpcf7 .btn-group-vertical > input:not(:last-child):not(.dropdown-toggle)[type=submit],
   .btn-group-vertical > .btn-group:not(:last-child) > .btn,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .btn-group:not(:last-child) > .button.wc-forward,
+  .wp-block-search .btn-group-vertical > .btn-group:not(:last-child) > .wp-block-search__button,
   .wpcf7 .btn-group-vertical > .btn-group:not(:last-child) > input[type=submit] {
     border-bottom-right-radius: 0;
     border-bottom-left-radius: 0; }
-  .btn-group-vertical > .btn ~ .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward ~ .btn, .wpcf7 .btn-group-vertical > input[type=submit] ~ .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .btn ~ .button.wc-forward, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward ~ .button.wc-forward, .wpcf7 body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > input[type=submit] ~ .button.wc-forward, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .wpcf7 .btn-group-vertical > input[type=submit] ~ .button.wc-forward,
+  .btn-group-vertical > .btn ~ .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward ~ .btn, .wp-block-search .btn-group-vertical > .wp-block-search__button ~ .btn, .wpcf7 .btn-group-vertical > input[type=submit] ~ .btn, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .btn ~ .button.wc-forward, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward ~ .button.wc-forward, .wp-block-search body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .wp-block-search__button ~ .button.wc-forward, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .wp-block-search .btn-group-vertical > .wp-block-search__button ~ .button.wc-forward, .wpcf7 body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > input[type=submit] ~ .button.wc-forward, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .wpcf7 .btn-group-vertical > input[type=submit] ~ .button.wc-forward, .wp-block-search .btn-group-vertical > .btn ~ .wp-block-search__button, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .wp-block-search .btn-group-vertical > .button.wc-forward ~ .wp-block-search__button, .wp-block-search body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward ~ .wp-block-search__button, .wp-block-search .btn-group-vertical > .wp-block-search__button ~ .wp-block-search__button, .wpcf7 .wp-block-search .btn-group-vertical > input[type=submit] ~ .wp-block-search__button, .wp-block-search .wpcf7 .btn-group-vertical > input[type=submit] ~ .wp-block-search__button,
   .wpcf7 .btn-group-vertical > .btn ~ input[type=submit],
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .wpcf7 .btn-group-vertical > .button.wc-forward ~ input[type=submit], .wpcf7 body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .button.wc-forward ~ input[type=submit],
+  .wp-block-search .wpcf7 .btn-group-vertical > .wp-block-search__button ~ input[type=submit], .wpcf7 .wp-block-search .btn-group-vertical > .wp-block-search__button ~ input[type=submit],
   .wpcf7 .btn-group-vertical > input[type=submit] ~ input[type=submit],
   .btn-group-vertical > .btn-group:not(:first-child) > .btn,
   body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .btn-group-vertical > .btn-group:not(:first-child) > .button.wc-forward,
+  .wp-block-search .btn-group-vertical > .btn-group:not(:first-child) > .wp-block-search__button,
   .wpcf7 .btn-group-vertical > .btn-group:not(:first-child) > input[type=submit] {
     border-top-left-radius: 0;
     border-top-right-radius: 0; }
@@ -4459,7 +4487,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart
   .badge:empty {
     display: none; }
 
-.btn .badge, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward .badge, .wpcf7 input[type=submit] .badge {
+.btn .badge, body:not(.woocommerce-page) .widget_shopping_cart_content .woocommerce-mini-cart__buttons .button.wc-forward .badge, .wp-block-search .wp-block-search__button .badge, .wpcf7 input[type=submit] .badge {
   position: relative;
   top: -1px; }
 
@@ -13075,7 +13103,7 @@ body:not(.woocommerce-page) .widget_shopping_cart_content {
   padding: 0 .5rem; }
   .anzu-header--search .dropdown-toggle:after {
     display: none; }
-  .anzu-header--search .input-group input.form-control, .anzu-header--search .input-group .wpcf7 input[type=text], .wpcf7 .anzu-header--search .input-group input[type=text],
+  .anzu-header--search .input-group input.form-control, .anzu-header--search .input-group input.wp-block-search__input, .anzu-header--search .input-group .wpcf7 input[type=text], .wpcf7 .anzu-header--search .input-group input[type=text],
   .anzu-header--search .input-group .wpcf7 input[type=search], .wpcf7 .anzu-header--search .input-group input[type=search],
   .anzu-header--search .input-group .wpcf7 input[type=url], .wpcf7 .anzu-header--search .input-group input[type=url],
   .anzu-header--search .input-group .wpcf7 input[type=tel], .wpcf7 .anzu-header--search .input-group input[type=tel],
@@ -13124,6 +13152,12 @@ body:not(.woocommerce-page) .widget_shopping_cart_content {
 
 .scroll-to-top--right {
   right: 20px; }
+
+/*-----------------------------------------------------------------------------------*/
+/*  *.  Widget - Search
+/*-----------------------------------------------------------------------------------*/
+.wp-block-search .wp-block-search__button.has-icon {
+  fill: #fff; }
 
 .woocommerce-input-wrapper {
   width: 100%; }
