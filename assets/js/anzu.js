@@ -6790,4 +6790,42 @@ jQuery(function ($) {
       scrollTop: 0
     }, '600');
   });
+  /* ==================================================
+  Breakpoint Range
+  ================================================== */
+
+  $(document).ready(breakpoint_range);
+  $(window).on('resize', breakpoint_range);
+
+  function breakpoint_range() {
+    if ($(window).width() < 576) {
+      $("body").addClass("layout-sm");
+      $("body").removeClass("layout-md");
+      $("body").removeClass("layout-lg");
+      $("body").removeClass("layout-xl");
+      $("body").addClass("mobile-device");
+      $("body").removeClass("desktop-device");
+    } else if ($(window).width() < 768) {
+      $("body").removeClass("layout-sm");
+      $("body").addClass("layout-md");
+      $("body").removeClass("layout-lg");
+      $("body").removeClass("layout-xl");
+      $("body").addClass("mobile-device");
+      $("body").removeClass("desktop-device");
+    } else if ($(window).width() < 992) {
+      $("body").removeClass("layout-sm");
+      $("body").removeClass("layout-md");
+      $("body").addClass("layout-lg");
+      $("body").removeClass("layout-xl");
+      $("body").removeClass("mobile-device");
+      $("body").addClass("desktop-device");
+    } else {
+      $("body").removeClass("layout-sm");
+      $("body").removeClass("layout-md");
+      $("body").removeClass("layout-lg");
+      $("body").addClass("layout-xl");
+      $("body").removeClass("mobile-device");
+      $("body").addClass("desktop-device");
+    }
+  }
 });

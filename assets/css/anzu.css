@@ -13124,6 +13124,17 @@ body:not(.woocommerce-page) .widget_shopping_cart_content {
     display: none; }
 
 /*-----------------------------------------------------------------------------------*/
+/*  *.  Transparent Header
+/*-----------------------------------------------------------------------------------*/
+.desktop-device .anzu-transparent-header {
+  position: absolute;
+  width: 100%;
+  background-color: transparent !important;
+  z-index: 999; }
+  .desktop-device .anzu-transparent-header nav#main-nav {
+    border-bottom: none; }
+
+/*-----------------------------------------------------------------------------------*/
 /*  *.  Scroll To Top
 /*-----------------------------------------------------------------------------------*/
 #scroll-to-top {

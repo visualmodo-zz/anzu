@@ -266,16 +266,6 @@ new \Kirki\Field\Image(
 
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'anzu_transparent_light_logo',
-		'label'       => esc_html__( 'Transparent Logo', 'anzu' ),
-		'description' => esc_html__( 'Select logo.', 'anzu' ),
-		'section'     => 'header_light_logo_section',
-		'default'     => '',
-	]
-);
-
-new \Kirki\Field\Image(
-	[
 		'settings'    => 'anzu_sticky_light_logo',
 		'label'       => esc_html__( 'Sticky Header Logo', 'anzu' ),
 		'description' => esc_html__( 'Select logo.', 'anzu' ),
@@ -364,16 +354,6 @@ new \Kirki\Field\Image(
 
 new \Kirki\Field\Image(
 	[
-		'settings'    => 'anzu_transparent_dark_logo',
-		'label'       => esc_html__( 'Transparent Logo', 'anzu' ),
-		'description' => esc_html__( 'Select logo.', 'anzu' ),
-		'section'     => 'header_dark_logo_section',
-		'default'     => '',
-	]
-);
-
-new \Kirki\Field\Image(
-	[
 		'settings'    => 'anzu_sticky_dark_logo',
 		'label'       => esc_html__( 'Sticky Header Logo', 'anzu' ),
 		'description' => esc_html__( 'Select logo.', 'anzu' ),
@@ -411,6 +391,85 @@ new \Kirki\Field\Image(
 	]
 );
 
+
+Kirki::add_section( 'header_transparency_section', array(
+    'title'          => esc_html__( 'Transparency', 'anzu' ),
+    'panel'          => 'header',
+    'priority'       => 160,
+) );
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_header_transparency_switch',
+		'label'       => esc_html__( 'Enable Header Transparent', 'anzu' ),
+		'section'     => 'header_transparency_section',
+		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_header_transparency_pages',
+		'label'       => esc_html__( 'Pages', 'anzu' ),
+		'section'     => 'header_transparency_section',
+		'default'     => true,
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_header_transparency_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_header_transparency_posts',
+		'label'       => esc_html__( 'Posts', 'anzu' ),
+		'section'     => 'header_transparency_section',
+		'default'     => true,
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_header_transparency_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_header_transparency_blog_page',
+		'label'       => esc_html__( 'Blog Page', 'anzu' ),
+		'section'     => 'header_transparency_section',
+		'default'     => false,
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_header_transparency_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_header_transparency_404_archives_search',
+		'label'       => esc_html__( '404, Archives and Search', 'anzu' ),
+		'section'     => 'header_transparency_section',
+		'default'     => false,
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_header_transparency_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
 
 /*-----------------------------------------------------------------------------------*/
 /*  *.  Colors

@@ -16,6 +16,32 @@ $navbar_theme_mode = $anzu_header_dark_mode == 'anzu-light-mode' ? 'navbar-light
 $anzu_scroll_to_top_switch = get_theme_mod( 'anzu_scroll_to_top_switch', '1' );
 $anzu_header_general_search = get_theme_mod( 'anzu_header_general_search', '1' );
 $anzu_header_general_cart = get_theme_mod( 'anzu_header_general_cart', '1' );
+$anzu_header_transparency_switch = get_theme_mod( 'anzu_header_transparency_switch', '' );
+$anzu_header_transparency_pages = get_theme_mod( 'anzu_header_transparency_pages', '1' );
+$anzu_header_transparency_posts = get_theme_mod( 'anzu_header_transparency_posts', '1' );
+$anzu_header_transparency_blog_page = get_theme_mod( 'anzu_header_transparency_blog_page', '' );
+$anzu_header_transparency_404_archives_search = get_theme_mod( 'anzu_header_transparency_404_archives_search', '' );
+
+// Transparent Header.
+
+$transparent_header = "";
+
+if ( $anzu_header_transparency_switch ) {
+
+	if ( is_page() && $anzu_header_transparency_pages == '1' ) {
+		$transparent_header = "anzu-transparent-header";
+	} else if ( is_single() && $anzu_header_transparency_posts == '1' ) {
+		$transparent_header = "anzu-transparent-header";
+	} else if ( is_home() && $anzu_header_transparency_blog_page == '1' ) {
+		$transparent_header = "anzu-transparent-header";
+	} else if ( ( is_404() || is_archive() || is_search() ) && $anzu_header_transparency_404_archives_search == '1' ) {
+		$transparent_header = "anzu-transparent-header";
+	}
+
+}
+
+// End Transparent Header.
+
 ?>
 <!DOCTYPE html>
 <html <?php language_attributes(); ?>>
@@ -39,7 +65,7 @@ if ( $anzu_scroll_to_top_switch ) {
 <div class="site" id="page">
 
 	<!-- ******************* The Navbar Area ******************* -->
-	<div id="wrapper-navbar" class="anzu-header <?php echo esc_attr( $anzu_header_dark_mode ); ?>">
+	<div id="wrapper-navbar" class="anzu-header <?php echo esc_attr( $anzu_header_dark_mode ) .' '. esc_attr( $transparent_header ); ?>">
 
 		<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'anzu' ); ?></a>
 
