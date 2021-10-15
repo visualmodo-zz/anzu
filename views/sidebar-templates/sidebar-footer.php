@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $footer_areas = array('above','main', 'below');
-$container = get_theme_mod( 'anzu_layout_type', 'container' ); 
+$container = get_theme_mod( 'anzu_container', 'container' ); 
 $above_footer_widgets_switch = get_theme_mod( 'above_footer_widgets_switch', '' );
 $main_footer_widgets_switch = get_theme_mod( 'main_footer_widgets_switch', '' );
 $below_footer_widgets_switch = get_theme_mod( 'below_footer_widgets_switch', '' );

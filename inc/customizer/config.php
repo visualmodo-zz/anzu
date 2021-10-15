@@ -504,12 +504,24 @@ Kirki::add_section( 'dark_colors_section', array(
 
 
 /*-----------------------------------------------------------------------------------*/
-/*  *.  Layout
+/*  *.  Container
 /*-----------------------------------------------------------------------------------*/
 
-Kirki::add_section( 'layout_section', array(
-    'title'          => esc_html__( 'Layout', 'anzu' ),
+Kirki::add_section( 'container_section', array(
+    'title'          => esc_html__( 'Container', 'anzu' ),
+	'panel'          => 'general',
+    'priority'       => 160,
+) );
+
+
+/*-----------------------------------------------------------------------------------*/
+/*  *.  Sidebar
+/*-----------------------------------------------------------------------------------*/
+
+Kirki::add_section( 'sidebar_section', array(
+    'title'          => esc_html__( 'Sidebar', 'anzu' ),
     'description'    => esc_html__( 'Make a big impression with this clean, modern, and mobile-friendly site.', 'anzu' ),
+	'panel'          => 'general',
     'priority'       => 160,
 ) );
 
@@ -782,33 +794,127 @@ new \Kirki\Field\Slider(
 );
 
 
-
-
-
 /**
- * Layout Control.
+ * Container Control.
  */
 new \Kirki\Field\Select(
 	[
-		'settings'    => 'anzu_layout_type',
-		'label'       => esc_html__( 'Layout Style', 'anzu' ),
+		'settings'    => 'anzu_container',
+		'label'       => esc_html__( 'Layout', 'anzu' ),
 		'description' => esc_html__( 'Choose the format that works best for you.', 'anzu' ),
-		'section'     => 'layout_section',
+		'section'     => 'container_section',
 		'default'     => 'container',
 		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
 		'choices'     => [
-			'container' => esc_html__( 'Boxed', 'anzu' ),
-			'container-fluid' => esc_html__( 'Stretched', 'anzu' ),
+			'container' => esc_html__( 'Contained', 'anzu' ),
+			'container-fluid' => esc_html__( 'Full Width', 'anzu' ),
 		],
 	]
 );
 
 new \Kirki\Field\Select(
 	[
-		'settings'    => 'anzu_sidebar_position',
-		'label'       => esc_html__( 'Sidebar Position', 'anzu' ),
+		'settings'    => 'anzu_container_pages',
+		'label'       => esc_html__( 'Pages', 'anzu' ),
+		'description' => esc_html__( 'Choose the format that works best for you.', 'anzu' ),
+		'section'     => 'container_section',
+		'default'     => 'container',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'container' => esc_html__( 'Contained', 'anzu' ),
+			'container-fluid' => esc_html__( 'Full Width', 'anzu' ),
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_container_single_posts',
+		'label'       => esc_html__( 'Single Posts', 'anzu' ),
+		'description' => esc_html__( 'Choose the format that works best for you.', 'anzu' ),
+		'section'     => 'container_section',
+		'default'     => 'container',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'container' => esc_html__( 'Contained', 'anzu' ),
+			'container-fluid' => esc_html__( 'Full Width', 'anzu' ),
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_container_archives',
+		'label'       => esc_html__( 'Archives', 'anzu' ),
+		'description' => esc_html__( 'Choose the format that works best for you.', 'anzu' ),
+		'section'     => 'container_section',
+		'default'     => 'container',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'container' => esc_html__( 'Contained', 'anzu' ),
+			'container-fluid' => esc_html__( 'Full Width', 'anzu' ),
+		],
+	]
+);
+
+
+/**
+ * Sidebar Control.
+ */
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_sidebar',
+		'label'       => esc_html__( 'Default Layout', 'anzu' ),
 		'description' => esc_html__( 'Set sidebar\'s default position. Can either be: right, left, both or none. Note: this can be overridden on individual pages.', 'anzu' ),
-		'section'     => 'layout_section',
+		'section'     => 'sidebar_section',
+		'default'     => 'none',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'right' => esc_html__( 'Right sidebar', 'anzu' ),
+			'left' => esc_html__( 'Left sidebar', 'anzu' ),
+			'both' => esc_html__( 'Left & Right sidebars', 'anzu' ),
+			'none' => esc_html__( 'No sidebar', 'anzu' ),
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_sidebar_pages',
+		'label'       => esc_html__( 'Pages', 'anzu' ),
+		'section'     => 'sidebar_section',
+		'default'     => 'none',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'right' => esc_html__( 'Right sidebar', 'anzu' ),
+			'left' => esc_html__( 'Left sidebar', 'anzu' ),
+			'both' => esc_html__( 'Left & Right sidebars', 'anzu' ),
+			'none' => esc_html__( 'No sidebar', 'anzu' ),
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_sidebar_single_posts',
+		'label'       => esc_html__( 'Single Posts', 'anzu' ),
+		'section'     => 'sidebar_section',
+		'default'     => 'right',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'right' => esc_html__( 'Right sidebar', 'anzu' ),
+			'left' => esc_html__( 'Left sidebar', 'anzu' ),
+			'both' => esc_html__( 'Left & Right sidebars', 'anzu' ),
+			'none' => esc_html__( 'No sidebar', 'anzu' ),
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_sidebar_archives',
+		'label'       => esc_html__( 'Archives', 'anzu' ),
+		'section'     => 'sidebar_section',
 		'default'     => 'right',
 		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
 		'choices'     => [

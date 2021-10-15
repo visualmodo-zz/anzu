@@ -12,7 +12,9 @@ defined( 'ABSPATH' ) || exit;
 
 get_header();
 
-$container = get_theme_mod( 'anzu_layout_type', 'container' );
+$container_customizer = get_theme_mod( 'anzu_container_archives', 'container' );
+$container_metabox = ! empty ( get_post_meta( get_the_ID(), 'anzu_layout_content', true ) ) ? get_post_meta( get_the_ID(), 'anzu_layout_content', true ) : 'customizer';
+$container = ( $container_metabox == 'customizer' ) ? $container_customizer : $container_metabox;
 ?>
 
 <div class="wrapper" id="archive-wrapper">

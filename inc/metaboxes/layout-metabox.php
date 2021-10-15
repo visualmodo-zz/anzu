@@ -1,6 +1,6 @@
 <?php 
-// Meta Box Class: Anzu Hero
-class anzuheroMetabox {
+// Meta Box Class: Anzu Layout
+class anzulayoutMetabox {
 
 	private $screen = array(
 		'post',
@@ -9,71 +9,43 @@ class anzuheroMetabox {
 
 	private $meta_fields = array(
 		array(
-			'label' => 'Title Subheading',
-			'id' => 'anzu_hero_subheading',
-			'type' => 'text',
-		),
-		array(
-			'label' => 'Hero Type and Style',
-			'id' => 'anzu_hero_type_and_style',
-			'default' => 'default',
+			'label' => 'Sidebar',
+			'id' => 'anzu_layout_sidebar',
+			'default' => 'customizer',
 			'type' => 'select',
 			'options' => array(
-				'default' => 'Default',
-				'contained' => 'Featured Contained',
-				'stretched' => 'Featured Stretched',
+				'customizer' => 'Customizer Setting',
+				'right' => 'Right sidebar',
+				'left' => 'Left sidebar',
+				'both' => 'Left & Right sidebars',
+				'none' => 'No sidebar',
 			),
 		),
 		array(
-			'label' => 'Hero Content Position',
-			'id' => 'anzu_hero_content_position',
-			'default' => 'anzu-hero--center-center',
+			'label' => 'Content Layout',
+			'id' => 'anzu_layout_content',
+			'default' => 'customizer',
 			'type' => 'select',
 			'options' => array(
-				'anzu-hero--left-top' => 'Left Top',
-				'anzu-hero--left-center' => 'Left Center',
-				'anzu-hero--left-bottom' => 'Left Bottom',
-				'anzu-hero--center-top' => 'Center Top',
-				'anzu-hero--center-center' => 'Center Center',
-				'anzu-hero--center-bottom' => 'Center Bottom',
-				'anzu-hero--right-top' => 'Right Top',
-				'anzu-hero--right-center' => 'Right Center',
-				'anzu-hero--right-bottom' => 'Right Bottom',
+				'customizer' => 'Customizer Setting',
+				'container' => 'Contained',
+				'container-fluid' => 'Full Width',
 			),
 		),
 		array(
-			'label' => 'Hero Background Color',
-			'id' => 'anzu_hero_background_color',
-			'default' => 'anzu-no-background-color',
-			'type' => 'select',
-			'options' => array(
-				'anzu-no-background-color' => 'Disabled',
-				'anzu-primary-color--background-color' => 'Primary Color',
-				'anzu-secondary-color--background-color' => 'Secondary Color',
-				'anzu-tertiary-color--background-color' => 'Tertiary Color',
-				'anzu-light-theme--background-color' => 'Light Color',
-				'anzu-dark-theme--background-color' => 'Dark Color',
-			),
+			'label' => 'Disable Header',
+			'id' => 'anzu_layout_disable_header',
+			'type' => 'checkbox',
 		),
 		array(
-			'label' => 'Hero Color Opacity',
-			'id' => 'anzu_hero_color_opacity',
-			'default' => 'anzu-no-opacity',
-			'type' => 'select',
-			'options' => array(
-				'anzu-no-opacity' => 'Disabled',
-				'anzu-opacity-0' => '0',
-				'anzu-opacity-1' => '0.1',
-				'anzu-opacity-2' => '0.2',
-				'anzu-opacity-3' => '0.3',
-				'anzu-opacity-4' => '0.4',
-				'anzu-opacity-5' => '0.5',
-				'anzu-opacity-6' => '0.6',
-				'anzu-opacity-7' => '0.7',
-				'anzu-opacity-8' => '0.8',
-				'anzu-opacity-9' => '0.9',
-				'anzu-opacity-10' => '1',
-			),
+			'label' => 'Disable Footer',
+			'id' => 'anzu_layout_disable_footer',
+			'type' => 'checkbox',
+		),
+		array(
+			'label' => 'Disable Title',
+			'id' => 'anzu_layout_disable_title',
+			'type' => 'checkbox',
 		),
 	);
 
@@ -85,8 +57,8 @@ class anzuheroMetabox {
 	public function add_meta_boxes() {
 		foreach ( $this->screen as $single_screen ) {
 			add_meta_box(
-				'anzuhero',
-				__( 'Anzu Hero', 'anzu' ),
+				'anzulayout',
+				__( 'Anzu Layout', 'anzu' ),
 				array( $this, 'meta_box_callback' ),
 				$single_screen,
 				'side',
@@ -96,7 +68,7 @@ class anzuheroMetabox {
 	}
 
 	public function meta_box_callback( $post ) {
-		wp_nonce_field( 'anzuhero_data', 'anzuhero_nonce' );
+		wp_nonce_field( 'anzulayout_data', 'anzulayout_nonce' );
 		$this->field_generator( $post );
 	}
 
@@ -111,6 +83,14 @@ class anzuheroMetabox {
 				}
 			}
 			switch ( $meta_field['type'] ) {
+				case 'checkbox':
+					$input = sprintf(
+						'<input %s id=" %s" name="%s" type="checkbox" value="1">',
+						$meta_value === '1' ? 'checked' : '',
+						$meta_field['id'],
+						$meta_field['id']
+						);
+					break;
 				case 'select':
 					$input = sprintf(
 						'<select id="%s" name="%s">',
@@ -148,10 +128,10 @@ class anzuheroMetabox {
 	}
 
 	public function save_fields( $post_id ) {
-		if ( ! isset( $_POST['anzuhero_nonce'] ) )
+		if ( ! isset( $_POST['anzulayout_nonce'] ) )
 			return $post_id;
-		$nonce = $_POST['anzuhero_nonce'];
-		if ( !wp_verify_nonce( $nonce, 'anzuhero_data' ) )
+		$nonce = $_POST['anzulayout_nonce'];
+		if ( !wp_verify_nonce( $nonce, 'anzulayout_data' ) )
 			return $post_id;
 		if ( defined( 'DOING_AUTOSAVE' ) && DOING_AUTOSAVE )
 			return $post_id;
@@ -173,6 +153,6 @@ class anzuheroMetabox {
 	}
 }
 
-if (class_exists('anzuheroMetabox')) {
-	new anzuheroMetabox;
+if (class_exists('anzulayoutMetabox')) {
+	new anzulayoutMetabox;
 };

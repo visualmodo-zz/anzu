@@ -13,15 +13,17 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_hero-type-and-style', true ) : '1';
+$hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_type_and_style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_type_and_style', true ) : 'default';
 
-$container = get_theme_mod( 'anzu_layout_type', 'container' );
+$container_customizer = get_theme_mod( 'anzu_container_pages', 'container' );
+$container_metabox = ! empty ( get_post_meta( get_the_ID(), 'anzu_layout_content', true ) ) ? get_post_meta( get_the_ID(), 'anzu_layout_content', true ) : 'customizer';
+$container = ( $container_metabox == 'customizer' ) ? $container_customizer : $container_metabox;
 
 get_header();
 
 ?>
 
-<?php if ($hero != '1') { echo get_template_part( 'views/global-templates/hero' ); } ?>
+<?php if ($hero != 'default') { echo get_template_part( 'views/global-templates/hero' ); } ?>
 
 <div class="wrapper" id="page-wrapper">
 

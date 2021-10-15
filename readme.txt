@@ -6,7 +6,7 @@ Tags: blog, e-commerce, portfolio, grid-layout, one-column, two-columns, three-c
 Requires at least: 5.6
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 0.2.4
+Stable tag: 0.2.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,12 @@ Anzu. It has a wide range of incredible features and amazing tools for every web
 Anzu includes support for Elementor, WooCommerce and WPbakery.
 
 == Changelog ==
+
+= 0.2.5 - Sep 12 2021 =
+* New - Customizer Panel - Container Options For Global, Pages, Single Posts and Archives 
+* New - Customizer Panel - Sidebar Options For Global, Pages, Singles Posts and Archives
+* New - Metabox Layout For Posts and Pages - Sidebar Options, Layout Options, Disable Header, Disable Footer and Disable Title
+* Improvements - Metabox Hero For Posts and Pages - Rebuilded Metabox and Relocated to Side Position
 
 = 0.2.4 - Ago 23 2021 =
 * New - Transparent Header
