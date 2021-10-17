@@ -9,6 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_type_and_style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_type_and_style', true ) : 'default';
+$anzu_layout_disable_title = ! empty ( get_post_meta( get_the_ID(), 'anzu_layout_disable_title', true ) ) ? get_post_meta( get_the_ID(), 'anzu_layout_disable_title', true ) : '';
 
 ?>
 
@@ -18,12 +19,16 @@ $hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_type_and_style', true 
 
 		<header class="entry-header">
 
-			<?php
-			the_title(
-				sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
-				'</a></h2>'
-			);
-			?>
+			<?php if ( $anzu_layout_disable_title != '1' ) { ?>   
+
+				<?php
+				the_title(
+					sprintf( '<h2 class="entry-title"><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ),
+					'</a></h2>'
+				);
+				?>
+				
+			<?php } ?>
 
 			<?php if ( 'post' === get_post_type() ) : ?>
 
