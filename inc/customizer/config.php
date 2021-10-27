@@ -198,7 +198,7 @@ new \Kirki\Field\Checkbox_Switch(
 		'settings'    => 'anzu_logo_switch',
 		'label'       => esc_html__( 'Logo', 'anzu' ),
 		'section'     => 'header_branding_section',
-		'default'     => false,
+		'default'     => true,
 	]
 );
 
@@ -221,7 +221,7 @@ new \Kirki\Field\Checkbox_Switch(
 );
 
 Kirki::add_section( 'header_light_logo_section', array(
-    'title'          => esc_html__( 'Light Logo', 'anzu' ),
+    'title'          => esc_html__( 'Logo', 'anzu' ),
 	'panel'          => 'header',
     'priority'       => 160,
 ) );
@@ -229,7 +229,25 @@ Kirki::add_section( 'header_light_logo_section', array(
 new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'anzu_retina_light_logo_switch',
-		'label'       => esc_html__( 'Retina Logo', 'anzu' ),
+		'label'       => esc_html__( 'Different Logo For Retina Devices?', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_mobile_light_logo_switch',
+		'label'       => esc_html__( 'Different Logo For Mobile Devices?', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_transparent_light_logo_switch',
+		'label'       => esc_html__( 'Different Logo for Transparent Header?', 'anzu' ),
 		'section'     => 'header_light_logo_section',
 		'default'     => false,
 	]
@@ -262,6 +280,84 @@ new \Kirki\Field\Image(
 	]
 );
 
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_mobile_light_logo',
+		'label'       => esc_html__( 'Logo For Mobile Devices', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_mobile_light_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_retina_mobile_light_logo',
+		'label'       => esc_html__( 'Retina Logo For Mobile Devices', 'anzu' ),
+		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_retina_light_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			],
+			[
+				'setting'  => 'anzu_mobile_light_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_transparent_light_logo',
+		'label'       => esc_html__( 'Logo For Transparent Header', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_transparent_light_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_retina_transparent_light_logo',
+		'label'       => esc_html__( 'Retina Logo For Transparent Header', 'anzu' ),
+		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
+		'section'     => 'header_light_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_retina_light_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			],
+			[
+				'setting'  => 'anzu_transparent_light_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
 /*
 
 new \Kirki\Field\Image(
@@ -276,40 +372,13 @@ new \Kirki\Field\Image(
 
 */
 
-new \Kirki\Field\Image(
-	[
-		'settings'    => 'anzu_mobile_light_logo',
-		'label'       => esc_html__( 'Mobile Logo', 'anzu' ),
-		'description' => esc_html__( 'Select logo.', 'anzu' ),
-		'section'     => 'header_light_logo_section',
-		'default'     => '',
-	]
-);
-
-new \Kirki\Field\Image(
-	[
-		'settings'    => 'anzu_retina_mobile_light_logo',
-		'label'       => esc_html__( 'Retina Mobile Logo', 'anzu' ),
-		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
-		'section'     => 'header_light_logo_section',
-		'default'     => '',
-		'active_callback' => [
-			[
-				'setting'  => 'anzu_retina_light_logo_switch',
-				'operator' => '==',
-				'value'    => true,
-			]
-		],
-	]
-);
-
 
 
 
 
 
 Kirki::add_section( 'header_dark_logo_section', array(
-    'title'          => esc_html__( 'Dark Logo', 'anzu' ),
+    'title'          => esc_html__( 'Logo For Dark Mode', 'anzu' ),
 	'panel'          => 'header',
     'priority'       => 160,
 ) );
@@ -317,7 +386,25 @@ Kirki::add_section( 'header_dark_logo_section', array(
 new \Kirki\Field\Checkbox_Switch(
 	[
 		'settings'    => 'anzu_retina_dark_logo_switch',
-		'label'       => esc_html__( 'Retina Logo', 'anzu' ),
+		'label'       => esc_html__( 'Different Logo For Retina Devices?', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_mobile_dark_logo_switch',
+		'label'       => esc_html__( 'Different Logo For Mobile Devices?', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_transparent_dark_logo_switch',
+		'label'       => esc_html__( 'Different Logo for Transparent Header?', 'anzu' ),
 		'section'     => 'header_dark_logo_section',
 		'default'     => false,
 	]
@@ -350,34 +437,27 @@ new \Kirki\Field\Image(
 	]
 );
 
-/*
-
-new \Kirki\Field\Image(
-	[
-		'settings'    => 'anzu_sticky_dark_logo',
-		'label'       => esc_html__( 'Sticky Header Logo', 'anzu' ),
-		'description' => esc_html__( 'Select logo.', 'anzu' ),
-		'section'     => 'header_dark_logo_section',
-		'default'     => '',
-	]
-);
-
-*/
-
 new \Kirki\Field\Image(
 	[
 		'settings'    => 'anzu_mobile_dark_logo',
-		'label'       => esc_html__( 'Mobile Logo', 'anzu' ),
+		'label'       => esc_html__( 'Logo For Mobile Devices', 'anzu' ),
 		'description' => esc_html__( 'Select logo.', 'anzu' ),
 		'section'     => 'header_dark_logo_section',
 		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_mobile_dark_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
 	]
 );
 
 new \Kirki\Field\Image(
 	[
 		'settings'    => 'anzu_retina_mobile_dark_logo',
-		'label'       => esc_html__( 'Retina Mobile Logo', 'anzu' ),
+		'label'       => esc_html__( 'Retina Logo For Mobile Devices', 'anzu' ),
 		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
 		'section'     => 'header_dark_logo_section',
 		'default'     => '',
@@ -386,36 +466,80 @@ new \Kirki\Field\Image(
 				'setting'  => 'anzu_retina_dark_logo_switch',
 				'operator' => '==',
 				'value'    => true,
+			],
+			[
+				'setting'  => 'anzu_mobile_dark_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_transparent_dark_logo',
+		'label'       => esc_html__( 'Logo For Transparent Header', 'anzu' ),
+		'description' => esc_html__( 'Select logo.', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_transparent_dark_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Image(
+	[
+		'settings'    => 'anzu_retina_transparent_dark_logo',
+		'label'       => esc_html__( 'Retina Logo For Transparent Header', 'anzu' ),
+		'description' => esc_html__( 'Select a retina logo twice the normal logo size.', 'anzu' ),
+		'section'     => 'header_dark_logo_section',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_retina_dark_logo_switch',
+				'operator' => '==',
+				'value'    => true,
+			],
+			[
+				'setting'  => 'anzu_transparent_dark_logo_switch',
+				'operator' => '==',
+				'value'    => true,
 			]
 		],
 	]
 );
 
 
-Kirki::add_section( 'header_transparency_section', array(
-    'title'          => esc_html__( 'Transparency', 'anzu' ),
+Kirki::add_section( 'transparent_header_section', array(
+    'title'          => esc_html__( 'Transparent Header', 'anzu' ),
     'panel'          => 'header',
     'priority'       => 160,
 ) );
 
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'anzu_header_transparency_switch',
-		'label'       => esc_html__( 'Enable Header Transparent', 'anzu' ),
-		'section'     => 'header_transparency_section',
+		'settings'    => 'anzu_transparent_header_switch',
+		'label'       => esc_html__( 'Enable Transparent Header', 'anzu' ),
+		'section'     => 'transparent_header_section',
 		'default'     => false,
 	]
 );
 
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'anzu_header_transparency_pages',
+		'settings'    => 'anzu_transparent_header_pages',
 		'label'       => esc_html__( 'Pages', 'anzu' ),
-		'section'     => 'header_transparency_section',
+		'section'     => 'transparent_header_section',
 		'default'     => true,
 		'active_callback' => [
 			[
-				'setting'  => 'anzu_header_transparency_switch',
+				'setting'  => 'anzu_transparent_header_switch',
 				'operator' => '==',
 				'value'    => true,
 			]
@@ -425,13 +549,13 @@ new \Kirki\Field\Checkbox_Switch(
 
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'anzu_header_transparency_posts',
+		'settings'    => 'anzu_transparent_header_posts',
 		'label'       => esc_html__( 'Posts', 'anzu' ),
-		'section'     => 'header_transparency_section',
+		'section'     => 'transparent_header_section',
 		'default'     => true,
 		'active_callback' => [
 			[
-				'setting'  => 'anzu_header_transparency_switch',
+				'setting'  => 'anzu_transparent_header_switch',
 				'operator' => '==',
 				'value'    => true,
 			]
@@ -441,13 +565,13 @@ new \Kirki\Field\Checkbox_Switch(
 
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'anzu_header_transparency_blog_page',
+		'settings'    => 'anzu_transparent_header_blog_page',
 		'label'       => esc_html__( 'Blog Page', 'anzu' ),
-		'section'     => 'header_transparency_section',
+		'section'     => 'transparent_header_section',
 		'default'     => false,
 		'active_callback' => [
 			[
-				'setting'  => 'anzu_header_transparency_switch',
+				'setting'  => 'anzu_transparent_header_switch',
 				'operator' => '==',
 				'value'    => true,
 			]
@@ -457,13 +581,13 @@ new \Kirki\Field\Checkbox_Switch(
 
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'anzu_header_transparency_404_archives_search',
+		'settings'    => 'anzu_transparent_header_404_archives_search',
 		'label'       => esc_html__( '404, Archives and Search', 'anzu' ),
-		'section'     => 'header_transparency_section',
+		'section'     => 'transparent_header_section',
 		'default'     => false,
 		'active_callback' => [
 			[
-				'setting'  => 'anzu_header_transparency_switch',
+				'setting'  => 'anzu_transparent_header_switch',
 				'operator' => '==',
 				'value'    => true,
 			]

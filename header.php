@@ -16,26 +16,27 @@ $navbar_theme_mode = $anzu_header_dark_mode == 'anzu-light-mode' ? 'navbar-light
 $anzu_scroll_to_top_switch = get_theme_mod( 'anzu_scroll_to_top_switch', '1' );
 $anzu_header_general_search = get_theme_mod( 'anzu_header_general_search', '1' );
 $anzu_header_general_cart = get_theme_mod( 'anzu_header_general_cart', '1' );
-$anzu_header_transparency_switch = get_theme_mod( 'anzu_header_transparency_switch', '' );
-$anzu_header_transparency_pages = get_theme_mod( 'anzu_header_transparency_pages', '1' );
-$anzu_header_transparency_posts = get_theme_mod( 'anzu_header_transparency_posts', '1' );
-$anzu_header_transparency_blog_page = get_theme_mod( 'anzu_header_transparency_blog_page', '' );
-$anzu_header_transparency_404_archives_search = get_theme_mod( 'anzu_header_transparency_404_archives_search', '' );
+$anzu_transparent_header_switch = get_theme_mod( 'anzu_transparent_header_switch', '' );
 $anzu_layout_disable_header = ! empty ( get_post_meta( get_the_ID(), 'anzu_layout_disable_header', true ) ) ? get_post_meta( get_the_ID(), 'anzu_layout_disable_header', true ) : '';
 
 // Transparent Header.
 
 $transparent_header = "";
 
-if ( $anzu_header_transparency_switch ) {
+if ( $anzu_transparent_header_switch ) {
 
-	if ( is_page() && $anzu_header_transparency_pages == '1' ) {
+	$anzu_transparent_header_pages = get_theme_mod( 'anzu_transparent_header_pages', '1' );
+	$anzu_transparent_header_posts = get_theme_mod( 'anzu_transparent_header_posts', '1' );
+	$anzu_transparent_header_blog_page = get_theme_mod( 'anzu_transparent_header_blog_page', '' );
+	$anzu_transparent_header_404_archives_search = get_theme_mod( 'anzu_transparent_header_404_archives_search', '' );
+
+	if ( is_page() && $anzu_transparent_header_pages ) {
 		$transparent_header = "anzu-transparent-header";
-	} else if ( is_single() && $anzu_header_transparency_posts == '1' ) {
+	} else if ( is_single() && $anzu_transparent_header_posts ) {
 		$transparent_header = "anzu-transparent-header";
-	} else if ( is_home() && $anzu_header_transparency_blog_page == '1' ) {
+	} else if ( is_home() && $anzu_transparent_header_blog_page ) {
 		$transparent_header = "anzu-transparent-header";
-	} else if ( ( is_404() || is_archive() || is_search() ) && $anzu_header_transparency_404_archives_search == '1' ) {
+	} else if ( ( is_404() || is_archive() || is_search() ) && $anzu_transparent_header_404_archives_search ) {
 		$transparent_header = "anzu-transparent-header";
 	}
 

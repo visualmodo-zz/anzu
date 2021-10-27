@@ -6,7 +6,7 @@ Tags: blog, e-commerce, portfolio, grid-layout, one-column, two-columns, three-c
 Requires at least: 5.6
 Tested up to: 5.8
 Requires PHP: 5.6
-Stable tag: 0.2.8
+Stable tag: 0.2.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,8 +29,12 @@ Anzu includes support for Elementor, WooCommerce and WPbakery.
 
 == Changelog ==
 
+= 0.2.9 - Oct 27 2021 =
+* New - Logo For Transparent Header.
+* Improvements - Logo activated by default.
+
 = 0.2.8 - Oct 19 2021 =
-* Fixed - Disable default padding on pages when Elementor is active
+* Fixed - Disable default spacing on pages when Elementor is active
 
 = 0.2.7 - Oct 19 2021 =
 * Fixed - Customize Images
