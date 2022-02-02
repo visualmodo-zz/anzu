@@ -3,10 +3,10 @@
 Contributors: visualmodo
 Tags: blog, e-commerce, portfolio, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, block-styles, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, flexible-header, footer-widgets, full-width-template, post-formats, theme-options, translation-ready
 
-Requires at least: 5.6
-Tested up to: 5.8
-Requires PHP: 5.6
-Stable tag: 0.2.9
+Requires at least: 5.9
+Tested up to: 5.9
+Requires PHP: 7.4
+Stable tag: 0.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -28,6 +28,12 @@ Anzu. It has a wide range of incredible features and amazing tools for every web
 Anzu includes support for Elementor, WooCommerce and WPbakery.
 
 == Changelog ==
+
+= 0.3.1 - Feb 02 2022 =
+* Updated - Kirki Framework - v4.0.18
+
+= 0.3.0 - Nov 30 2021 =
+* New - Menu Typography 
 
 = 0.2.9 - Oct 27 2021 =
 * New - Logo For Transparent Header.

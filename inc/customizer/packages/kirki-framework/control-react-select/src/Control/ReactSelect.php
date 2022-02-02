@@ -91,7 +91,7 @@ class ReactSelect extends Base {
 		// Enqueue the script.
 		wp_enqueue_script(
 			'kirki-control-select',
-			URL::get_from_path( dirname( dirname( __DIR__ ) ) . '/dist/main.js' ),
+			URL::get_from_path( dirname( dirname( __DIR__ ) ) . '/dist/control.js' ),
 			[
 				'customize-controls',
 				'customize-base',
@@ -100,13 +100,14 @@ class ReactSelect extends Base {
 				'wp-components',
 				'jquery',
 				'wp-i18n',
+				'kirki-control-base',
 			],
 			time(),
 			false
 		);
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-select-style', URL::get_from_path( dirname( __DIR__ ) . '/style.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-select-style', URL::get_from_path( dirname( dirname( __DIR__ ) ) . '/dist/control.css' ), [], self::$control_ver );
 	}
 
 	/**
@@ -135,6 +136,15 @@ class ReactSelect extends Base {
 	 */
 	public function to_json() {
 		parent::to_json();
+
+		if ( isset( $this->json['label'] ) ) {
+			$this->json['label'] = html_entity_decode( $this->json['label'] );
+		}
+
+		if ( isset( $this->json['description'] ) ) {
+			$this->json['description'] = html_entity_decode( $this->json['description'] );
+		}
+
 		$this->json['isClearable'] = $this->isClearable;
 
 		// Backwards-compatibility: The "multiple" argument used to be a number of maximum options users can select.
@@ -161,46 +171,5 @@ class ReactSelect extends Base {
 
 		$this->json['placeholder'] = ( $this->placeholder ) ? $this->placeholder : esc_html__( 'Select...', 'kirki' );
 		$this->json['select_args'] = $this->select_args;
-	}
-
-	/**
-	 * An Underscore (JS) template for this control's content (but not its container).
-	 *
-	 * Class variables for this control class are available in the `data` JS object;
-	 * export custom variables by overriding {@see WP_Customize_Control::to_json()}.
-	 *
-	 * @see WP_Customize_Control::print_template()
-	 *
-	 * @access protected
-	 * @since 1.1
-	 * @return void
-	 */
-	protected function content_template() {
-		?>
-		<label>
-			<span class="customize-control-title">{{{ data.label }}}</span>
-			<# if ( data.description ) { #>
-				<span class="description customize-control-description">{{{ data.description }}}</span>
-			<# } #>
-			<select data-id="{{ data.id }}" {{{ data.inputAttrs }}} <# if ( 1 < data.multiple ) { #>data-multiple="{{ data.multiple }}" multiple="multiple"<# } #>>
-				<# if ( data.placeholder ) { #>
-					<option value=""<# if ( '' === data.value ) { #> selected<# } #>></option>
-				<# } #>
-				<# _.each( data.choices, function( optionLabel, optionKey ) { #>
-					<# selected = ( 1 < data.multiple && data.value ) ? _.contains( data.value, optionKey ) : ( data.value === optionKey ); #>
-					<# if ( _.isObject( optionLabel ) ) { #>
-						<optgroup label="{{ optionLabel[0] }}">
-							<# _.each( optionLabel[1], function( optgroupOptionLabel, optgroupOptionKey ) { #>
-								<# selected = ( 1 < data.multiple && data.value ) ? _.contains( data.value, optgroupOptionKey ) : ( data.value === optgroupOptionKey ); #>
-								<option value="{{ optgroupOptionKey }}"<# if ( selected ) { #> selected<# } #>>{{{ optgroupOptionLabel }}}</option>
-							<# } ); #>
-						</optgroup>
-					<# } else { #>
-						<option value="{{ optionKey }}"<# if ( selected ) { #> selected<# } #>>{{{ optionLabel }}}</option>
-					<# } #>
-				<# } ); #>
-			</select>
-		</label>
-		<?php
 	}
 }

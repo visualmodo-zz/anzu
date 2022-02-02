@@ -11,6 +11,7 @@
 namespace Kirki\Field;
 
 use Kirki\Compatibility\Field;
+use Kirki\Field\Upload;
 
 /**
  * Field overrides.
@@ -46,7 +47,9 @@ class Repeater extends Field {
 	 * @return void
 	 */
 	protected function set_type() {
+
 		$this->type = 'repeater';
+
 	}
 
 	/**
@@ -61,6 +64,7 @@ class Repeater extends Field {
 		// Force using refresh mode.
 		// Currently the repeater control does not support postMessage.
 		$this->transport = 'refresh';
+
 	}
 
 
@@ -72,9 +76,11 @@ class Repeater extends Field {
 	 * @return void
 	 */
 	protected function set_sanitize_callback() {
+
 		if ( empty( $this->sanitize_callback ) ) {
 			$this->sanitize_callback = [ $this, 'sanitize' ];
 		}
+
 	}
 
 	/**
@@ -118,7 +124,9 @@ class Repeater extends Field {
 				if ( ! isset( $this->fields[ $subfield_id ]['type'] ) ) {
 					continue;
 				}
-				$subfield_type = $this->fields[ $subfield_id ]['type'];
+
+				$subfield      = $this->fields[ $subfield_id ];
+				$subfield_type = $subfield['type'];
 
 				// Allow using a sanitize-callback on a per-field basis.
 				if ( isset( $this->fields[ $subfield_id ]['sanitize_callback'] ) ) {
@@ -129,17 +137,16 @@ class Repeater extends Field {
 						case 'image':
 						case 'cropped_image':
 						case 'upload':
-							if ( ! is_numeric( $subfield_value ) && is_string( $subfield_value ) ) {
-								$subfield_value = esc_url_raw( $subfield_value );
-							}
+							$save_as        = isset( $subfield['choices'] ) && isset( $subfield['choices']['save_as'] ) ? $subfield['choices']['save_as'] : 'url';
+							$subfield_value = Upload::sanitize( $subfield_value, $save_as );
+
 							break;
 						case 'dropdown-pages':
 							$subfield_value = (int) $subfield_value;
 							break;
 						case 'color':
 							if ( $subfield_value ) {
-								$color_obj      = \ariColor::newColor( $subfield_value );
-								$subfield_value = $color_obj->toCSS( $color_obj->mode );
+								$subfield_value = \Kirki\Field\ReactColorful::sanitize( $subfield_value );
 							}
 							break;
 						case 'text':
@@ -183,9 +190,13 @@ class Repeater extends Field {
 
 					}
 				}
+
 				$value[ $row_id ][ $subfield_id ] = $subfield_value;
 			}
 		}
+
 		return $value;
+
 	}
+
 }

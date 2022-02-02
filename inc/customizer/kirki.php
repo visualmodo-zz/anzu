@@ -1,6 +1,6 @@
 <?php
 
-use Kirki\Compatibility\Init;
+use Kirki\L10n;
 use Kirki\Compatibility\Modules;
 use Kirki\Compatibility\Framework;
 use Kirki\Compatibility\Kirki;
@@ -24,7 +24,7 @@ require_once __DIR__ . '/inc/bootstrap.php'; // phpcs:ignore WPThemeReview.CoreF
 
 // Define the KIRKI_VERSION constant.
 if ( ! defined( 'KIRKI_VERSION' ) ) {
-	define( 'KIRKI_VERSION', '4.0-dev' );
+	define( 'KIRKI_VERSION', '4.0.18' );
 }
 
 if ( ! function_exists( 'Kirki' ) ) {
@@ -44,12 +44,18 @@ $kirki = kirki();
 // Instantiate the modules.
 $kirki->modules = new Modules();
 
+// Instantiate classes.
+new Kirki();
+new L10n( 'kirki', __DIR__ . '/languages' );
+
+// ? Bagus: Do we really need to-reinclude this file? It was included above.
 // Include the ariColor library.
 require_once wp_normalize_path( dirname( __FILE__ ) . '/lib/class-aricolor.php' ); // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 
 // Add an empty config for global fields.
-Kirki::add_config( '' );
+Kirki::add_config( '' ); // ? Bagus: what is this for? Adding empty config.
 
+// ? Bagus: Do we really need this line? custom-config.php here is supposed to inside this plugin. Or is this just in case we need it in the future?
 $custom_config_path = dirname( __FILE__ ) . '/custom-config.php';
 $custom_config_path = wp_normalize_path( $custom_config_path );
 if ( file_exists( $custom_config_path ) ) {

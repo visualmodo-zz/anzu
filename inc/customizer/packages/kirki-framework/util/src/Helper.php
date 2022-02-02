@@ -318,10 +318,7 @@ class Helper {
 	 * @return array
 	 */
 	public static function get_material_design_colors( $context = 'primary' ) {
-		if ( class_exists( '\Kirki\Util\MaterialColors' ) ) {
-			return \Kirki\Util\MaterialColors::get_colors( $context );
-		}
-		return [];
+		return \Kirki\Util\MaterialColors::get_colors( $context );
 	}
 
 	/**
@@ -389,5 +386,27 @@ class Helper {
 			return ! self::compare_values( $value1, $value2, $operator );
 		}
 		return $value1 == $value2; // phpcs:ignore WordPress.PHP.StrictComparisons
+	}
+
+	/**
+	 * Prepare PHP array to be used as JS object.
+	 *
+	 * @see See https://developer.wordpress.org/reference/classes/wp_scripts/localize/
+	 *
+	 * @param array $values The data which can be either a single or multi-dimensional array.
+	 * @return array
+	 */
+	public static function prepare_php_array_for_js( $values ) {
+
+		foreach ( $values as $key => $value ) {
+			if ( ! is_scalar( $value ) ) {
+				continue;
+			}
+
+			$values[ $key ] = html_entity_decode( (string) $value, ENT_QUOTES, 'UTF-8' );
+		}
+
+		return $values;
+
 	}
 }

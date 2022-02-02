@@ -12,7 +12,6 @@
 
 namespace Kirki\Control;
 
-use Kirki\Compatibility\Kirki;
 use Kirki\URL;
 
 /**
@@ -90,7 +89,7 @@ class Base extends \WP_Customize_Control {
 	 * @since 1.0
 	 * @var string
 	 */
-	public static $control_ver = '1.0.2';
+	public static $control_ver = '1.0.3';
 
 	/**
 	 * Parent setting.
@@ -106,11 +105,44 @@ class Base extends \WP_Customize_Control {
 	/**
 	 * Wrapper attributes.
 	 *
+	 * The value of this property will be rendered to the wrapper element.
+	 * Can be 'class', 'id', 'data-*', and other attributes.
+	 *
 	 * @access public
 	 * @since 1.1
 	 * @var array
 	 */
+	public $wrapper_attrs = [];
+
+	/**
+	 * Backwards compatibility support for `$wrapper_attrs`.
+	 *
+	 * Kirki v3 already has this `$wrapper_atts` property.
+	 * It was not published in the documentation, and more for internal use.
+	 *
+	 * The `WP_Customize_Control` is using `input_attrs` not `input_atts` (see, attrs vs atts).
+	 * So Kirki uses `$wrapper_attrs` for consistency and keep the old `$wrapper_atts` backwards compatibility.
+	 *
+	 * This property could be removed in the future.
+	 * Please use `$wrapper_attrs` instead.
+	 *
+	 * @since 1.1
+	 * @deprecated 1.0.1 This variable could be removed in the future. Please use `$wrapper_attrs` instead.
+	 * @var array
+	 */
 	public $wrapper_atts = [];
+
+	/**
+	 * Wrapper options.
+	 *
+	 * This won't be rendered automatically to the wrapper element.
+	 * The purpose is to allow us to have custom options so we can manage it when needed.
+	 *
+	 * @access public
+	 * @since 1.1
+	 * @var array
+	 */
+	public $wrapper_opts = [];
 
 	/**
 	 * Extra script dependencies.
@@ -132,8 +164,75 @@ class Base extends \WP_Customize_Control {
 	 */
 	public function enqueue() {
 
+		// Enqueue the styles.
+		wp_enqueue_style( 'kirki-control-base', URL::get_from_path( dirname( dirname( __DIR__ ) ) . '/dist/control.css' ), [], self::$control_ver );
+
 		// Enqueue the scripts.
-		wp_enqueue_script( 'kirki-dynamic-control', URL::get_from_path( dirname( __DIR__ ) . '/assets/scripts/dynamic-control.js' ), [ 'customize-controls' ], self::$control_ver, false );
+		wp_enqueue_script( 'kirki-control-base', URL::get_from_path( dirname( dirname( __DIR__ ) ) . '/dist/control.js' ), [ 'customize-controls' ], self::$control_ver, false );
+
+	}
+
+	/**
+	 * Renders the control wrapper and calls $this->render_content() for the internals.
+	 *
+	 * @since 1.0
+	 */
+	protected function render() {
+
+		$id    = 'customize-control-' . str_replace( [ '[', ']' ], [ '-', '' ], $this->id );
+		$class = 'customize-control customize-control-kirki customize-control-' . $this->type;
+		$gap   = isset( $this->wrapper_opts['gap'] ) ? $this->wrapper_opts['gap'] : 'default';
+		$tag   = isset( $this->wrapper_opts['tag'] ) ? $this->wrapper_opts['tag'] : 'li';
+
+		switch ( $gap ) {
+			case 'small':
+				$class .= ' customize-control-has-small-gap';
+				break;
+
+			case 'none':
+				$class .= ' customize-control-is-gapless';
+				break;
+
+			default:
+				break;
+		}
+
+		if ( empty( $this->wrapper_attrs ) && ! empty( $this->wrapper_atts ) ) {
+			$this->wrapper_attrs = $this->wrapper_atts;
+		}
+
+		if ( isset( $this->wrapper_attrs['id'] ) ) {
+			$id = $this->wrapper_attrs['id'];
+		}
+
+		if ( ! isset( $this->wrapper_attrs['data-kirki-setting'] ) ) {
+			$this->wrapper_attrs['data-kirki-setting'] = $this->id;
+		}
+
+		if ( ! isset( $this->wrapper_attrs['data-kirki-setting-link'] ) ) {
+			if ( isset( $this->settings['default'] ) ) {
+				$this->wrapper_attrs['data-kirki-setting-link'] = $this->settings['default']->id;
+			}
+		}
+
+		$data_attrs = '';
+
+		foreach ( $this->wrapper_attrs as $attr_key => $attr_value ) {
+			if ( 0 === strpos( $attr_key, 'data-' ) ) {
+				$data_attrs .= ' ' . esc_attr( $attr_key ) . '="' . esc_attr( $attr_value ) . '"';
+			}
+		}
+
+		if ( isset( $this->wrapper_attrs['class'] ) ) {
+			$class = str_ireplace( '{default_class}', $class, $this->wrapper_attrs['class'] );
+		}
+
+		// ! Consider to esc $data_attrs.
+		// ? What function we can use to escape string like data-xx="yy"?
+		printf( '<' . esc_attr( $tag ) . ' id="%s" class="%s"%s>', esc_attr( $id ), esc_attr( $class ), $data_attrs );
+		$this->render_content();
+		echo '</' . esc_attr( $tag ) . '>';
+
 	}
 
 	/**
@@ -151,6 +250,7 @@ class Base extends \WP_Customize_Control {
 
 		// Default value.
 		$this->json['default'] = $this->setting->default;
+
 		if ( isset( $this->default ) ) {
 			$this->json['default'] = $this->default;
 		}
@@ -178,6 +278,7 @@ class Base extends \WP_Customize_Control {
 
 		// Input attributes.
 		$this->json['inputAttrs'] = '';
+
 		if ( is_array( $this->input_attrs ) ) {
 			foreach ( $this->input_attrs as $attr => $value ) {
 				$this->json['inputAttrs'] .= $attr . '="' . esc_attr( $value ) . '" ';
@@ -203,7 +304,9 @@ class Base extends \WP_Customize_Control {
 		$this->json['parent_setting'] = $this->parent_setting;
 
 		// Wrapper Attributes.
-		$this->json['wrapper_atts'] = $this->wrapper_atts;
+		$this->json['wrapper_attrs'] = $this->wrapper_attrs;
+		$this->json['wrapper_atts']  = $this->wrapper_attrs; // For backward compatibility - Could be removed in the future.
+
 	}
 
 	/**

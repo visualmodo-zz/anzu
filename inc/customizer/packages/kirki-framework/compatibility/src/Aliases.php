@@ -5,7 +5,7 @@
  * @package   Kirki
  * @category  Core
  * @author    Ari Stathopoulos (@aristath)
- * @copyright Copyright (c) 2019, Ari Stathopoulos (@aristath)
+ * @copyright Copyright (c) 2020, David Vongries
  * @license   https://opensource.org/licenses/MIT
  * @since     0.1
  */
@@ -61,13 +61,13 @@ class Aliases {
 			[ 'Kirki\Field\CSS\Background', 'Kirki_Output_Field_Background' ],
 			[ 'Kirki\Field\Checkbox', 'Kirki_Field_Checkbox' ],
 			[ 'Kirki\Field\Checkbox_Switch', 'Kirki_Field_Switch' ],
-			[ 'Kirki\Field\Checkbox_Switch', 'Kirki\Field\Switch' ],
+			[ 'Kirki\Field\Checkbox_Switch', 'Kirki\Field\Switch' ], // Preventing typo.
 			[ 'Kirki\Field\Checkbox_Toggle', 'Kirki_Field_Toggle' ],
-			[ 'Kirki\Field\Checkbox_Toggle', 'Kirki\Field\Toggle' ],
+			[ 'Kirki\Field\Checkbox_Toggle', 'Kirki\Field\Toggle' ], // Preventing typo.
 			[ 'Kirki\Field\Code', 'Kirki_Field_Code' ],
 			[ 'Kirki\Field\Color', 'Kirki_Field_Color' ],
 			[ 'Kirki\Field\Color', 'Kirki_Field_Color_Alpha' ],
-			[ 'Kirki\Field\ColorPalette', 'Kirki_Field_Color_Palette' ],
+			[ 'Kirki\Field\Color_Palette', 'Kirki_Field_Color_Palette' ],
 			[ 'Kirki\Field\Custom', 'Kirki_Field_Custom' ],
 			[ 'Kirki\Field\Dashicons', 'Kirki_Field_Dashicons' ],
 			[ 'Kirki\Field\Date', 'Kirki_Field_Date' ],
@@ -110,7 +110,7 @@ class Aliases {
 			[ 'Kirki\Control\Checkbox_Toggle', 'Kirki_Control_Toggle' ],
 			[ 'WP_Customize_Code_Editor_Control', 'Kirki_Control_Code' ],
 			[ 'Kirki\Control\Color', 'Kirki_Control_Color' ],
-			[ 'Kirki\Control\ColorPalette', 'Kirki_Control_Color_Palette' ],
+			[ 'Kirki\Control\Color_Palette', 'Kirki_Control_Color_Palette' ],
 			[ 'WP_Customize_Cropped_Image_Control', 'Kirki_Control_Cropped_Image' ],
 			[ 'Kirki\Control\Custom', 'Kirki_Control_Custom' ],
 			[ 'Kirki\Control\Dashicons', 'Kirki_Control_Dashicons' ],
@@ -130,7 +130,7 @@ class Aliases {
 			[ 'Kirki\Control\Select', 'Kirki_Control_Select' ],
 			[ 'Kirki\Control\Slider', 'Kirki_Control_Slider' ],
 			[ 'Kirki\Control\Sortable', 'Kirki_Control_Sortable' ],
-			[ 'WP_Customize_Upload_Control', 'Kirki_Control_Upload' ],
+			[ 'Kirki\Control\Upload', 'Kirki_Control_Upload' ],
 			[ 'Kirki\Settings\Repeater', 'Kirki\Settings\Repeater_Setting' ],
 			[ 'Kirki\Settings\Repeater', 'Kirki_Settings_Repeater_Setting' ],
 			[ 'WP_Customize_Section', 'Kirki_Sections_Default_Section' ],

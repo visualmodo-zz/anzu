@@ -34,8 +34,10 @@ class Field_Dependencies {
 	 * @since 1.0.0
 	 */
 	public function __construct() {
+
 		add_action( 'customize_controls_enqueue_scripts', [ $this, 'field_dependencies' ] );
 		add_filter( 'kirki_field_add_control_args', [ $this, 'field_add_control_args' ] );
+
 	}
 
 	/**
@@ -47,6 +49,7 @@ class Field_Dependencies {
 	 * @return array
 	 */
 	public function field_add_control_args( $args ) {
+
 		if ( isset( $args['active_callback'] ) ) {
 			if ( is_array( $args['active_callback'] ) ) {
 				if ( ! is_callable( $args['active_callback'] ) ) {
@@ -68,6 +71,7 @@ class Field_Dependencies {
 				$args['active_callback']                 = '__return_true';
 				return $args;
 			}
+
 			// No need to proceed any further if we're using the default value.
 			if ( '__return_true' === $args['active_callback'] ) {
 				return $args;
@@ -77,8 +81,15 @@ class Field_Dependencies {
 			if ( ! is_callable( $args['active_callback'] ) ) {
 				$args['active_callback'] = '__return_true';
 			}
+		} else {
+			// The ReactSelect field triggered from Background field doesn't have $args['active_callback'] argument.
+			if ( ! empty( $args['required'] ) ) {
+				$this->dependencies[ $args['settings'] ] = $args['required'];
+			}
 		}
+
 		return $args;
+
 	}
 
 	/**
@@ -90,7 +101,9 @@ class Field_Dependencies {
 	 * @return void
 	 */
 	public function field_dependencies() {
-		wp_enqueue_script( 'kirki_field_dependencies', URL::get_from_path( __DIR__ . '/script.js' ), [ 'jquery', 'customize-base', 'customize-controls' ], '4.0', true );
+
+		wp_enqueue_script( 'kirki_field_dependencies', URL::get_from_path( dirname( __DIR__ ) . '/dist/control.js' ), [ 'jquery', 'customize-base', 'customize-controls' ], '4.0', true );
 		wp_localize_script( 'kirki_field_dependencies', 'kirkiControlDependencies', $this->dependencies );
+
 	}
 }

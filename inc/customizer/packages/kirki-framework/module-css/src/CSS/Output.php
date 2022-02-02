@@ -239,17 +239,41 @@ class Output {
 
 			$value = $this->process_value( $value, $output );
 
-			if ( ( is_admin() && ! is_customize_preview() ) || ( isset( $_GET['editor'] ) && '1' === $_GET['editor'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification
-
-				// Check if this is an admin style.
-				if ( ! isset( $output['context'] ) || ! in_array( 'editor', $output['context'], true ) ) {
+			if ( is_admin() ) {
+				// In admin area, only output kirki-styles/kirki-inline-styles inside editing screen.
+				if ( ! isset( $_GET['editor'] ) || 1 !== (int) $_GET['editor'] ) { // phpcs:ignore WordPress.Security.NonceVerification
 					continue;
 				}
-			} elseif ( isset( $output['context'] ) && ! in_array( 'front', $output['context'], true ) ) {
-
+			} else {
 				// Check if this is a frontend style.
-				continue;
+				if ( isset( $output['context'] ) && ! in_array( 'front', $output['context'], true ) ) {
+					continue;
+				}
 			}
+
+			/**
+			 * Inside gutenberg editing screen, prepend `.editor-styles-wrapper` to the element
+			 * so that it doesn't polute elements other than inside the editing content.
+			 */
+			if ( isset( $_GET['editor'] ) && 1 === (int) $_GET['editor'] ) {
+				if ( isset( $output['element'] ) && ! empty( $output['element'] ) ) {
+
+					if ( -1 < strpos( $output['element'], ',' ) ) {
+						$elms = explode( ',', $output['element'] );
+
+						foreach ( $elms as $index => $elm ) {
+							if ( ! empty( $elm ) ) {
+								$elms[ $index ] = '.editor-styles-wrapper ' . $elm;
+							}
+						}
+
+						$output['element'] = implode( ',', $elms );
+					} else {
+						$output['element'] = '.editor-styles-wrapper ' . $output['element'];
+					}
+				}
+			}
+
 			$this->process_output( $output, $value );
 		}
 	}
@@ -265,9 +289,11 @@ class Output {
 	 */
 	protected function process_output( $output, $value ) {
 		$output = apply_filters( 'kirki_output_item_args', $output, $value, $this->output, $this->field );
+
 		if ( ! isset( $output['element'] ) || ! isset( $output['property'] ) ) {
 			return;
 		}
+
 		$output['media_query'] = ( isset( $output['media_query'] ) ) ? $output['media_query'] : 'global';
 		$output['prefix']      = ( isset( $output['prefix'] ) ) ? $output['prefix'] : '';
 		$output['units']       = ( isset( $output['units'] ) ) ? $output['units'] : '';
@@ -280,13 +306,16 @@ class Output {
 			'background-image',
 			'background',
 		];
+
 		if ( in_array( $output['property'], $accepts_multiple, true ) ) {
 			if ( isset( $this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ] ) && ! is_array( $this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ] ) ) {
 				$this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ] = (array) $this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ];
 			}
+
 			$this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ][] = $output['prefix'] . $value . $output['units'] . $output['suffix'];
 			return;
 		}
+
 		if ( is_string( $value ) || is_numeric( $value ) ) {
 			$this->styles[ $output['media_query'] ][ $output['element'] ][ $output['property'] ] = $output['prefix'] . $this->process_property_value( $output['property'], $value ) . $output['units'] . $output['suffix'];
 		}

@@ -14,7 +14,6 @@
 namespace Kirki\Control;
 
 use Kirki\Control\Base;
-use Kirki\Compatibility\Kirki;
 use Kirki\URL;
 
 /**
@@ -41,7 +40,7 @@ class Checkbox extends Base {
 	 * @since 1.0
 	 * @var string
 	 */
-	public static $control_ver = '1.0';
+	public static $control_ver = '1.0.3';
 
 	/**
 	 * Enqueue control related scripts/styles.
@@ -54,10 +53,10 @@ class Checkbox extends Base {
 		parent::enqueue();
 
 		// Enqueue the script.
-		wp_enqueue_script( 'kirki-control-checkbox', URL::get_from_path( dirname( __DIR__ ) . '/assets/scripts/control.js' ), [ 'jquery', 'customize-base', 'kirki-dynamic-control' ], self::$control_ver, false );
+		wp_enqueue_script( 'kirki-control-checkbox', URL::get_from_path( dirname( dirname( __DIR__ ) ) . '/dist/control.js' ), [ 'jquery', 'customize-base', 'kirki-control-base' ], self::$control_ver, false );
 
 		// Enqueue the style.
-		wp_enqueue_style( 'kirki-control-checkbox-style', URL::get_from_path( dirname( __DIR__ ) . '/assets/styles/style.css' ), [], self::$control_ver );
+		wp_enqueue_style( 'kirki-control-checkbox-style', URL::get_from_path( dirname( dirname( __DIR__ ) ) . '/dist/control.css' ), [], self::$control_ver );
 	}
 
 	/**
@@ -78,7 +77,7 @@ class Checkbox extends Base {
 			id="_customize-input-{{ data.id }}"
 			type="checkbox"
 			value="{{ data.value }}"
-			{{ data.link }}
+			{{{ data.link }}}
 			<# if ( data.description ) { #>aria-describedby="_customize-description-{{ data.id }}"<# } #>
 			<# if ( data.value ) { #>checked="checked"<# } #>
 		/>

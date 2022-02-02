@@ -28,7 +28,7 @@ class CSS {
 	 * @access public
 	 * @var array
 	 */
-	public static $css_array = [];
+	public static $css_array = array();
 
 	/**
 	 * An array of fields to be processed.
@@ -38,7 +38,28 @@ class CSS {
 	 * @since 1.0
 	 * @var array
 	 */
-	protected static $fields = [];
+	protected static $fields = array();
+
+	/**
+	 * Field option types.
+	 *
+	 * @static
+	 * @access protected
+	 * @since 1.0
+	 * @var array
+	 */
+	protected static $field_option_types = array();
+
+	/**
+	 * The default handle for kirki's styles enqueue.
+	 *
+	 * @since 4.0
+	 * @access private
+	 * @static
+	 *
+	 * @var string
+	 */
+	private static $css_handle = 'kirki-styles';
 
 	/**
 	 * Constructor
@@ -46,8 +67,10 @@ class CSS {
 	 * @access public
 	 */
 	public function __construct() {
-		add_action( 'kirki_field_init', [ $this, 'field_init' ], 10, 2 );
-		add_action( 'init', [ $this, 'init' ] );
+
+		add_action( 'kirki_field_init', array( $this, 'field_init' ), 10, 2 );
+		add_action( 'init', array( $this, 'init' ) );
+
 	}
 
 	/**
@@ -59,21 +82,21 @@ class CSS {
 
 		new \Kirki\Module\Webfonts();
 
-		// Admin styles, adds compatibility with the new WordPress editor (Gutenberg).
-		add_action( 'enqueue_block_editor_assets', [ $this, 'enqueue_styles' ], 100 );
-
-		add_action( 'wp', [ $this, 'print_styles_action' ] );
+		add_action( 'wp', array( $this, 'print_styles_action' ) );
 
 		if ( ! apply_filters( 'kirki_output_inline_styles', true ) ) {
-			$config   = apply_filters( 'kirki_config', [] );
+			$config   = apply_filters( 'kirki_config', array() );
 			$priority = 999;
+
 			if ( isset( $config['styles_priority'] ) ) {
 				$priority = absint( $config['styles_priority'] );
 			}
-			add_action( 'wp_enqueue_scripts', [ $this, 'enqueue_styles' ], $priority );
+
+			add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_styles' ), $priority );
 		} else {
-			add_action( 'wp_head', [ $this, 'print_styles_inline' ], 999 );
+			add_action( 'wp_head', array( $this, 'print_styles_inline' ), 999 );
 		}
+
 	}
 
 	/**
@@ -87,25 +110,28 @@ class CSS {
 	 * @return void
 	 */
 	public function field_init( $args, $object ) {
+
 		if ( ! isset( $args['output'] ) ) {
-			$args['output'] = [];
+			$args['output'] = array();
 		}
+
+		self::$field_option_types[ $args['settings'] ] = isset( $args['option_type'] ) ? $args['option_type'] : 'theme_mod';
 
 		if ( ! is_array( $args['output'] ) ) {
 			/* translators: The field ID where the error occurs. */
 			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $this->settings ) ), '3.0.10' );
-			$args['output'] = [
-				[
+			$args['output'] = array(
+				array(
 					'element' => $args['output'],
-				],
-			];
+				),
+			);
 		}
 
 		// Convert to array of arrays if needed.
 		if ( isset( $args['output']['element'] ) ) {
 			/* translators: The field ID where the error occurs. */
 			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $this->settings ) ), '3.0.10' );
-			$args['output'] = [ $args['output'] ];
+			$args['output'] = array( $args['output'] );
 		}
 
 		if ( empty( $args['output'] ) ) {
@@ -134,7 +160,7 @@ class CSS {
 			}
 
 			// Fix for https://github.com/aristath/kirki/issues/1659#issuecomment-346229751.
-			$args['output'][ $key ]['element'] = str_replace( [ "\t", "\n", "\r", "\0", "\x0B" ], ' ', $args['output'][ $key ]['element'] );
+			$args['output'][ $key ]['element'] = str_replace( array( "\t", "\n", "\r", "\0", "\x0B" ), ' ', $args['output'][ $key ]['element'] );
 			$args['output'][ $key ]['element'] = trim( preg_replace( '/\s+/', ' ', $args['output'][ $key ]['element'] ) );
 		}
 
@@ -143,6 +169,7 @@ class CSS {
 		}
 
 		self::$fields[] = $args;
+
 	}
 
 	/**
@@ -153,9 +180,11 @@ class CSS {
 	 * @return void
 	 */
 	public function print_styles_inline() {
+
 		echo '<style id="kirki-inline-styles">';
 		$this->print_styles();
 		echo '</style>';
+
 	}
 
 	/**
@@ -167,20 +196,41 @@ class CSS {
 	 */
 	public function enqueue_styles() {
 
-		$args = [
-			'action' => apply_filters( 'kirki_styles_action_handle', 'kirki-styles' ),
-		];
-		if ( is_admin() && ! is_customize_preview() ) {
-			$args['editor'] = '1';
+		$args = array(
+			'action' => apply_filters( 'kirki_styles_action_handle', self::$css_handle ),
+		);
+
+		if ( is_admin() ) {
+			global $current_screen;
+
+			/**
+			 * This `enqueue_styles` method is also hooked into `enqueue_block_editor_assets`.
+			 * It needs to be excluded from customize control page.
+			 *
+			 * Why not simply excluding all admin area except gutenberg editing interface?
+			 * Because it would be nice to let the possibility open
+			 * if a 3rd party plugin will output gutenberg syles somewhere in admin area.
+			 *
+			 * Example of possibility:
+			 * In the future, Ultimate Dashboard Pro's admin page feature might supports Gutenberg.
+			 */
+			if ( is_object( $current_screen ) && property_exists( $current_screen, 'id' ) && 'customize' === $current_screen->id ) {
+				return;
+			}
+
+			if ( property_exists( $current_screen, 'is_block_editor' ) && 1 === (int) $current_screen->is_block_editor ) {
+				$args['editor'] = '1';
+			}
 		}
 
 		// Enqueue the dynamic stylesheet.
 		wp_enqueue_style(
-			'kirki-styles',
+			self::$css_handle,
 			add_query_arg( $args, home_url() ),
-			[],
+			array(),
 			'4.0'
 		);
+
 	}
 
 	/**
@@ -191,11 +241,14 @@ class CSS {
 	 * @return void
 	 */
 	public function print_styles_action() {
+
 		/**
 		 * Note to code reviewers:
 		 * There is no need for a nonce check here, we're only checking if this is a valid request or not.
 		 */
-		if ( empty( $_GET['action'] ) || apply_filters( 'kirki_styles_action_handle', 'kirki-styles' ) !== $_GET['action'] ) { // phpcs:ignore WordPress.Security.NonceVerification
+
+		// phpcs:ignore WordPress.Security.NonceVerification
+		if ( empty( $_GET['action'] ) || apply_filters( 'kirki_styles_action_handle', self::$css_handle ) !== $_GET['action'] ) {
 			return;
 		}
 
@@ -203,6 +256,7 @@ class CSS {
 		header( 'Content-type: text/css' );
 		$this->print_styles();
 		exit;
+
 	}
 
 	/**
@@ -214,12 +268,15 @@ class CSS {
 
 		// Go through all configs.
 		$configs = Kirki::$config;
+
 		foreach ( $configs as $config_id => $args ) {
 			if ( isset( $args['disable_output'] ) && true === $args['disable_output'] ) {
 				continue;
 			}
+
 			$styles = self::loop_controls( $config_id );
 			$styles = apply_filters( "kirki_{$config_id}_dynamic_css", $styles );
+
 			if ( ! empty( $styles ) ) {
 				/**
 				 * Note to code reviewers:
@@ -237,7 +294,9 @@ class CSS {
 				echo wp_strip_all_tags( $styles ); // phpcs:ignore WordPress.Security.EscapeOutput
 			}
 		}
+
 		do_action( 'kirki_dynamic_css' );
+
 	}
 
 	/**
@@ -259,7 +318,8 @@ class CSS {
 		if ( class_exists( '\Kirki\Compatibility\Kirki' ) ) {
 			$fields = array_merge( \Kirki\Compatibility\Kirki::$fields, $fields );
 		}
-		$css = [];
+
+		$css = array();
 
 		// Early exit if no fields are found.
 		if ( empty( $fields ) ) {
@@ -276,12 +336,20 @@ class CSS {
 			if ( true === apply_filters( "kirki_{$config_id}_css_skip_hidden", true ) ) {
 
 				// Only continue if field dependencies are met.
-				if ( ! empty( $field['required'] ) ) {
+				if ( ( isset( $field['required'] ) && ! empty( $field['required'] ) ) || ( isset( $field['active_callback'] ) && ! empty( $field['active_callback'] ) ) ) {
 					$valid = true;
 
+					// If $field is using active_callback instead of required.
+					if ( ! isset( $field['required'] ) || empty( $field['required'] ) ) {
+						if ( isset( $field['active_callback'] ) && ! empty( $field['active_callback'] ) && is_array( $field['active_callback'] ) ) {
+							$field['required'] = $field['active_callback'];
+						}
+					}
+
 					foreach ( $field['required'] as $requirement ) {
-						if ( isset( $requirement['setting'] ) && isset( $requirement['value'] ) && isset( $requirement['operator'] ) ) {
+						if ( isset( $requirement['setting'] ) && isset( $requirement['value'] ) && isset( $requirement['operator'] ) && isset( self::$field_option_types[ $requirement['setting'] ] ) ) {
 							$controller_value = Values::get_value( $config_id, $requirement['setting'] );
+
 							if ( ! Helper::compare_values( $controller_value, $requirement['value'], $requirement['operator'] ) ) {
 								$valid = false;
 							}
@@ -310,6 +378,7 @@ class CSS {
 		if ( is_array( $css ) ) {
 			return Generator::styles_parse( Generator::add_prefixes( $css ) );
 		}
+
 	}
 
 	/**
@@ -322,7 +391,9 @@ class CSS {
 	 * @return array
 	 */
 	private static function get_fields_by_config( $config_id ) {
-		$fields = [];
+
+		$fields = array();
+
 		foreach ( self::$fields as $field ) {
 			if (
 				( isset( $field['kirki_config'] ) && $config_id === $field['kirki_config'] ) ||
@@ -334,6 +405,9 @@ class CSS {
 				$fields[] = $field;
 			}
 		}
+
 		return $fields;
+
 	}
+
 }

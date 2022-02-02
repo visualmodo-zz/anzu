@@ -7,13 +7,14 @@
  * @package     Kirki
  * @category    Core
  * @author      Ari Stathopoulos (@aristath)
- * @copyright   Copyright (c) 2019, Ari Stathopoulos (@aristath)
+ * @copyright   Copyright (c) 2020, David Vongries
  * @license    https://opensource.org/licenses/MIT
  * @since       1.0
  */
 
 namespace Kirki\Compatibility;
 
+// ? Bagus: do we really need these? They are already under the same namespace as Kirki class (this file).
 use Kirki\Compatibility\Config;
 use Kirki\Compatibility\Field;
 
@@ -50,13 +51,22 @@ class Kirki extends Init {
 	public static $config = [];
 
 	/**
-	 * An array containing all fields.
+	 * An array containing all fields for compatibility purpose.
 	 *
 	 * @static
 	 * @access public
 	 * @var array
 	 */
 	public static $fields = [];
+
+	/**
+	 * An array containing all fields.
+	 *
+	 * @static
+	 * @access public
+	 * @var array
+	 */
+	public static $all_fields = [];
 
 	/**
 	 * An array containing all controls to be removed.
@@ -87,7 +97,9 @@ class Kirki extends Init {
 	 * @return mixed The saved value of the field.
 	 */
 	public static function get_option( $config_id = '', $field_id = '' ) {
+
 		return Values::get_value( $config_id, $field_id );
+
 	}
 
 	/**
@@ -99,9 +111,12 @@ class Kirki extends Init {
 	 * @param array  $args      The configuration options.
 	 */
 	public static function add_config( $config_id, $args = [] ) {
-		$config                             = Config::get_instance( $config_id, $args );
-		$config_args                        = $config->get_config();
+
+		$config      = Config::get_instance( $config_id, $args );
+		$config_args = $config->get_config();
+
 		self::$config[ $config_args['id'] ] = $config_args;
+
 	}
 
 	/**
@@ -113,7 +128,9 @@ class Kirki extends Init {
 	 * @param array  $args The panel arguments.
 	 */
 	public static function add_panel( $id = '', $args = [] ) {
+
 		new \Kirki\Panel( $id, $args );
+
 	}
 
 	/**
@@ -125,8 +142,10 @@ class Kirki extends Init {
 	 * @param string $id   The ID for this panel.
 	 */
 	public static function remove_panel( $id = '' ) {
+
 		$panel = new \Kirki\Panel( $id );
 		$panel->remove();
+
 	}
 
 	/**
@@ -138,7 +157,9 @@ class Kirki extends Init {
 	 * @param array  $args The section arguments.
 	 */
 	public static function add_section( $id, $args ) {
+
 		new \Kirki\Section( $id, $args );
+
 	}
 
 	/**
@@ -150,8 +171,10 @@ class Kirki extends Init {
 	 * @param string $id The ID for this section.
 	 */
 	public static function remove_section( $id = '' ) {
+
 		$section = new \Kirki\Section( $id, $args );
 		$section->remove();
+
 	}
 
 	/**
@@ -163,6 +186,7 @@ class Kirki extends Init {
 	 * @param array  $args      The field arguments.
 	 */
 	public static function add_field( $config_id, $args = [] ) {
+
 		if ( doing_action( 'customize_register' ) ) {
 			_doing_it_wrong( __METHOD__, esc_html__( 'Kirki fields should not be added on customize_register. Please add them directly, or on init.', 'kirki' ), '3.0.10' );
 		}
@@ -181,7 +205,9 @@ class Kirki extends Init {
 
 		$config               = Config::get_instance( $config_id )->get_config();
 		$args['kirki_config'] = isset( $args['kirki_config'] ) ? $args['kirki_config'] : $config_id;
+
 		unset( $config['id'] );
+
 		$args = wp_parse_args( $args, $config );
 
 		if ( class_exists( $classname ) ) {
@@ -189,7 +215,9 @@ class Kirki extends Init {
 			new $classname( $args );
 			return;
 		}
-		new Field( $args );
+
+		new Field( $config_id, $args );
+
 	}
 
 	/**
@@ -201,9 +229,11 @@ class Kirki extends Init {
 	 * @param string $id The field ID.
 	 */
 	public static function remove_control( $id ) {
+
 		if ( ! in_array( $id, self::$controls_to_remove, true ) ) {
 			self::$controls_to_remove[] = $id;
 		}
+
 	}
 
 	/**
@@ -217,10 +247,13 @@ class Kirki extends Init {
 	 * @return string
 	 */
 	public static function get_config_param( $id, $param ) {
+
 		if ( ! isset( self::$config[ $id ] ) || ! isset( self::$config[ $id ][ $param ] ) ) {
 			return '';
 		}
+
 		return self::$config[ $id ][ $param ];
+
 	}
 
 	/**
@@ -234,6 +267,7 @@ class Kirki extends Init {
 	 * @return array
 	 */
 	private static function migrate_css_vars( $args ) {
+
 		// Convert css_vars to output args.
 		if ( isset( $args['css_vars'] ) ) {
 
@@ -243,13 +277,15 @@ class Kirki extends Init {
 
 			// Convert to properly-formatted arrays.
 			$args['css_vars'] = (array) $args['css_vars'];
+
 			if ( isset( $args['css_vars'][0] ) && is_string( $args['css_vars'][0] ) ) {
 				$args['css_vars'] = [ $args['css_vars'] ];
 			}
+
 			foreach ( $args['css_vars'] as $css_var ) {
 				$output = [
 					'element'  => ':root',
-					'property' => $css_var[0]
+					'property' => $css_var[0],
 				];
 				if ( isset( $css_var[1] ) ) {
 					$output['value_pattern'] = $css_var[1];
@@ -260,6 +296,9 @@ class Kirki extends Init {
 				$args['output'][] = $output;
 			}
 		}
+
 		return $args;
+
 	}
+
 }
