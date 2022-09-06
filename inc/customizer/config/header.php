@@ -31,11 +31,21 @@ new \Kirki\Section(
 	]
 );
 
-Kirki::add_section( 'header_notice_section', array(
-    'title'          => esc_html__( 'Notice', 'anzu' ),
-	'panel'          => 'header',
-    'priority'       => 160,
-) );
+new \Kirki\Section(
+	'header_notification_section',
+	[
+		'title' => esc_html__( 'Notification Bar', 'anzu' ),
+		'panel' => 'header',
+		'tabs'  => [
+			'general' => [
+				'label' => esc_html__( 'General', 'anzu' ),
+			],
+			'design'  => [
+				'label' => esc_html__( 'Design', 'anzu' ),
+			],
+		],
+	]
+);
 
 Kirki::add_section( 'header_hero_section', array(
     'title'          => esc_html__( 'Hero', 'anzu' ),
@@ -185,15 +195,213 @@ new \Kirki\Pro\Field\Margin(
 
 
 /*-----------------------------------------------------------------------------------*/
-/*  *.  header > header_notice_section
+/*  *.  header > header_notification_section
 /*-----------------------------------------------------------------------------------*/
 
 new \Kirki\Field\Checkbox_Switch(
 	[
-		'settings'    => 'anzu_header_notice_switch',
-		'label'       => esc_html__( 'Notice', 'anzu' ),
-		'section'     => 'header_notice_section',
+		'settings'    => 'anzu_notification_bar_switch',
+		'label'       => esc_html__( 'Notification Bar', 'anzu' ),
+		'section'     => 'header_notification_section',
+		'tab'         => 'general',
 		'default'     => false,
+	]
+);
+
+new \Kirki\Field\Checkbox_Switch(
+	[
+		'settings'    => 'anzu_notification_bar_dismissible_switch',
+		'label'       => esc_html__( 'Dismissible', 'anzu' ),
+		'section'     => 'header_notification_section',
+		'tab'         => 'general',
+		'default'     => true,
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_notification_bar_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Editor(
+	[
+		'settings'    => 'anzu_notification_bar_content',
+		'label'       => esc_html__( 'Content', 'anzu' ),
+		'section'     => 'header_notification_section',
+		'tab'         => 'general',
+		'default'     => '',
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_notification_bar_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_notification_bar_layout_type',
+		'label'       => esc_html__( 'Layout Style', 'anzu' ),
+		'description' => esc_html__( 'Choose the format that works best for you.', 'anzu' ),
+		'section'     => 'header_notification_section',
+		'tab'         => 'design',
+		'default'     => 'container',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'container' => esc_html__( 'Boxed', 'anzu' ),
+			'container-fluid p-0' => esc_html__( 'Stretched', 'anzu' ),
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_notification_bar_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Field\Dimensions(
+	[
+		'settings'    => 'anzu_notification_bar_height',
+		'label'       => esc_html__( 'Height', 'anzu' ),
+		'section'     => 'header_notification_section',
+		'tab'         => 'design',
+		'responsive'  => true,
+		'transport'   => 'postMessage',
+		'choices'     => [
+			'min'  => 0,
+			'max'  => 1000,
+			'step' => 1,
+		],
+		'default'     => [
+			'desktop' => [
+				'min-height' => '',
+			],
+			'tablet'  => [
+				'min-height' => '',
+			],
+			'mobile'  => [
+				'min-height' => '',
+			],
+		],
+		'output' => [
+			[
+				'element'     => '.anzu-notification-bar',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1200px)',
+					'tablet'  => '@media (min-width: 768px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_notification_bar_switch',
+				'operator' => '==',
+				'value'    => true,
+			]
+		],
+	]
+);
+
+new \Kirki\Pro\Field\Padding(
+	[
+		'settings'        => 'anzu_notification_bar_padding',
+		'label'           => esc_html__( 'Padding', 'anzu' ),
+		'section'         => 'header_notification_section',
+		'tab'             => 'design',
+		'responsive'      => true,
+		'transport'       => 'postMessage',
+		'default'         => [
+			'desktop' => [
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			],
+			'tablet' => [
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			],
+			'mobile' => [
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			],
+		],
+		'output'          => [
+			[
+				'element'     => '.anzu-notification-bar',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1200px)',
+					'tablet'  => '@media (min-width: 768px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_notification_bar_switch',
+				'operator' => '==',
+				'value'    => true,
+			],
+		],
+	]
+);
+
+new \Kirki\Pro\Field\Margin(
+	[
+		'settings'        => 'anzu_notification_bar_margin',
+		'label'           => esc_html__( 'Margin', 'anzu' ),
+		'section'         => 'header_notification_section',
+		'tab'             => 'design',
+		'responsive'      => true,
+		'transport'       => 'postMessage',
+		'default'         => [
+			'desktop' => [
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			],
+			'tablet' => [
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			],
+			'mobile' => [
+				'top'    => '',
+				'right'  => '',
+				'bottom' => '',
+				'left'   => '',
+			],
+		],
+		'output'          => [
+			[
+				'element'     => '.anzu-notification-bar',
+				'media_query' => [
+					'desktop' => '@media (min-width: 1200px)',
+					'tablet'  => '@media (min-width: 768px)',
+					'mobile'  => '@media (max-width: 767px)',
+				],
+			],
+		],
+		'active_callback' => [
+			[
+				'setting'  => 'anzu_notification_bar_switch',
+				'operator' => '==',
+				'value'    => true,
+			],
+		],
 	]
 );
 

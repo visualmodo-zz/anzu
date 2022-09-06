@@ -14,6 +14,7 @@ $container = get_theme_mod( 'anzu_container', 'container' );
 $anzu_header_dark_mode = get_theme_mod( 'anzu_header_dark_mode', '' ) ? 'anzu-dark-mode' : 'anzu-light-mode';
 $navbar_theme_mode = $anzu_header_dark_mode == 'anzu-light-mode' ? 'navbar-light' : 'navbar-dark';
 $anzu_scroll_to_top_switch = get_theme_mod( 'anzu_scroll_to_top_switch', '1' );
+$anzu_notification_bar_switch = get_theme_mod( 'anzu_notification_bar_switch', '' );
 $anzu_header_general_search = get_theme_mod( 'anzu_header_general_search', '1' );
 $anzu_header_general_cart = get_theme_mod( 'anzu_header_general_cart', '1' );
 $anzu_transparent_header_switch = get_theme_mod( 'anzu_transparent_header_switch', '' );
@@ -128,6 +129,13 @@ if ( $anzu_scroll_to_top_switch ) {
 
 <?php do_action( 'wp_body_open' ); ?>
 <div class="site" id="page">
+
+	<?php
+		// Notification Bar.
+		if ( $anzu_notification_bar_switch ) {
+			get_template_part( 'views/global-templates/notification-bar' );
+		}
+	?>
 
 	<?php if ($anzu_layout_disable_header != '1') { ?>
 

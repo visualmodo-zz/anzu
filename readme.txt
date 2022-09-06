@@ -3,10 +3,10 @@
 Contributors: visualmodo
 Tags: blog, e-commerce, portfolio, grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, block-styles, custom-background, custom-colors, custom-header, custom-logo, custom-menu, editor-style, featured-images, flexible-header, footer-widgets, full-width-template, post-formats, theme-options, translation-ready
 
-Requires at least: 5.9
-Tested up to: 5.9
+Requires at least: 6.0
+Tested up to: 6.0
 Requires PHP: 7.4
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,10 +29,16 @@ Anzu includes support for Elementor, WooCommerce and WPbakery.
 
 == Changelog ==
 
+= 1.0.1 - Ago 06 2022 =
+* New - Notification Bar
+* Updated - Bootstrap Front-end Framework - v5.2.0
+* Updated - Bootstrap Icons - v1.9.1
+
 = 1.0.0 - Ago 06 2022 =
 * New - Sticky Header
 * New - Customizer Panel - Hero Options
 * New - Custom CSS For Posts and Pages
+* New - Hooks
 * Improvements - Hero Metabox
 * Updated - Bootstrap Front-end Framework - v5.1.3
 * Updated - Bootstrap Icons - v1.8.0

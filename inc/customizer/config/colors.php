@@ -275,6 +275,25 @@ new \Kirki\Field\Color(
 
 new \Kirki\Field\Color(
 	[
+		'settings'    => 'anzu_light_colors_background_notification_header',
+		'label'       => __( 'Background Notification Bar', 'anzu' ),
+		'description' => esc_html__( 'Pick a background light color for the theme.', 'anzu' ),
+		'section'     => 'light_colors_section',
+		'default'     => '#e2e3e5',
+		'choices'     => [
+			'alpha' => true,
+		],
+		'output' => array(
+			array(
+				'element'  => '.anzu-notification-bar.anzu-light-mode',
+				'property' => 'background-color',
+			),
+		),
+	]
+);
+
+new \Kirki\Field\Color(
+	[
 		'settings'    => 'anzu_light_colors_background_header',
 		'label'       => __( 'Background Header', 'anzu' ),
 		'description' => esc_html__( 'Pick a background light color for the theme.', 'anzu' ),
@@ -520,6 +539,25 @@ new \Kirki\Field\Color(
 			array(
 				'element'  => '.anzu-dark-mode a:active:not(.btn)',
 				'property' => 'color',
+			),
+		),
+	]
+);
+
+new \Kirki\Field\Color(
+	[
+		'settings'    => 'anzu_dark_colors_background_notification_header',
+		'label'       => __( 'Background Notification Bar', 'anzu' ),
+		'description' => esc_html__( 'Pick a background dark color for the theme.', 'anzu' ),
+		'section'     => 'dark_colors_section',
+		'default'     => '#000000',
+		'choices'     => [
+			'alpha' => true,
+		],
+		'output' => array(
+			array(
+				'element'  => '.anzu-notification-bar.anzu-dark-mode',
+				'property' => 'background-color',
 			),
 		),
 	]
