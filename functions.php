@@ -9,12 +9,16 @@
 defined( 'ABSPATH' ) || exit;
 
 // Core Constants.
-define( 'ANZU_THEME_DIR', get_template_directory() );
-define( 'ANZU_THEME_URI', get_template_directory_uri() );
+define( 'ANZU_THEME_VERSION', '1.0.0' );
+define( 'ANZU_THEME_DIR', trailingslashit( get_template_directory() ) );
+define( 'ANZU_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
 // Include Paths.
 define( 'ANZU_INC_DIR', ANZU_THEME_DIR . '/inc/' );
 define( 'ANZU_INC_DIR_URI', ANZU_THEME_URI . '/inc/' );
+
+// License Manager.
+require_once ANZU_INC_DIR . 'pro/license/license.php';
 
 if ( is_admin() ) {
 	// Recommend plugins.
@@ -42,7 +46,10 @@ $anzu_includes = array(
 	'/inc/editor.php',                          // Load Editor functions.
 	'/inc/deprecated.php',                      // Load deprecated functions.
 	'/inc/metaboxes/layout-metabox.php',        // Load layout metabox.
+	'/inc/metaboxes/header-metabox.php',        // Load Header metabox.
 	'/inc/metaboxes/hero-metabox.php',          // Load hero metabox.
+	'/inc/metaboxes/code-metabox.php',          // Load Custom Code metabox.
+	'/inc/hooks.php',                           // Hooks API.
 );
 
 // Load WooCommerce functions if WooCommerce is activated.

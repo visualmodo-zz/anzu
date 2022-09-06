@@ -23,6 +23,8 @@ if ( post_password_required() ) {
 
 <div class="comments-area" id="comments">
 
+	<?php do_action( 'anzu_hook_before_comments' ); ?>
+
 	<?php // You can start editing here -- including this comment! ?>
 
 	<?php if ( have_comments() ) : ?>
@@ -117,5 +119,7 @@ if ( post_password_required() ) {
 	<?php endif; // End of if have_comments(). ?>
 
 	<?php comment_form(); // Render comments form. ?>
+
+	<?php do_action( 'anzu_hook_after_comments' ); ?>
 
 </div><!-- #comments -->

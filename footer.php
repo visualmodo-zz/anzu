@@ -11,6 +11,7 @@
 defined( 'ABSPATH' ) || exit;
 
 $anzu_layout_disable_footer = ! empty ( get_post_meta( get_the_ID(), 'anzu_layout_disable_footer', true ) ) ? get_post_meta( get_the_ID(), 'anzu_layout_disable_footer', true ) : '';
+$anzu_metabox_custom_css = get_post_meta( get_the_ID(), 'anzu_metabox_custom_css', true ) ?: '';
 
 if ($anzu_layout_disable_footer != '1') { 
 
@@ -44,6 +45,8 @@ $anzu_copyright_switch = get_theme_mod( 'anzu_copyright_switch', '1' );
 	}
 
 	?>
+
+	<?php do_action( 'anzu_hook_before_footer' ); ?>
 
 	<footer id="anzu-footer" class="<?php echo esc_attr( $anzu_footer_dark_mode ); ?>" id="colophon">
 
@@ -79,11 +82,16 @@ $anzu_copyright_switch = get_theme_mod( 'anzu_copyright_switch', '1' );
 
 	</footer><!-- wrapper end -->
 
+	<?php do_action( 'anzu_hook_after_footer' ); ?>
+
 <?php } ?><!-- Disable Footer -->
 
 </div><!-- #page we need this extra closing tag here -->
 
 <?php wp_footer(); ?>
+
+<!-- Custom CSS -->
+<?php if( $anzu_metabox_custom_css ) { echo '<style type="text/css">'. esc_attr( $anzu_metabox_custom_css ) .'</style>'; } ?> 
 
 </body>
 

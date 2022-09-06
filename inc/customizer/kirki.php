@@ -6,7 +6,9 @@ use Kirki\Compatibility\Framework;
 use Kirki\Compatibility\Kirki;
 
 // Exit if accessed directly.
-defined( 'ABSPATH' ) || exit;
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 // No need to proceed if Kirki already exists.
 if ( class_exists( 'Kirki' ) ) {
@@ -17,6 +19,11 @@ if ( ! defined( 'KIRKI_PLUGIN_FILE' ) ) {
 	define( 'KIRKI_PLUGIN_FILE', __FILE__ );
 }
 
+require_once __DIR__ . '/extended/vendor/mapsteps/kirki-pro-headline-divider/vendor/autoload.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
+require_once __DIR__ . '/extended/vendor/mapsteps/kirki-pro-input-slider/vendor/autoload.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
+require_once __DIR__ . '/extended/vendor/mapsteps/kirki-pro-margin-padding/vendor/autoload.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
+require_once __DIR__ . '/extended/vendor/mapsteps/kirki-pro-responsive/vendor/autoload.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
+require_once __DIR__ . '/extended/vendor/mapsteps/kirki-pro-tabs/vendor/autoload.php';// phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 require_once __DIR__ . '/lib/class-aricolor.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 require_once __DIR__ . '/lib/class-kirki-color.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
 require_once __DIR__ . '/packages/autoload.php'; // phpcs:ignore WPThemeReview.CoreFunctionality.FileInclude
@@ -24,7 +31,7 @@ require_once __DIR__ . '/inc/bootstrap.php'; // phpcs:ignore WPThemeReview.CoreF
 
 // Define the KIRKI_VERSION constant.
 if ( ! defined( 'KIRKI_VERSION' ) ) {
-	define( 'KIRKI_VERSION', '4.0.18' );
+	define( 'KIRKI_VERSION', '4.0.23' );
 }
 
 if ( ! function_exists( 'Kirki' ) ) {

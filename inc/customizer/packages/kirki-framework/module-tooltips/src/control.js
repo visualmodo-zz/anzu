@@ -14,8 +14,9 @@ function kirkiTooltipAdd( control ) {
 		);
 
 		if ( ! target ) return;
+		target.classList.add( 'kirki-tooltip-wrapper' );
 
-		// The trigger markup.
+		// Build the tooltip trigger.
 		const trigger =
 			'<span class="tooltip-trigger"><span class="dashicons dashicons-editor-help"></span></span>';
 
@@ -23,18 +24,22 @@ function kirkiTooltipAdd( control ) {
 		const content =
 			'<span class="tooltip-content">' + tooltip.content + '</span>';
 
-		// Add the trigger & content.
-		jQuery(
-			'<span class="kirki-tooltip-wrapper">' +
-				trigger +
-				content +
-				'</span>'
-		).appendTo( jQuery( target ) );
+		const $target = jQuery( target );
+
+		// Append the trigger & content next to the control's title.
+		jQuery( trigger ).appendTo( $target );
+		jQuery( content ).appendTo( $target );
 	} );
 }
 
 jQuery( document ).ready( function () {
+	let sectionNames = [];
+
 	wp.customize.control.each( function ( control ) {
+		if ( ! sectionNames.includes( control.section() ) ) {
+			sectionNames.push( control.section() );
+		}
+
 		wp.customize.section( control.section(), function ( section ) {
 			if (
 				section.expanded() ||
@@ -48,6 +53,32 @@ jQuery( document ).ready( function () {
 					}
 				} );
 			}
+		} );
+	} );
+
+	jQuery( 'head' ).append(
+		jQuery( '<style class="kirki-tooltip-inline-styles"></style>' )
+	);
+
+	const $tooltipStyleEl = jQuery( '.kirki-tooltip-inline-styles' );
+	const $sidebarOverlay = jQuery( '.wp-full-overlay-sidebar-content' );
+
+	sectionNames.forEach( function ( sectionName ) {
+		wp.customize.section( sectionName, function ( section ) {
+			section.expanded.bind( function ( expanded ) {
+				if ( expanded ) {
+					if (
+						section.contentContainer[0].scrollHeight >
+						$sidebarOverlay.height()
+					) {
+						$tooltipStyleEl.html(
+							'.kirki-tooltip-wrapper span.tooltip-content {min-width: 258px;}'
+						);
+					} else {
+						$tooltipStyleEl.empty();
+					}
+				}
+			} );
 		} );
 	} );
 } );

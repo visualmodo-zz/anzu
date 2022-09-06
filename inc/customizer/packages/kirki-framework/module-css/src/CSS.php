@@ -62,6 +62,17 @@ class CSS {
 	private static $css_handle = 'kirki-styles';
 
 	/**
+	 * The default id for kirki's inline style tag.
+	 *
+	 * @since 4.0.23
+	 * @access private
+	 * @static
+	 *
+	 * @var string
+	 */
+	private static $inline_styles_id = 'kirki-inline-styles';
+
+	/**
 	 * Constructor
 	 *
 	 * @access public
@@ -119,7 +130,7 @@ class CSS {
 
 		if ( ! is_array( $args['output'] ) ) {
 			/* translators: The field ID where the error occurs. */
-			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $this->settings ) ), '3.0.10' );
+			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $args['settings'] ) ), '3.0.10' );
 			$args['output'] = array(
 				array(
 					'element' => $args['output'],
@@ -130,7 +141,7 @@ class CSS {
 		// Convert to array of arrays if needed.
 		if ( isset( $args['output']['element'] ) ) {
 			/* translators: The field ID where the error occurs. */
-			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $this->settings ) ), '3.0.10' );
+			_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $args['settings'] ) ), '3.0.10' );
 			$args['output'] = array( $args['output'] );
 		}
 
@@ -181,8 +192,32 @@ class CSS {
 	 */
 	public function print_styles_inline() {
 
-		echo '<style id="kirki-inline-styles">';
+		$should_print = true;
+
+		if ( defined( 'KIRKI_NO_OUTPUT' ) && true === KIRKI_NO_OUTPUT ) {
+			$should_print = false;
+		}
+
+		ob_start();
 		$this->print_styles();
+		$inline_styles = ob_get_clean();
+
+		/**
+		 * If KIRKI_NO_OUTPUT constant is defined (and is true), but typography field is defined, then print it.
+		 * Otherwise, the typography field might be broken (missing font-family) if the font-face is not outputted.
+		 */
+		if ( ! $should_print && false !== stripos($inline_styles, '@font-face') ) {
+			$should_print = true;
+		}
+
+		if ( ! $should_print ) {
+			return;
+		}
+
+		$inline_styles_id = apply_filters( 'kirki_inline_styles_id', self::$inline_styles_id );
+
+		echo '<style id="' . esc_attr( $inline_styles_id ) . '">';
+		echo $inline_styles;
 		echo '</style>';
 
 	}
@@ -270,6 +305,10 @@ class CSS {
 		$configs = Kirki::$config;
 
 		foreach ( $configs as $config_id => $args ) {
+			if ( defined( 'KIRKI_NO_OUTPUT' ) && true === KIRKI_NO_OUTPUT ) {
+				continue;
+			}
+
 			if ( isset( $args['disable_output'] ) && true === $args['disable_output'] ) {
 				continue;
 			}
@@ -341,19 +380,29 @@ class CSS {
 
 					// If $field is using active_callback instead of required.
 					if ( ! isset( $field['required'] ) || empty( $field['required'] ) ) {
-						if ( isset( $field['active_callback'] ) && ! empty( $field['active_callback'] ) && is_array( $field['active_callback'] ) ) {
-							$field['required'] = $field['active_callback'];
+						if ( isset( $field['active_callback'] ) && ! empty( $field['active_callback'] ) ) {
+							// The "active_callback" or "required" accepts array or callable as the value.
+							if ( is_array( $field['active_callback'] ) || is_callable( $field['active_callback'] ) ) {
+								$field['required'] = $field['active_callback'];
+							}
 						}
 					}
 
-					foreach ( $field['required'] as $requirement ) {
-						if ( isset( $requirement['setting'] ) && isset( $requirement['value'] ) && isset( $requirement['operator'] ) && isset( self::$field_option_types[ $requirement['setting'] ] ) ) {
-							$controller_value = Values::get_value( $config_id, $requirement['setting'] );
+					// At this point, we know that the "required" is set and is not empty.
+					if ( is_array( $field['required'] ) ) {
+						foreach ( $field['required'] as $requirement ) {
+							if ( isset( $requirement['setting'] ) && isset( $requirement['value'] ) && isset( $requirement['operator'] ) && isset( self::$field_option_types[ $requirement['setting'] ] ) ) {
+								$controller_value = Values::get_value( $config_id, $requirement['setting'] );
 
-							if ( ! Helper::compare_values( $controller_value, $requirement['value'], $requirement['operator'] ) ) {
-								$valid = false;
+								if ( ! Helper::compare_values( $controller_value, $requirement['value'], $requirement['operator'] ) ) {
+									$valid = false;
+								}
 							}
 						}
+					} elseif ( is_string( $field['required'] ) ) {
+						$valid = '__return_true' === $field['required'] ? true : false;
+					} elseif ( is_callable( $field['required'] ) ) {
+						$valid = call_user_func( $field['required'] );
 					}
 
 					if ( ! $valid ) {

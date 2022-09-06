@@ -8,7 +8,7 @@
 // Exit if accessed directly.
 defined( 'ABSPATH' ) || exit;
 
-$hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_type_and_style', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_type_and_style', true ) : 'default';
+$hero = ! empty ( get_post_meta( get_the_ID(), 'anzu_hero_layout', true ) ) ? get_post_meta( get_the_ID(), 'anzu_hero_layout', true ) : get_theme_mod( 'anzu_hero_layout', 'default' );
 $anzu_layout_disable_title = ! empty ( get_post_meta( get_the_ID(), 'anzu_layout_disable_title', true ) ) ? get_post_meta( get_the_ID(), 'anzu_layout_disable_title', true ) : '';
 
 ?>
@@ -45,11 +45,5 @@ $anzu_layout_disable_title = ! empty ( get_post_meta( get_the_ID(), 'anzu_layout
 		?>
 
 	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-
-		<?php edit_post_link( __( 'Edit', 'anzu' ), '<span class="edit-link">', '</span>' ); ?>
-
-	</footer><!-- .entry-footer -->
 
 </article><!-- #post-## -->

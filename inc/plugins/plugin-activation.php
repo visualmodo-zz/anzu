@@ -13,10 +13,24 @@ function anzu_tgmpa_register() {
 	$plugins = array(
 
 		array(
-			'name'      => 'Borderless',
-			'slug'      => 'borderless',
-			'required'  => false,
+			'name'               => 'Borderless',
+			'slug'               => 'borderless',
+			'required'           => true,
 			'force_activation'	=> false,
+		),
+
+		array(
+			'name'		         => 'Elementor Website Builder',
+			'slug'     	         => 'elementor',
+			'required'	         => false,
+			'force_activation'   => false,
+		),
+
+		array(
+			'name'		         => 'One Click Demo Import',
+			'slug'     	         => 'one-click-demo-import',
+			'required'	         => true,
+			'required'	         => false,
 		),
 
 	);

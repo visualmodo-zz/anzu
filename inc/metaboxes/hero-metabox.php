@@ -9,27 +9,29 @@ class anzuheroMetabox {
 
 	private $meta_fields = array(
 		array(
-			'label' => 'Title Subheading',
-			'id' => 'anzu_hero_subheading',
+			'label' => 'Subtitle',
+			'id' => 'anzu_hero_subtitle',
 			'type' => 'text',
 		),
 		array(
-			'label' => 'Hero Type and Style',
-			'id' => 'anzu_hero_type_and_style',
-			'default' => 'default',
+			'label' => 'Layout',
+			'id' => 'anzu_hero_layout',
+			'default' => '',
 			'type' => 'select',
 			'options' => array(
+				'' => 'Customizer Setting',
 				'default' => 'Default',
 				'contained' => 'Featured Contained',
 				'stretched' => 'Featured Stretched',
 			),
 		),
 		array(
-			'label' => 'Hero Content Position',
+			'label' => 'Content Position',
 			'id' => 'anzu_hero_content_position',
-			'default' => 'anzu-hero--center-center',
+			'default' => '',
 			'type' => 'select',
 			'options' => array(
+				'' => 'Customizer Setting',
 				'anzu-hero--left-top' => 'Left Top',
 				'anzu-hero--left-center' => 'Left Center',
 				'anzu-hero--left-bottom' => 'Left Bottom',
@@ -42,12 +44,13 @@ class anzuheroMetabox {
 			),
 		),
 		array(
-			'label' => 'Hero Background Color',
-			'id' => 'anzu_hero_background_color',
-			'default' => 'anzu-no-background-color',
+			'label' => 'Overlay Color',
+			'id' => 'anzu_hero_overlay_color',
+			'default' => '',
 			'type' => 'select',
 			'options' => array(
-				'anzu-no-background-color' => 'Disabled',
+				'' => 'Customizer Setting',
+				'anzu-no-overlay-color' => 'Disabled',
 				'anzu-primary-color--background-color' => 'Primary Color',
 				'anzu-secondary-color--background-color' => 'Secondary Color',
 				'anzu-tertiary-color--background-color' => 'Tertiary Color',
@@ -56,11 +59,12 @@ class anzuheroMetabox {
 			),
 		),
 		array(
-			'label' => 'Hero Color Opacity',
-			'id' => 'anzu_hero_color_opacity',
-			'default' => 'anzu-no-opacity',
+			'label' => ' Overlay Opacity',
+			'id' => 'anzu_hero_overlay_opacity',
+			'default' => '',
 			'type' => 'select',
 			'options' => array(
+				'' => 'Customizer Setting',
 				'anzu-no-opacity' => 'Disabled',
 				'anzu-opacity-0' => '0',
 				'anzu-opacity-1' => '0.1',
@@ -144,7 +148,7 @@ class anzuheroMetabox {
 	}
 
 	public function format_rows( $label, $input ) {
-		return '<tr><th>'.$label.'</th><td>'.$input.'</td></tr>';
+		return '<tr style="display: flex;flex-direction: column;"><th>'.$label.'</th><td style="padding: 0; margin: 0;">'.$input.'</td></tr>';
 	}
 
 	public function save_fields( $post_id ) {

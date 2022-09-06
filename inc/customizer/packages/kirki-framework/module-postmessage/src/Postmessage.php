@@ -63,6 +63,14 @@ class Postmessage {
 			// First we need to check if js_vars are empty, and that output is not empty.
 			if ( empty( $args['js_vars'] ) && ! empty( $args['output'] ) ) {
 
+				// Convert to array of arrays if needed.
+				if ( isset( $args['output']['element'] ) ) {
+					/* translators: The field ID where the error occurs. */
+					_doing_it_wrong( __METHOD__, sprintf( esc_html__( '"output" invalid format in field %s. The "output" argument should be defined as an array of arrays.', 'kirki' ), esc_html( $args['settings'] ) ), '3.0.10' );
+
+					$args['output'] = array( $args['output'] );
+				}
+
 				foreach ( $args['output'] as $output ) {
 					$output['element']  = isset( $output['element'] ) ? $output['element'] : ':root';
 					$output['element']  = is_array( $output['element'] ) ? implode( ',', $output['element'] ) : $output['element'];
@@ -87,7 +95,7 @@ class Postmessage {
 	 */
 	public function postmessage() {
 
-		wp_enqueue_script( 'kirki_auto_postmessage', URL::get_from_path( __DIR__ . '/postMessage.js' ), [ 'jquery', 'customize-preview', 'wp-hooks' ], '4.0', true );
+		wp_enqueue_script( 'kirki_auto_postmessage', URL::get_from_path( __DIR__ . '/postMessage.js' ), [ 'jquery', 'customize-preview', 'wp-hooks' ], '1.0.6', true );
 
 		$fields = $this->fields;
 

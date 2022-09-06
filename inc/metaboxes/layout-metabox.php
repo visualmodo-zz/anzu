@@ -124,7 +124,7 @@ class anzulayoutMetabox {
 	}
 
 	public function format_rows( $label, $input ) {
-		return '<tr><th>'.$label.'</th><td>'.$input.'</td></tr>';
+		return '<tr style="display: flex;flex-direction: column;"><th>'.$label.'</th><td style="padding: 0; margin: 0;">'.$input.'</td></tr>';
 	}
 
 	public function save_fields( $post_id ) {
