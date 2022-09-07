@@ -9,12 +9,6 @@ Kirki::add_panel( 'header', array(
     'title'       => esc_html__( 'Header', 'anzu' ),
 ) );
 
-Kirki::add_section( 'header_general_section', array(
-    'title'          => esc_html__( 'General', 'anzu' ),
-    'panel'          => 'header',
-    'priority'       => 160,
-) );
-
 new \Kirki\Section(
 	'header_general_section',
 	[
@@ -30,6 +24,12 @@ new \Kirki\Section(
 		],
 	]
 );
+
+Kirki::add_section( 'header_menu_section', array(
+    'title'          => esc_html__( 'Menu', 'anzu' ),
+    'panel'          => 'header',
+    'priority'       => 160,
+) );
 
 new \Kirki\Section(
 	'header_notification_section',
@@ -189,6 +189,26 @@ new \Kirki\Pro\Field\Margin(
 					'mobile'  => '@media (max-width: 767px)',
 				],
 			],
+		],
+	]
+);
+
+
+/*-----------------------------------------------------------------------------------*/
+/*  *.  header > header_menu_section
+/*-----------------------------------------------------------------------------------*/
+
+new \Kirki\Field\Select(
+	[
+		'settings'    => 'anzu_header_menu_position',
+		'label'       => esc_html__( 'Position', 'anzu' ),
+		'section'     => 'header_menu_section',
+		'default'     => 'justify-content-end',
+		'placeholder' => esc_html__( 'Select an option', 'anzu' ),
+		'choices'     => [
+			'justify-content-start' => esc_html__( 'Start', 'anzu' ),
+			'justify-content-center' => esc_html__( 'Center', 'anzu' ),
+			'justify-content-end' => esc_html__( 'End', 'anzu' ),
 		],
 	]
 );

@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Core Constants.
-define( 'ANZU_THEME_VERSION', '1.0.1' );
+define( 'ANZU_THEME_VERSION', '1.0.2' );
 define( 'ANZU_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ANZU_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 

@@ -17,6 +17,8 @@ $anzu_scroll_to_top_switch = get_theme_mod( 'anzu_scroll_to_top_switch', '1' );
 $anzu_notification_bar_switch = get_theme_mod( 'anzu_notification_bar_switch', '' );
 $anzu_header_general_search = get_theme_mod( 'anzu_header_general_search', '1' );
 $anzu_header_general_cart = get_theme_mod( 'anzu_header_general_cart', '1' );
+
+$anzu_header_menu_position = get_theme_mod( 'anzu_header_menu_position', 'justify-content-end' );
 $anzu_transparent_header_switch = get_theme_mod( 'anzu_transparent_header_switch', '' );
 $anzu_metabox_transparent_header = ! empty ( get_post_meta( get_the_ID(), 'anzu_metabox_transparent_header', true ) ) ? get_post_meta( get_the_ID(), 'anzu_metabox_transparent_header', true ) : '';
 $anzu_layout_disable_header = ! empty ( get_post_meta( get_the_ID(), 'anzu_layout_disable_header', true ) ) ? get_post_meta( get_the_ID(), 'anzu_layout_disable_header', true ) : '';
@@ -166,7 +168,7 @@ if ( $anzu_scroll_to_top_switch ) {
 					wp_nav_menu(
 						array(
 							'theme_location'  => 'primary',
-							'container_class' => 'collapse navbar-collapse justify-content-end',
+							'container_class' => 'collapse navbar-collapse '.esc_attr( $anzu_header_menu_position ),
 							'container_id'    => 'navbarNavDropdown',
 							'menu_class'      => 'navbar-nav ml-auto',
 							'fallback_cb'     => '',
