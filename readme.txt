@@ -6,7 +6,7 @@ Tags: blog, e-commerce, portfolio, grid-layout, one-column, two-columns, three-c
 Requires at least: 6.0
 Tested up to: 6.0
 Requires PHP: 7.4
-Stable tag: 1.0.2
+Stable tag: 1.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,8 +29,11 @@ Anzu includes support for Elementor, WooCommerce and WPbakery.
 
 == Changelog ==
 
+= 1.0.3 - Ago 07 2022 =
+* New - Dashboard Area
+
 = 1.0.2 - Ago 07 2022 =
-* Header Menu Position
+* New - Header Menu Position
 
 = 1.0.1 - Ago 06 2022 =
 * New - Notification Bar

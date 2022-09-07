@@ -9,7 +9,7 @@
 defined( 'ABSPATH' ) || exit;
 
 // Core Constants.
-define( 'ANZU_THEME_VERSION', '1.0.2' );
+define( 'ANZU_THEME_VERSION', '1.0.3' );
 define( 'ANZU_THEME_DIR', trailingslashit( get_template_directory() ) );
 define( 'ANZU_THEME_URI', trailingslashit( esc_url( get_template_directory_uri() ) ) );
 
@@ -22,8 +22,60 @@ require_once ANZU_INC_DIR . 'pro/license/license.php';
 
 if ( is_admin() ) {
 	// Recommend plugins.
-	require_once ANZU_INC_DIR . 'plugins/class-tgm-plugin-activation.php';
 	require_once ANZU_INC_DIR . 'plugins/plugin-activation.php';
+	
+	// Anzu Dashboard - Backend	
+	add_action( 'admin_menu', 'anzu_dashboard_menu', 9 );
+	
+	function anzu_dashboard_menu() {
+		
+		$page = add_menu_page(
+			'Anzu',
+			'Anzu',
+			'manage_options',
+			'anzu',
+			'anzu_dashboard',
+			ANZU_THEME_URI.'/assets/img/anzu.svg',
+			2
+		);
+		
+		add_action( 'admin_print_styles-' . $page, 'anzu_welcome_enqueue_script' );
+		
+		add_submenu_page('anzu', 'Welcome', 'Welcome', 'manage_options', 'anzu' );
+		
+	}
+ 
+	function anzu_dashboard_submenu_customize() {
+		add_submenu_page( 
+			'anzu',
+			__( 'Customize', 'anzu' ),
+			__( 'Customize', 'anzu' ),
+			'manage_options',
+			'customize.php?return=%2Fsingle%2Fwp-admin%2Fthemes.php',
+			'',
+			1
+		);
+	}
+
+	add_action('admin_menu', 'anzu_dashboard_submenu_customize');
+	
+	function anzu_dashboard(){
+		get_template_part('inc/dashboard');
+	}
+	
+	function anzu_welcome_enqueue_script() {
+		wp_enqueue_style('anzu-dashboard-css', ANZU_THEME_URI.'/assets/css/dashboard.min.css');
+	}
+	
+	
+	/**
+	* Redirect To Welcome Page After Install
+	*/
+	
+	if (is_admin() && isset($_GET['activated'])){
+		
+		wp_redirect(admin_url("admin.php?page=anzu"));
+	}
 } 
 
 if ( is_customize_preview() || ! is_admin() ) {

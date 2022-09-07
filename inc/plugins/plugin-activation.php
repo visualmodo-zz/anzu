@@ -5,6 +5,8 @@
  * @package Anzu
  */
 
+require_once ANZU_INC_DIR . 'plugins/class-tgm-plugin-activation.php';
+
 add_action( 'tgmpa_register', 'anzu_tgmpa_register' );
 
 function anzu_tgmpa_register() {
@@ -34,13 +36,18 @@ function anzu_tgmpa_register() {
 		),
 
 	);
-	
+
 	$config = array(
 		'id'           => 'anzu',
-		'menu'         => 'install-required-plugins',
-		'has_notices'  => true,
-		'dismissable'  => true,
-		'is_automatic' => true,  
+		'default_path' => '',
+		'menu'         => 'anzu-install-plugins', 
+		'parent_slug'  => 'anzu', 
+		'capability'   => 'edit_theme_options', 
+		'has_notices'  => false,
+		'dismissable'  => true,   
+		'dismiss_msg'  => '',         
+		'is_automatic' => false,   
+		'message'      => '',  
 	);
 
 	tgmpa( $plugins, $config );

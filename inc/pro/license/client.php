@@ -102,7 +102,7 @@ if ( ! class_exists( 'ANZU_LICENSE' ) ) {
 				$this->wc_am_activation_tab_key          = $this->data_key . '_dashboard';
 				$this->wc_am_deactivation_tab_key        = $this->data_key . '_deactivation';
 				$this->wc_am_auto_update_key             = $this->data_key . '_auto_update';
-				$this->wc_am_settings_menu_title         = $this->software_title . esc_html__( ' License', 'anzu' );
+				$this->wc_am_settings_menu_title         = esc_html__( ' License', 'anzu' );
 				$this->wc_am_settings_title              = $this->software_title . esc_html__( ' License', 'anzu' );
 				$this->wc_am_menu_tab_activation_title   = esc_html__( 'Activation', 'anzu' );
 				$this->wc_am_menu_tab_deactivation_title = esc_html__( 'Deactivation', 'anzu' );
@@ -145,7 +145,7 @@ if ( ! class_exists( 'ANZU_LICENSE' ) ) {
 		 */
 		public function register_menu() {
 			add_submenu_page(
-				'themes.php',
+				'anzu',
 				sprintf( __( '%s', 'anzu' ), $this->wc_am_settings_menu_title ),
 				sprintf( __( '%s', 'anzu' ), $this->wc_am_settings_menu_title ),
 				'manage_options',
